@@ -503,11 +503,9 @@ function Contact() {
                 <textarea required name="message" rows={4} className="mt-2 w-full resize-none border-b border-border bg-transparent py-3 text-lg outline-none transition-colors focus:border-accent" />
               </label>
             </div>
-            <MagneticButton className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background">
-              <button type="submit" className="inline-flex items-center gap-2">
-                Send message <ArrowUpRight className="size-4" />
-              </button>
-            </MagneticButton>
+            <button type="submit" className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform hover:scale-[1.03]">
+              Send message <ArrowUpRight className="size-4" />
+            </button>
           </form>
         </Reveal>
       </div>
