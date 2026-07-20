@@ -1,8 +1,8 @@
 import profile from "@/assets/profile.asset.json";
-import spatial from "@/assets/project-spatial.asset.json";
-import rapido from "@/assets/project-rapido.asset.json";
-import savesmart from "@/assets/project-savesmart.asset.json";
-import meetmind from "@/assets/project-meetmind.asset.json";
+import spatial from "@/assets/project-spatial-cover.asset.json";
+import rapido from "@/assets/project-rapido-cover.asset.json";
+import savesmart from "@/assets/project-savesmart-cover.asset.json";
+import meetmind from "@/assets/project-meetmind-cover.asset.json";
 
 import spatial1 from "@/assets/screens/spatial-1-scan.jpg";
 import spatial2 from "@/assets/screens/spatial-2-specs.jpg";
