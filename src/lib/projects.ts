@@ -4,6 +4,20 @@ import rapido from "@/assets/project-rapido.asset.json";
 import savesmart from "@/assets/project-savesmart.asset.json";
 import meetmind from "@/assets/project-meetmind.asset.json";
 
+import spatial1 from "@/assets/screens/spatial-1-scan.jpg";
+import spatial2 from "@/assets/screens/spatial-2-specs.jpg";
+import spatial3 from "@/assets/screens/spatial-3-replace.jpg";
+import spatial4 from "@/assets/screens/spatial-4-compare.jpg";
+import rapido1 from "@/assets/screens/rapido-1-home.jpg";
+import rapido2 from "@/assets/screens/rapido-2-book.jpg";
+import rapido3 from "@/assets/screens/rapido-3-track.jpg";
+import save1 from "@/assets/screens/savesmart-1-overview.jpg";
+import save2 from "@/assets/screens/savesmart-2-bento.jpg";
+import save3 from "@/assets/screens/savesmart-3-transactions.jpg";
+import meet1 from "@/assets/screens/meetmind-1-home.jpg";
+import meet2 from "@/assets/screens/meetmind-2-live.jpg";
+import meet3 from "@/assets/screens/meetmind-3-summary.jpg";
+
 export const assets = {
   profile: profile.url,
   spatial: spatial.url,
@@ -11,6 +25,13 @@ export const assets = {
   savesmart: savesmart.url,
   meetmind: meetmind.url,
 };
+
+const screenImages = {
+  "spatial-living": [spatial1, spatial2, spatial3, spatial4],
+  "rapido-ambulance": [rapido1, rapido2, rapido3],
+  savesmart: [save1, save2, save3],
+  "meetmind-ai": [meet1, meet2, meet3],
+} as const;
 
 export type Project = {
   slug: string;
@@ -31,7 +52,7 @@ export type Project = {
   personas: { name: string; age: number; role: string; goal: string; pain: string }[];
   features: { title: string; desc: string }[];
   process: { title: string; desc: string }[];
-  screens: { title: string; purpose: string; decisions: string; interaction: string }[];
+  screens: { title: string; purpose: string; decisions: string; interaction: string; image?: string }[];
   designSystem: { typography: string; colors: string[]; components: string[] };
   challenges: string[];
   impact: string[];
@@ -471,5 +492,13 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+// Attach unique per-screen mockups.
+for (const p of projects) {
+  const imgs = screenImages[p.slug as keyof typeof screenImages];
+  if (imgs) {
+    p.screens = p.screens.map((s, i) => ({ ...s, image: imgs[i] ?? imgs[imgs.length - 1] }));
+  }
+}
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);

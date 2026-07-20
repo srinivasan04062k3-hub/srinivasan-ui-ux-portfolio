@@ -222,7 +222,7 @@ function CaseStudy() {
                     </div>
                   </div>
                   <div className={`relative aspect-[4/3] overflow-hidden rounded-3xl border border-border ${i % 2 ? "md:order-1" : ""}`} style={{ background: p.color + "18" }}>
-                    <img src={p.image} alt={s.title} className="size-full object-cover" style={{ objectPosition: ["center", "top", "bottom", "right"][i % 4] }} />
+                    <img src={s.image ?? p.image} alt={s.title} loading="lazy" className="size-full object-cover" />
                   </div>
                 </div>
               </Reveal>

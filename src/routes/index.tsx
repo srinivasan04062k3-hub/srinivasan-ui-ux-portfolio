@@ -120,14 +120,14 @@ function Hero() {
         initial={{ opacity: 0, scale: 0.9, rotate: -6 }}
         animate={{ opacity: 1, scale: 1, rotate: -6 }}
         transition={{ delay: 1.2, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute right-[6%] top-[18%] hidden md:block"
+        className="pointer-events-none absolute right-[4%] top-[10%] hidden md:block"
       >
         <div className="animate-float relative">
-          <div className="absolute -inset-6 rounded-full bg-accent/40 blur-3xl" />
-          <div className="relative size-56 overflow-hidden rounded-full border-4 border-surface shadow-2xl">
+          <div className="absolute -inset-10 rounded-full bg-accent/40 blur-3xl" />
+          <div className="relative size-80 overflow-hidden rounded-full border-4 border-surface shadow-2xl lg:size-96">
             <img src={assets.profile} alt="Srinivasan S portrait" className="size-full object-cover" />
           </div>
-          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-foreground px-4 py-1.5 text-xs font-medium text-background whitespace-nowrap">
+          <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background whitespace-nowrap shadow-xl">
             UI/UX Designer
           </div>
         </div>
