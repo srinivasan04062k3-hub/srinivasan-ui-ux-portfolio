@@ -60,10 +60,10 @@ export type Project = {
   futureScope: string[];
 };
 
-export const projects: Project[] = [
+const _projects: Project[] = [
   {
     slug: "spatial-living",
-    index: "01",
+    index: "03",
     title: "Spatial Living",
     subtitle: "AR/VR Interior Transformation Experience",
     category: "Spatial · AR / VR",
