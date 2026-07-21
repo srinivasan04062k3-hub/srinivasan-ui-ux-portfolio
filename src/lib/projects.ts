@@ -184,7 +184,7 @@ const _projects: Project[] = [
     duration: "5 Weeks",
     tools: ["Figma", "Maze", "Lottie", "Notion"],
     image: assets.rapido,
-    color: "#EF4444",
+    color: "#DC2626",
     overview:
       "A dedicated emergency mode inside Rapido that gets an ambulance moving to your location in under 90 seconds — with live tracking, nearest-hospital routing, and automatic alerts to your emergency contacts.",
     problem: {
