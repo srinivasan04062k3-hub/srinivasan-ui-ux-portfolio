@@ -111,6 +111,7 @@ function Hero() {
               >
                 Contact
               </MagneticButton>
+              <BehanceButton />
             </div>
           </Reveal>
         </div>
