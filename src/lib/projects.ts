@@ -76,6 +76,10 @@ const _projects: Project[] = [
     tools: ["Figma", "Spline", "After Effects", "ProtoPie"],
     image: assets.spatial,
     color: "#D97706",
+    links: {
+      caseStudy: "https://www.figma.com/proto/emEFeI7yPrDYA3mEnknlCA/ar-vr?page-id=0%3A1&node-id=2-2&t=QEOGD6FGNhntZWuk-1",
+      prototype: "https://www.figma.com/proto/ORXnpa7R3aqqjSvqrf6itl/AR-VR-App?node-id=1-711&p=f&viewport=180%2C281%2C0.12&t=WNrzT20apsXctZU7-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    },
     overview:
       "Spatial Living lets users scan any room with their phone, walk through a 1:1 digital twin, and swap real furniture in and out before spending a rupee. Built for people who love their space but hate the guesswork of buying online.",
     problem: {
