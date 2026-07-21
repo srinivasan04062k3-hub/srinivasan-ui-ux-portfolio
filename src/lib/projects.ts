@@ -290,7 +290,7 @@ const _projects: Project[] = [
     duration: "6 Weeks",
     tools: ["Figma", "Framer", "Rive", "Notion"],
     image: assets.savesmart,
-    color: "#2563EB",
+    color: "#0EA5A4",
     overview:
       "A modern mobile banking experience designed for simplicity, security, and everyday life — with quick access to what people actually use 10 times a day, and none of the legacy banking clutter.",
     problem: {
