@@ -20,6 +20,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { PageLoader } from "@/components/PageLoader";
 import { MagneticButton, Reveal, SplitText, TiltCard } from "@/components/motion-primitives";
+import { ProjectLinks, BehanceButton } from "@/components/ProjectLinks";
 import { projects, assets } from "@/lib/projects";
 
 export const Route = createFileRoute("/")({
