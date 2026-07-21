@@ -47,6 +47,13 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Giant wordmark */}
+      <div aria-hidden className="pointer-events-none overflow-hidden px-2 pb-4 pt-8">
+        <div className="text-center font-display font-medium leading-[0.85] tracking-[-0.05em] text-muted-foreground/15 text-[22vw]">
+          SRINIVASAN
+        </div>
+      </div>
+
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 border-t border-border px-6 py-6 text-xs text-muted-foreground md:flex-row">
         <div>© {new Date().getFullYear()} Srinivasan S · Designed & built with obsession in Chennai.</div>
         <div>Made in Figma → shipped with Lovable</div>
