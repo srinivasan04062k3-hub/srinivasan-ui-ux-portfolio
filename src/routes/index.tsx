@@ -378,12 +378,12 @@ function Work() {
 /* ---------- PRACTICE ---------- */
 function Practice() {
   const tiles = [
-    { title: "Onboarding sequence", tag: "Motion study", h: "h-72" },
-    { title: "Analytics dashboard", tag: "Data-heavy UI", h: "h-96" },
-    { title: "Wallet card pull", tag: "Micro-interaction", h: "h-64" },
-    { title: "AR measure tool", tag: "Spatial", h: "h-80" },
-    { title: "Voice input pattern", tag: "Multi-modal", h: "h-60" },
-    { title: "Empty-state kit", tag: "Illustration", h: "h-72" },
+    { title: "Onboarding sequence", tag: "Motion study", h: "h-72", img: projects[0]?.screens[0]?.image },
+    { title: "Analytics dashboard", tag: "Data-heavy UI", h: "h-96", img: projects[1]?.screens[0]?.image },
+    { title: "Wallet card pull", tag: "Micro-interaction", h: "h-64", img: projects[1]?.screens[2]?.image },
+    { title: "AR measure tool", tag: "Spatial", h: "h-80", img: projects[2]?.screens[1]?.image },
+    { title: "Voice input pattern", tag: "Multi-modal", h: "h-60", img: projects[3]?.screens[1]?.image },
+    { title: "Empty-state kit", tag: "Illustration", h: "h-72", img: projects[3]?.screens[2]?.image },
   ];
   return (
     <section className="border-t border-border bg-surface">
@@ -399,16 +399,19 @@ function Practice() {
         <div className="columns-2 gap-4 md:columns-3">
           {tiles.map((t, i) => (
             <Reveal key={t.title} delay={i * 0.04} className="mb-4 break-inside-avoid">
-              <div className={`group relative overflow-hidden rounded-2xl border border-border ${t.h}`} style={{ background: `linear-gradient(135deg, color-mix(in oklab, var(--accent) ${10 + (i*7)%25}%, var(--surface)), var(--surface))` }}>
-                <div className="absolute inset-0 grid place-items-center opacity-40 transition-transform duration-700 group-hover:scale-110">
-                  <div className="font-display text-5xl font-medium tracking-tight">{String(i + 1).padStart(2, "0")}</div>
-                </div>
+              <div className={`group relative overflow-hidden rounded-2xl border border-border ${t.h}`}>
+                {t.img ? (
+                  <img src={t.img} alt={t.title} loading="lazy" className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                ) : (
+                  <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, color-mix(in oklab, var(--accent) ${10 + (i*7)%25}%, var(--surface)), var(--surface))` }} />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
                   <div>
-                    <div className="text-sm font-medium">{t.title}</div>
-                    <div className="text-xs text-muted-foreground">{t.tag}</div>
+                    <div className="text-sm font-medium text-white">{t.title}</div>
+                    <div className="text-xs text-white/70">{t.tag}</div>
                   </div>
-                  <ArrowUpRight className="size-4 opacity-0 transition-opacity group-hover:opacity-100" />
+                  <ArrowUpRight className="size-4 text-white opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
               </div>
             </Reveal>
