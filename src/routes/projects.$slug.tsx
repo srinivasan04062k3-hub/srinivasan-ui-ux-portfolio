@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Reveal, SplitText } from "@/components/motion-primitives";
+import { ProjectLinks } from "@/components/ProjectLinks";
 import { getProject, projects, type Project } from "@/lib/projects";
 
 export const Route = createFileRoute("/projects/$slug")({
