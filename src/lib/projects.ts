@@ -72,7 +72,7 @@ const _projects: Project[] = [
     duration: "8 Weeks",
     tools: ["Figma", "Spline", "After Effects", "ProtoPie"],
     image: assets.spatial,
-    color: "#8B7CF6",
+    color: "#D97706",
     overview:
       "Spatial Living lets users scan any room with their phone, walk through a 1:1 digital twin, and swap real furniture in and out before spending a rupee. Built for people who love their space but hate the guesswork of buying online.",
     problem: {
