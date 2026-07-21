@@ -302,6 +302,10 @@ const _projects: Project[] = [
     tools: ["Figma", "Framer", "Rive", "Notion"],
     image: assets.savesmart,
     color: "#0EA5A4",
+    links: {
+      caseStudy: "https://www.figma.com/proto/znE78PVPsqplpdZakuDP7t/savings-app?node-id=19-9323&page-id=0%3A1&t=LOSn7WjFXrgQfsYW-1",
+      prototype: "https://www.figma.com/make/2E2L5aF6oJqcfQUWauAmZt/saving?fullscreen=1&t=UIYSokZhTldU46cV-1&code-node-id=0-9",
+    },
     overview:
       "A modern mobile banking experience designed for simplicity, security, and everyday life — with quick access to what people actually use 10 times a day, and none of the legacy banking clutter.",
     problem: {
