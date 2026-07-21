@@ -60,10 +60,10 @@ export type Project = {
   futureScope: string[];
 };
 
-export const projects: Project[] = [
+const _projects: Project[] = [
   {
     slug: "spatial-living",
-    index: "01",
+    index: "03",
     title: "Spatial Living",
     subtitle: "AR/VR Interior Transformation Experience",
     category: "Spatial · AR / VR",
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     duration: "8 Weeks",
     tools: ["Figma", "Spline", "After Effects", "ProtoPie"],
     image: assets.spatial,
-    color: "#8B7CF6",
+    color: "#D97706",
     overview:
       "Spatial Living lets users scan any room with their phone, walk through a 1:1 digital twin, and swap real furniture in and out before spending a rupee. Built for people who love their space but hate the guesswork of buying online.",
     problem: {
@@ -175,7 +175,7 @@ export const projects: Project[] = [
   },
   {
     slug: "rapido-ambulance",
-    index: "02",
+    index: "01",
     title: "Rapido Ambulance Mode",
     subtitle: "One-tap emergency ambulance inside a familiar ride-hailing app",
     category: "Healthcare · Mobility",
@@ -184,7 +184,7 @@ export const projects: Project[] = [
     duration: "5 Weeks",
     tools: ["Figma", "Maze", "Lottie", "Notion"],
     image: assets.rapido,
-    color: "#EF4444",
+    color: "#DC2626",
     overview:
       "A dedicated emergency mode inside Rapido that gets an ambulance moving to your location in under 90 seconds — with live tracking, nearest-hospital routing, and automatic alerts to your emergency contacts.",
     problem: {
@@ -281,7 +281,7 @@ export const projects: Project[] = [
   },
   {
     slug: "savesmart",
-    index: "03",
+    index: "02",
     title: "SaveSmart",
     subtitle: "Banking that actually feels like it works for you",
     category: "FinTech · Mobile Banking",
@@ -290,7 +290,7 @@ export const projects: Project[] = [
     duration: "6 Weeks",
     tools: ["Figma", "Framer", "Rive", "Notion"],
     image: assets.savesmart,
-    color: "#2563EB",
+    color: "#0EA5A4",
     overview:
       "A modern mobile banking experience designed for simplicity, security, and everyday life — with quick access to what people actually use 10 times a day, and none of the legacy banking clutter.",
     problem: {
@@ -396,7 +396,7 @@ export const projects: Project[] = [
     duration: "6 Weeks",
     tools: ["Figma", "Photoshop", "Illustrator", "Miro"],
     image: assets.meetmind,
-    color: "#10B981",
+    color: "#059669",
     overview:
       "MeetMind AI records, transcribes, translates and summarises meetings automatically — so you can be fully present in the room instead of taking notes.",
     problem: {
@@ -493,6 +493,12 @@ export const projects: Project[] = [
   },
 ];
 
+// Reorder: Rapido → SaveSmart → Spatial → MeetMind
+const order = ["rapido-ambulance", "savesmart", "spatial-living", "meetmind-ai"];
+export const projects: Project[] = order
+  .map((slug) => _projects.find((p) => p.slug === slug)!)
+  .filter(Boolean);
+
 // Attach unique per-screen mockups.
 for (const p of projects) {
   const imgs = screenImages[p.slug as keyof typeof screenImages];
@@ -502,3 +508,4 @@ for (const p of projects) {
 }
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
+
