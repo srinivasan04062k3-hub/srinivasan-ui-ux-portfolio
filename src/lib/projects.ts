@@ -281,7 +281,7 @@ const _projects: Project[] = [
   },
   {
     slug: "savesmart",
-    index: "03",
+    index: "02",
     title: "SaveSmart",
     subtitle: "Banking that actually feels like it works for you",
     category: "FinTech · Mobile Banking",
