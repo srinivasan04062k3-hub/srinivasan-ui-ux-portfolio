@@ -33,10 +33,11 @@ export function PageLoader() {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center gap-8"
           >
-            <div className="font-display text-6xl font-medium tracking-tight md:text-8xl">
-              <span className="text-foreground">Sri</span>
-              <span className="text-accent">.</span>
+            <div className="font-display text-5xl font-medium tracking-[-0.04em] md:text-8xl">
+              <span className="text-foreground">SRINIVASAN</span>
+              <span className="text-accent"> S.</span>
             </div>
+
             <div className="h-px w-48 overflow-hidden bg-border">
               <motion.div
                 className="h-full bg-foreground"
