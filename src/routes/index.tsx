@@ -115,23 +115,58 @@ function Hero() {
         </div>
       </motion.div>
 
-      {/* Floating profile card */}
+      {/* Floating profile card — portrait with orbiting info badges */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9, rotate: -6 }}
-        animate={{ opacity: 1, scale: 1, rotate: -6 }}
-        transition={{ delay: 1.2, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="pointer-events-none absolute right-[4%] top-[10%] hidden md:block"
+        initial={{ opacity: 0, scale: 0.92, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        className="pointer-events-none absolute right-[3%] top-[9%] hidden md:block"
       >
         <div className="animate-float relative">
-          <div className="absolute -inset-10 rounded-full bg-accent/40 blur-3xl" />
-          <div className="relative size-80 overflow-hidden rounded-full border-4 border-surface shadow-2xl lg:size-96">
+          <div className="absolute -inset-12 rounded-[2.5rem] bg-accent/30 blur-3xl" />
+          <div className="relative aspect-[4/5] w-[22rem] overflow-hidden rounded-[2rem] border border-border bg-surface shadow-2xl lg:w-[26rem]">
             <img src={assets.profile} alt="Srinivasan S portrait" className="size-full object-cover" />
           </div>
+
+          {/* Floating pill — top-left */}
+          <motion.div
+            initial={{ opacity: 0, x: -20, y: -10 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ delay: 1.5, duration: 0.6 }}
+            className="absolute -left-6 -top-4 flex items-center gap-3 rounded-full border border-border bg-background/95 px-4 py-2.5 shadow-xl backdrop-blur"
+          >
+            <div className="grid size-9 place-items-center rounded-full bg-[#6366F1] text-white">
+              <Palette className="size-4" />
+            </div>
+            <div className="pr-1">
+              <div className="text-sm font-semibold leading-tight">Design Systems</div>
+              <div className="text-[11px] text-muted-foreground leading-tight">Figma · Variants</div>
+            </div>
+          </motion.div>
+
+          {/* Floating pill — bottom-right */}
+          <motion.div
+            initial={{ opacity: 0, x: 20, y: 10 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ delay: 1.7, duration: 0.6 }}
+            className="absolute -bottom-4 -right-6 flex items-center gap-3 rounded-full border border-border bg-background/95 px-4 py-2.5 shadow-xl backdrop-blur"
+          >
+            <div className="grid size-9 place-items-center rounded-full bg-foreground text-background">
+              <Search className="size-4" />
+            </div>
+            <div className="pr-1">
+              <div className="text-sm font-semibold leading-tight">User Research</div>
+              <div className="text-[11px] text-muted-foreground leading-tight">Interviews · Maze</div>
+            </div>
+          </motion.div>
+
+          {/* Role tag centered under photo */}
           <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background whitespace-nowrap shadow-xl">
             UI/UX Designer
           </div>
         </div>
       </motion.div>
+
 
       <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:block">
         <motion.div
