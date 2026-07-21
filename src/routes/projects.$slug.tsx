@@ -76,6 +76,8 @@ function CaseStudy() {
             </h1>
             <p className="mt-8 max-w-2xl text-xl text-muted-foreground md:text-2xl">{p.subtitle}</p>
 
+            <ProjectLinks links={p.links} accent={p.color} className="mt-8" />
+
             <div className="mt-12 grid gap-6 border-t border-border pt-8 md:grid-cols-4">
               {[
                 { k: "Role", v: p.role },
