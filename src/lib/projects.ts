@@ -192,6 +192,10 @@ const _projects: Project[] = [
     tools: ["Figma", "Maze", "Lottie", "Notion"],
     image: assets.rapido,
     color: "#DC2626",
+    links: {
+      caseStudy: "https://www.figma.com/proto/g7nt3vuQHjSFq9hxkQeVTB/rapidi?node-id=1-2&viewport=274%2C240%2C0.04&t=U0aLQebTSoLjlcN5-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+      prototype: "https://www.figma.com/make/Ia5mXPnmFaQzCDQGxFQ6fh/Design-App-with-Reference-Image?fullscreen=1&t=cEncgKOKqLBIYYTF-1&code-node-id=0-9",
+    },
     overview:
       "A dedicated emergency mode inside Rapido that gets an ambulance moving to your location in under 90 seconds — with live tracking, nearest-hospital routing, and automatic alerts to your emergency contacts.",
     problem: {
