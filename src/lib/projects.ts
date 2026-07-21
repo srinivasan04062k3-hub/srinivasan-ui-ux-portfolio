@@ -33,6 +33,8 @@ const screenImages = {
   "meetmind-ai": [meet1, meet2, meet3],
 } as const;
 
+export type ProjectLinks = { caseStudy?: string; prototype?: string };
+
 export type Project = {
   slug: string;
   index: string;
@@ -45,6 +47,7 @@ export type Project = {
   tools: string[];
   image: string;
   color: string;
+  links?: ProjectLinks;
   overview: string;
   problem: { business: string; user: string };
   goals: string[];
