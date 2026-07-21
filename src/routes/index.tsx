@@ -393,7 +393,19 @@ function Work() {
 
 /* ---------- PRACTICE ---------- */
 function Practice() {
-  const tiles = [
+  const tiles: { title: string; tag: string; h: string; img?: string; href?: string }[] = [
+    {
+      title: "Juice Poster",
+      tag: "Poster · Prototype",
+      h: "h-80",
+      href: "https://www.figma.com/proto/nYKpUJIsZaO0BGpf84hNHU/Juice-poster?node-id=11-104&page-id=0%3A1&t=uWw5xjvg69YZda9f-1",
+    },
+    {
+      title: "Healthcare App",
+      tag: "Mobile · Prototype",
+      h: "h-96",
+      href: "https://www.figma.com/proto/8hJlWOhLdlF4IGOOLiObHm/Healthcare-app?node-id=8-141&page-id=0%3A1&starting-point-node-id=8%3A141&t=x11V6P87tiK804Gv-1",
+    },
     { title: "Onboarding sequence", tag: "Motion study", h: "h-72", img: projects[0]?.screens[0]?.image },
     { title: "Analytics dashboard", tag: "Data-heavy UI", h: "h-96", img: projects[1]?.screens[0]?.image },
     { title: "Wallet card pull", tag: "Micro-interaction", h: "h-64", img: projects[1]?.screens[2]?.image },
@@ -413,25 +425,33 @@ function Practice() {
           </div>
         </Reveal>
         <div className="columns-2 gap-4 md:columns-3">
-          {tiles.map((t, i) => (
-            <Reveal key={t.title} delay={i * 0.04} className="mb-4 break-inside-avoid">
-              <div className={`group relative overflow-hidden rounded-2xl border border-border ${t.h}`}>
-                {t.img ? (
-                  <img src={t.img} alt={t.title} loading="lazy" className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                ) : (
-                  <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, color-mix(in oklab, var(--accent) ${10 + (i*7)%25}%, var(--surface)), var(--surface))` }} />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
-                  <div>
-                    <div className="text-sm font-medium text-white">{t.title}</div>
-                    <div className="text-xs text-white/70">{t.tag}</div>
+          {tiles.map((t, i) => {
+            const Tag: any = t.href ? "a" : "div";
+            const tagProps = t.href ? { href: t.href, target: "_blank", rel: "noopener noreferrer" } : {};
+            return (
+              <Reveal key={t.title} delay={i * 0.04} className="mb-4 break-inside-avoid">
+                <Tag
+                  {...tagProps}
+                  className={`group relative block overflow-hidden rounded-2xl border border-border ${t.h}`}
+                  data-cursor-hover
+                >
+                  {t.img ? (
+                    <img src={t.img} alt={t.title} loading="lazy" className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  ) : (
+                    <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, color-mix(in oklab, var(--accent) ${10 + (i*7)%25}%, var(--surface)), var(--surface))` }} />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
+                    <div>
+                      <div className="text-sm font-medium text-white">{t.title}</div>
+                      <div className="text-xs text-white/70">{t.tag}</div>
+                    </div>
+                    <ArrowUpRight className="size-4 text-white opacity-0 transition-opacity group-hover:opacity-100" />
                   </div>
-                  <ArrowUpRight className="size-4 text-white opacity-0 transition-opacity group-hover:opacity-100" />
-                </div>
-              </div>
-            </Reveal>
-          ))}
+                </Tag>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
