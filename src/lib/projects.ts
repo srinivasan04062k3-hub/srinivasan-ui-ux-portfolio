@@ -493,6 +493,12 @@ const _projects: Project[] = [
   },
 ];
 
+// Reorder: Rapido → SaveSmart → Spatial → MeetMind
+const order = ["rapido-ambulance", "savesmart", "spatial-living", "meetmind-ai"];
+export const projects: Project[] = order
+  .map((slug) => _projects.find((p) => p.slug === slug)!)
+  .filter(Boolean);
+
 // Attach unique per-screen mockups.
 for (const p of projects) {
   const imgs = screenImages[p.slug as keyof typeof screenImages];
@@ -502,3 +508,4 @@ for (const p of projects) {
 }
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
+
