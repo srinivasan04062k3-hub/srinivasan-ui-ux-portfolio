@@ -412,6 +412,9 @@ const _projects: Project[] = [
     tools: ["Figma", "Photoshop", "Illustrator", "Miro"],
     image: assets.meetmind,
     color: "#059669",
+    links: {
+      caseStudy: "https://www.figma.com/proto/SAzJFr20RHUidLmTgbu1Zk/metting-ai?page-id=0%3A1&node-id=1-3&t=H6gGhbc7UEwICiBp-1",
+    },
     overview:
       "MeetMind AI records, transcribes, translates and summarises meetings automatically — so you can be fully present in the room instead of taking notes.",
     problem: {
