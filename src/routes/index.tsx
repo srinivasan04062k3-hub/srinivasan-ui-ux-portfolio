@@ -331,10 +331,8 @@ function Work() {
       <div className="space-y-6">
         {projects.map((p, i) => (
           <Reveal key={p.slug} delay={i * 0.05}>
-            <Link
-              to="/projects/$slug"
-              params={{ slug: p.slug }}
-              className="group relative block overflow-hidden rounded-3xl border border-border bg-surface"
+            <div
+              className="group relative overflow-hidden rounded-3xl border border-border bg-surface"
               data-cursor-hover
             >
               <div className="grid gap-0 md:grid-cols-[1fr_1.2fr]">
@@ -344,19 +342,35 @@ function Work() {
                     <span className="text-xs uppercase tracking-widest text-muted-foreground">{p.category}</span>
                   </div>
                   <div>
-                    <div className="font-display text-4xl font-medium tracking-tight md:text-6xl">{p.title}</div>
-                    <p className="mt-4 max-w-md text-muted-foreground">{p.subtitle}</p>
+                    <Link
+                      to="/projects/$slug"
+                      params={{ slug: p.slug }}
+                      className="block"
+                    >
+                      <div className="font-display text-4xl font-medium tracking-tight md:text-6xl">{p.title}</div>
+                      <p className="mt-4 max-w-md text-muted-foreground">{p.subtitle}</p>
+                    </Link>
                     <div className="mt-8 flex flex-wrap items-center gap-3">
                       <span className="rounded-full border border-border px-3 py-1 text-xs">{p.year}</span>
                       <span className="rounded-full border border-border px-3 py-1 text-xs">{p.role}</span>
                       <span className="rounded-full border border-border px-3 py-1 text-xs">{p.duration}</span>
                     </div>
-                    <div className="mt-8 inline-flex items-center gap-2 text-sm font-medium transition-transform group-hover:translate-x-1">
+                    <ProjectLinks links={p.links} accent={p.color} size="sm" className="mt-6" />
+                    <Link
+                      to="/projects/$slug"
+                      params={{ slug: p.slug }}
+                      className="mt-6 inline-flex items-center gap-2 text-sm font-medium transition-transform hover:translate-x-1"
+                    >
                       Read case study <ArrowUpRight className="size-4 transition-transform group-hover:rotate-45" />
-                    </div>
+                    </Link>
                   </div>
                 </div>
-                <div className="relative aspect-[4/3] overflow-hidden md:aspect-auto" style={{ background: p.color + "18" }}>
+                <Link
+                  to="/projects/$slug"
+                  params={{ slug: p.slug }}
+                  className="relative aspect-[4/3] overflow-hidden md:aspect-auto"
+                  style={{ background: p.color + "18" }}
+                >
                   <motion.img
                     src={p.image}
                     alt={p.title}
@@ -366,9 +380,9 @@ function Work() {
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent" />
-                </div>
+                </Link>
               </div>
-            </Link>
+            </div>
           </Reveal>
         ))}
       </div>
