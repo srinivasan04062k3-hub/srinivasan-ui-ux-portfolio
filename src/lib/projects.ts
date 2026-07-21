@@ -175,7 +175,7 @@ const _projects: Project[] = [
   },
   {
     slug: "rapido-ambulance",
-    index: "02",
+    index: "01",
     title: "Rapido Ambulance Mode",
     subtitle: "One-tap emergency ambulance inside a familiar ride-hailing app",
     category: "Healthcare · Mobility",
