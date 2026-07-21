@@ -396,7 +396,7 @@ const _projects: Project[] = [
     duration: "6 Weeks",
     tools: ["Figma", "Photoshop", "Illustrator", "Miro"],
     image: assets.meetmind,
-    color: "#10B981",
+    color: "#059669",
     overview:
       "MeetMind AI records, transcribes, translates and summarises meetings automatically — so you can be fully present in the room instead of taking notes.",
     problem: {
