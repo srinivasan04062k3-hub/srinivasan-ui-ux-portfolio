@@ -33,6 +33,8 @@ const screenImages = {
   "meetmind-ai": [meet1, meet2, meet3],
 } as const;
 
+export type ProjectLinks = { caseStudy?: string; prototype?: string };
+
 export type Project = {
   slug: string;
   index: string;
@@ -45,6 +47,7 @@ export type Project = {
   tools: string[];
   image: string;
   color: string;
+  links?: ProjectLinks;
   overview: string;
   problem: { business: string; user: string };
   goals: string[];
@@ -73,6 +76,10 @@ const _projects: Project[] = [
     tools: ["Figma", "Spline", "After Effects", "ProtoPie"],
     image: assets.spatial,
     color: "#D97706",
+    links: {
+      caseStudy: "https://www.figma.com/proto/emEFeI7yPrDYA3mEnknlCA/ar-vr?page-id=0%3A1&node-id=2-2&t=QEOGD6FGNhntZWuk-1",
+      prototype: "https://www.figma.com/proto/ORXnpa7R3aqqjSvqrf6itl/AR-VR-App?node-id=1-711&p=f&viewport=180%2C281%2C0.12&t=WNrzT20apsXctZU7-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+    },
     overview:
       "Spatial Living lets users scan any room with their phone, walk through a 1:1 digital twin, and swap real furniture in and out before spending a rupee. Built for people who love their space but hate the guesswork of buying online.",
     problem: {
@@ -185,6 +192,10 @@ const _projects: Project[] = [
     tools: ["Figma", "Maze", "Lottie", "Notion"],
     image: assets.rapido,
     color: "#DC2626",
+    links: {
+      caseStudy: "https://www.figma.com/proto/g7nt3vuQHjSFq9hxkQeVTB/rapidi?node-id=1-2&viewport=274%2C240%2C0.04&t=U0aLQebTSoLjlcN5-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+      prototype: "https://www.figma.com/make/Ia5mXPnmFaQzCDQGxFQ6fh/Design-App-with-Reference-Image?fullscreen=1&t=cEncgKOKqLBIYYTF-1&code-node-id=0-9",
+    },
     overview:
       "A dedicated emergency mode inside Rapido that gets an ambulance moving to your location in under 90 seconds — with live tracking, nearest-hospital routing, and automatic alerts to your emergency contacts.",
     problem: {
@@ -291,6 +302,10 @@ const _projects: Project[] = [
     tools: ["Figma", "Framer", "Rive", "Notion"],
     image: assets.savesmart,
     color: "#0EA5A4",
+    links: {
+      caseStudy: "https://www.figma.com/proto/znE78PVPsqplpdZakuDP7t/savings-app?node-id=19-9323&page-id=0%3A1&t=LOSn7WjFXrgQfsYW-1",
+      prototype: "https://www.figma.com/make/2E2L5aF6oJqcfQUWauAmZt/saving?fullscreen=1&t=UIYSokZhTldU46cV-1&code-node-id=0-9",
+    },
     overview:
       "A modern mobile banking experience designed for simplicity, security, and everyday life — with quick access to what people actually use 10 times a day, and none of the legacy banking clutter.",
     problem: {
@@ -397,6 +412,9 @@ const _projects: Project[] = [
     tools: ["Figma", "Photoshop", "Illustrator", "Miro"],
     image: assets.meetmind,
     color: "#059669",
+    links: {
+      caseStudy: "https://www.figma.com/proto/SAzJFr20RHUidLmTgbu1Zk/metting-ai?page-id=0%3A1&node-id=1-3&t=H6gGhbc7UEwICiBp-1",
+    },
     overview:
       "MeetMind AI records, transcribes, translates and summarises meetings automatically — so you can be fully present in the room instead of taking notes.",
     problem: {
