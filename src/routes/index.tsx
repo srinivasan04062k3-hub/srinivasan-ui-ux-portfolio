@@ -308,6 +308,54 @@ function Skills() {
             </Reveal>
           ))}
         </div>
+
+        {/* Tools — brand logos strip */}
+        <Reveal delay={0.1}>
+          <div className="mt-20 rounded-3xl border border-border bg-background p-8 md:p-10">
+            <div className="mb-8 flex items-baseline justify-between gap-4">
+              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Tools I use daily</div>
+              <div className="hidden text-xs text-muted-foreground sm:block">Design · Prototype · Ship</div>
+            </div>
+            <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+              {[
+                { name: "Figma", slug: "figma", color: "F24E1E" },
+                { name: "Framer", slug: "framer", color: "0055FF" },
+                { name: "Rive", slug: "rive", color: "1D1D1D" },
+                { name: "Spline", slug: "spline", color: "F24E1E" },
+                { name: "Photoshop", slug: "adobephotoshop", color: "31A8FF" },
+                { name: "Illustrator", slug: "adobeillustrator", color: "FF9A00" },
+                { name: "After Effects", slug: "adobeaftereffects", color: "9999FF" },
+                { name: "Notion", slug: "notion", color: "111111" },
+                { name: "Miro", slug: "miro", color: "FFD02F" },
+                { name: "Maze", slug: "maze", color: "635BFF" },
+                { name: "ProtoPie", slug: "protopie", color: "6A2AF7" },
+                { name: "Lottie", slug: "lottiefiles", color: "00DDB3" },
+                { name: "GitHub", slug: "github", color: "111111" },
+                { name: "VS Code", slug: "visualstudiocode", color: "007ACC" },
+                { name: "Webflow", slug: "webflow", color: "146EF5" },
+                { name: "Behance", slug: "behance", color: "1769FF" },
+              ].map((t) => (
+                <div
+                  key={t.name}
+                  data-cursor-hover
+                  className="group flex flex-col items-center gap-3 rounded-2xl border border-transparent p-4 transition-all hover:-translate-y-1 hover:border-border hover:bg-surface hover:shadow-lg"
+                >
+                  <div className="grid size-12 place-items-center">
+                    <img
+                      src={`https://cdn.simpleicons.org/${t.slug}/${t.color}`}
+                      alt={t.name}
+                      loading="lazy"
+                      className="size-10 transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="text-center text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">
+                    {t.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
