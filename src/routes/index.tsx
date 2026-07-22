@@ -19,9 +19,11 @@ import {
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { PageLoader } from "@/components/PageLoader";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { MagneticButton, Reveal, SplitText, TiltCard } from "@/components/motion-primitives";
 import { ProjectLinks, BehanceButton } from "@/components/ProjectLinks";
 import { projects, assets } from "@/lib/projects";
+
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -43,6 +45,8 @@ function Home() {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTop />
+
     </>
   );
 }
@@ -59,9 +63,10 @@ function Hero() {
       ref={ref}
       className="relative flex min-h-dvh flex-col justify-center overflow-hidden pt-32 pb-16"
     >
-      {/* Animated multi-color aurora background */}
-      <div className="aurora-bg absolute inset-0 -z-10" />
+      {/* Animated multi-color aurora background + light rays + noise */}
+      <div className="aurora-bg light-rays noise absolute inset-0 -z-10" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,transparent,var(--background))]" />
+
 
       <motion.div style={{ y, opacity }} className="mx-auto w-full max-w-7xl px-6">
         <div className="mb-8 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
