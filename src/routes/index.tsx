@@ -59,8 +59,8 @@ function Hero() {
       ref={ref}
       className="relative flex min-h-dvh flex-col justify-center overflow-hidden pt-32 pb-16"
     >
-      {/* Animated mesh background */}
-      <div className="mesh-bg animate-gradient absolute inset-0 -z-10 opacity-70" />
+      {/* Animated multi-color aurora background */}
+      <div className="aurora-bg absolute inset-0 -z-10" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,transparent,var(--background))]" />
 
       <motion.div style={{ y, opacity }} className="mx-auto w-full max-w-7xl px-6">
@@ -512,7 +512,7 @@ function Process() {
 function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden border-t border-border bg-surface">
-      <div className="mesh-bg animate-gradient absolute inset-0 -z-10 opacity-50" />
+      <div className="aurora-bg absolute inset-0 -z-10 opacity-80" />
       <div className="mx-auto grid max-w-7xl gap-16 px-6 py-32 md:grid-cols-[1fr_1fr]">
         <Reveal>
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Contact</div>

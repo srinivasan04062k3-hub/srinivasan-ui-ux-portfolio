@@ -47,10 +47,18 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Giant wordmark */}
-      <div aria-hidden className="pointer-events-none overflow-hidden px-2 pb-4 pt-8">
-        <div className="text-center font-display font-medium leading-[0.85] tracking-[-0.05em] text-muted-foreground/15 text-[22vw]">
-          SRINIVASAN
+      {/* Giant wordmark — full name, edge-to-edge, animated gradient */}
+      <div aria-hidden className="pointer-events-none overflow-hidden px-4 pb-2 pt-10">
+        <div
+          className="animate-gradient bg-clip-text text-center font-display font-medium leading-[0.85] tracking-[-0.06em] text-transparent"
+          style={{
+            fontSize: "clamp(3rem, 15vw, 22rem)",
+            backgroundImage:
+              "linear-gradient(90deg, #7C3AED, #EC4899, #F59E0B, #10B981, #06B6D4, #7C3AED)",
+            backgroundSize: "300% 100%",
+          }}
+        >
+          SRINIVASAN&nbsp;S.
         </div>
       </div>
 
