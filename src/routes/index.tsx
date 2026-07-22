@@ -45,6 +45,8 @@ function Home() {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTop />
+
     </>
   );
 }
