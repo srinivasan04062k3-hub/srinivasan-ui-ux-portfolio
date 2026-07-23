@@ -469,14 +469,6 @@ function Practice() {
   return (
     <section className="border-t border-border bg-surface">
       <div className="mx-auto max-w-7xl px-6 py-32">
-        <Reveal>
-          <div className="mb-16">
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Practice</div>
-            <h2 className="mt-4 font-display text-5xl font-medium tracking-tight md:text-6xl">
-              Daily studies, weekend<br /><span className="italic text-muted-foreground">experiments.</span>
-            </h2>
-          </div>
-        </Reveal>
         <div className="columns-2 gap-4 md:columns-3">
           {tiles.map((t, i) => {
             const Tag: any = t.href ? "a" : "div";

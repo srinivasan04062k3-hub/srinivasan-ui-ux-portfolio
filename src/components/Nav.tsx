@@ -46,9 +46,18 @@ export function Nav() {
     <>
       <motion.div
         style={{ scaleX: progress }}
-        className="fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-accent"
+        className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left"
         aria-hidden
-      />
+      >
+        <div
+          className="h-full w-full animate-gradient"
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg,#ff0080,#ff8c00,#ffee00,#00e676,#00e5ff,#3d5afe,#d500f9,#ff0080)",
+            backgroundSize: "200% 100%",
+          }}
+        />
+      </motion.div>
       <motion.header
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
