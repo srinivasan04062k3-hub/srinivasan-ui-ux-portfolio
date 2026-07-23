@@ -15,7 +15,7 @@ export function PageLoader() {
     sessionStorage.setItem("loader:seen", "1");
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const dur = reduce ? 400 : 2000;
+    const dur = reduce ? 800 : 4000;
     let raf = 0;
     const start = performance.now();
     const tick = (t: number) => {
