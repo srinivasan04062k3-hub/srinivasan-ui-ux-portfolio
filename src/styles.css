@@ -183,11 +183,11 @@
   opacity: 0.55;
   animation: aurora-drift 22s ease-in-out infinite, hue-cycle 30s linear infinite;
   background:
-    radial-gradient(40% 40% at 20% 30%, #7C3AED 0%, transparent 60%),
-    radial-gradient(35% 35% at 80% 20%, #06B6D4 0%, transparent 60%),
-    radial-gradient(45% 45% at 70% 80%, #F59E0B 0%, transparent 60%),
-    radial-gradient(35% 35% at 15% 85%, #EC4899 0%, transparent 60%),
-    radial-gradient(30% 30% at 50% 50%, #10B981 0%, transparent 60%);
+    radial-gradient(40% 40% at 20% 30%, #00E6A8 0%, transparent 60%),
+    radial-gradient(35% 35% at 80% 20%, #0EA5A0 0%, transparent 60%),
+    radial-gradient(45% 45% at 70% 80%, #14532D 0%, transparent 60%),
+    radial-gradient(35% 35% at 15% 85%, #34D399 0%, transparent 60%),
+    radial-gradient(30% 30% at 50% 50%, #0F2A24 0%, transparent 60%);
 }
 .aurora-bg::after {
   animation-duration: 34s, 45s;
