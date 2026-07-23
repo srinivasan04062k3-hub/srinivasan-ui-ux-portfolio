@@ -447,18 +447,6 @@ function Work() {
 /* ---------- PRACTICE ---------- */
 function Practice() {
   const tiles: { title: string; tag: string; h: string; img?: string; href?: string }[] = [
-    {
-      title: "Juice Poster",
-      tag: "Poster · Prototype",
-      h: "h-80",
-      href: "https://www.figma.com/proto/nYKpUJIsZaO0BGpf84hNHU/Juice-poster?node-id=11-104&page-id=0%3A1&t=uWw5xjvg69YZda9f-1",
-    },
-    {
-      title: "Healthcare App",
-      tag: "Mobile · Prototype",
-      h: "h-96",
-      href: "https://www.figma.com/proto/8hJlWOhLdlF4IGOOLiObHm/Healthcare-app?node-id=8-141&page-id=0%3A1&starting-point-node-id=8%3A141&t=x11V6P87tiK804Gv-1",
-    },
     { title: "Onboarding sequence", tag: "Motion study", h: "h-72", img: projects[0]?.screens[0]?.image },
     { title: "Analytics dashboard", tag: "Data-heavy UI", h: "h-96", img: projects[1]?.screens[0]?.image },
     { title: "Wallet card pull", tag: "Micro-interaction", h: "h-64", img: projects[1]?.screens[2]?.image },
