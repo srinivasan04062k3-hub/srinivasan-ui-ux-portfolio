@@ -157,8 +157,9 @@
   100% { transform: translate3d(0,0,0) rotate(0deg); }
 }
 @keyframes hue-cycle {
-  0%   { filter: hue-rotate(0deg) blur(80px) saturate(140%); }
-  100% { filter: hue-rotate(360deg) blur(80px) saturate(140%); }
+  0%   { filter: hue-rotate(-10deg) blur(80px) saturate(140%); }
+  50%  { filter: hue-rotate(20deg) blur(80px) saturate(150%); }
+  100% { filter: hue-rotate(-10deg) blur(80px) saturate(140%); }
 }
 
 @utility animate-float { animation: float-slow 6s ease-in-out infinite; }
