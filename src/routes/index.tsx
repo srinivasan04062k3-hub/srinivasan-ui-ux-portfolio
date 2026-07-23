@@ -447,12 +447,7 @@ function Work() {
 /* ---------- PRACTICE ---------- */
 function Practice() {
   const tiles: { title: string; tag: string; h: string; img?: string; href?: string }[] = [
-    { title: "Onboarding sequence", tag: "Motion study", h: "h-72", img: projects[0]?.screens[0]?.image },
-    { title: "Analytics dashboard", tag: "Data-heavy UI", h: "h-96", img: projects[1]?.screens[0]?.image },
-    { title: "Wallet card pull", tag: "Micro-interaction", h: "h-64", img: projects[1]?.screens[2]?.image },
-    { title: "AR measure tool", tag: "Spatial", h: "h-80", img: projects[2]?.screens[1]?.image },
     { title: "Voice input pattern", tag: "Multi-modal", h: "h-60", img: projects[3]?.screens[1]?.image },
-    { title: "Empty-state kit", tag: "Illustration", h: "h-72", img: projects[3]?.screens[2]?.image },
   ];
   return (
     <section className="border-t border-border bg-surface">
