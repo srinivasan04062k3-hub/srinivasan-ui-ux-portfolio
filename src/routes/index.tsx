@@ -32,6 +32,13 @@ import dribbbleLogo from "@/assets/tools/dribbble.png.asset.json";
 import whimsicalLogo from "@/assets/tools/whimsical.png.asset.json";
 import surveymonkeyLogo from "@/assets/tools/surveymonkey.png.asset.json";
 import splineLogo from "@/assets/tools/spline.png.asset.json";
+import visilyLogo from "@/assets/tools/visily.png.asset.json";
+import figmaDevModeLogo from "@/assets/tools/figma-dev-mode.png.asset.json";
+import mazeLogo from "@/assets/tools/maze.png.asset.json";
+import githubLogo from "@/assets/tools/github.png.asset.json";
+import uizardLogo from "@/assets/tools/uizard.png.asset.json";
+import geminiLogo from "@/assets/tools/gemini.png.asset.json";
+import lovableLogo from "@/assets/tools/lovable.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
