@@ -23,6 +23,15 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { MagneticButton, Reveal, SplitText, TiltCard } from "@/components/motion-primitives";
 import { ProjectLinks, BehanceButton } from "@/components/ProjectLinks";
 import { projects, assets } from "@/lib/projects";
+import behanceLogo from "@/assets/tools/behance.png.asset.json";
+import figmaLogo from "@/assets/tools/figma.png.asset.json";
+import figjamLogo from "@/assets/tools/figjam.png.asset.json";
+import notionLogo from "@/assets/tools/notion.png.asset.json";
+import chatgptLogo from "@/assets/tools/chatgpt.png.asset.json";
+import dribbbleLogo from "@/assets/tools/dribbble.png.asset.json";
+import whimsicalLogo from "@/assets/tools/whimsical.png.asset.json";
+import surveymonkeyLogo from "@/assets/tools/surveymonkey.png.asset.json";
+import splineLogo from "@/assets/tools/spline.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
@@ -321,36 +330,30 @@ function Skills() {
               <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Tools I use daily</div>
               <div className="hidden text-xs text-muted-foreground sm:block">Design · Prototype · Ship</div>
             </div>
-            <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+            <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-5">
               {[
-                { name: "Figma", slug: "figma", color: "F24E1E" },
-                { name: "Framer", slug: "framer", color: "0055FF" },
-                { name: "Rive", slug: "rive", color: "1D1D1D" },
-                { name: "Spline", slug: "spline", color: "F24E1E" },
-                { name: "Photoshop", slug: "adobephotoshop", color: "31A8FF" },
-                { name: "Illustrator", slug: "adobeillustrator", color: "FF9A00" },
-                { name: "After Effects", slug: "adobeaftereffects", color: "9999FF" },
-                { name: "Notion", slug: "notion", color: "111111" },
-                { name: "Miro", slug: "miro", color: "FFD02F" },
-                { name: "Maze", slug: "maze", color: "635BFF" },
-                { name: "ProtoPie", slug: "protopie", color: "6A2AF7" },
-                { name: "Lottie", slug: "lottiefiles", color: "00DDB3" },
-                { name: "GitHub", slug: "github", color: "111111" },
-                { name: "VS Code", slug: "visualstudiocode", color: "007ACC" },
-                { name: "Webflow", slug: "webflow", color: "146EF5" },
-                { name: "Behance", slug: "behance", color: "1769FF" },
+                { name: "Behance", src: behanceLogo.url },
+                { name: "Figma", src: figmaLogo.url },
+                { name: "FigJam", src: figjamLogo.url },
+                { name: "Figma Slides", src: figmaLogo.url },
+                { name: "Notion", src: notionLogo.url },
+                { name: "ChatGPT", src: chatgptLogo.url },
+                { name: "Dribbble", src: dribbbleLogo.url },
+                { name: "Whimsical", src: whimsicalLogo.url },
+                { name: "SurveyMonkey", src: surveymonkeyLogo.url },
+                { name: "Spline", src: splineLogo.url },
               ].map((t) => (
                 <div
                   key={t.name}
                   data-cursor-hover
                   className="group flex flex-col items-center gap-3 rounded-2xl border border-transparent p-4 transition-all hover:-translate-y-1 hover:border-border hover:bg-surface hover:shadow-lg"
                 >
-                  <div className="grid size-12 place-items-center">
+                  <div className="grid size-14 place-items-center rounded-xl bg-white p-2 shadow-sm ring-1 ring-black/5">
                     <img
-                      src={`https://cdn.simpleicons.org/${t.slug}/${t.color}`}
+                      src={t.src}
                       alt={t.name}
                       loading="lazy"
-                      className="size-10 transition-transform duration-300 group-hover:scale-110"
+                      className="size-10 object-contain transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
                   <div className="text-center text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">
