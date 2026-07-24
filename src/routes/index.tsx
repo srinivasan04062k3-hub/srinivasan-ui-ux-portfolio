@@ -349,6 +349,13 @@ function Skills() {
                 { name: "Whimsical", src: whimsicalLogo.url },
                 { name: "SurveyMonkey", src: surveymonkeyLogo.url },
                 { name: "Spline", src: splineLogo.url },
+                { name: "Visily", src: visilyLogo.url },
+                { name: "Figma Dev Mode", src: figmaDevModeLogo.url },
+                { name: "Maze", src: mazeLogo.url },
+                { name: "GitHub", src: githubLogo.url },
+                { name: "Uizard", src: uizardLogo.url },
+                { name: "Gemini", src: geminiLogo.url },
+                { name: "Lovable", src: lovableLogo.url },
               ].map((t) => (
                 <div
                   key={t.name}
