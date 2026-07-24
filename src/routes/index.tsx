@@ -55,7 +55,6 @@ function Home() {
         <About />
         <Skills />
         <Work />
-        <Practice />
         <Process />
         <Contact />
       </main>
@@ -459,47 +458,6 @@ function Work() {
   );
 }
 
-/* ---------- PRACTICE ---------- */
-function Practice() {
-  const tiles: { title: string; tag: string; h: string; img?: string; href?: string }[] = [
-    { title: "Voice input pattern", tag: "Multi-modal", h: "h-60", img: projects[3]?.screens[1]?.image },
-  ];
-  return (
-    <section className="border-t border-border bg-surface">
-      <div className="mx-auto max-w-7xl px-6 py-32">
-        <div className="columns-2 gap-4 md:columns-3">
-          {tiles.map((t, i) => {
-            const Tag: any = t.href ? "a" : "div";
-            const tagProps = t.href ? { href: t.href, target: "_blank", rel: "noopener noreferrer" } : {};
-            return (
-              <Reveal key={t.title} delay={i * 0.04} className="mb-4 break-inside-avoid">
-                <Tag
-                  {...tagProps}
-                  className={`group relative block overflow-hidden rounded-2xl border border-border ${t.h}`}
-                  data-cursor-hover
-                >
-                  {t.img ? (
-                    <img src={t.img} alt={t.title} loading="lazy" className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  ) : (
-                    <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, color-mix(in oklab, var(--accent) ${10 + (i*7)%25}%, var(--surface)), var(--surface))` }} />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
-                    <div>
-                      <div className="text-sm font-medium text-white">{t.title}</div>
-                      <div className="text-xs text-white/70">{t.tag}</div>
-                    </div>
-                    <ArrowUpRight className="size-4 text-white opacity-0 transition-opacity group-hover:opacity-100" />
-                  </div>
-                </Tag>
-              </Reveal>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ---------- PROCESS ---------- */
 function Process() {
