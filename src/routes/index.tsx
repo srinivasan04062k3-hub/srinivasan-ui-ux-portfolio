@@ -23,6 +23,15 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { MagneticButton, Reveal, SplitText, TiltCard } from "@/components/motion-primitives";
 import { ProjectLinks, BehanceButton } from "@/components/ProjectLinks";
 import { projects, assets } from "@/lib/projects";
+import behanceLogo from "@/assets/tools/behance.png.asset.json";
+import figmaLogo from "@/assets/tools/figma.png.asset.json";
+import figjamLogo from "@/assets/tools/figjam.png.asset.json";
+import notionLogo from "@/assets/tools/notion.png.asset.json";
+import chatgptLogo from "@/assets/tools/chatgpt.png.asset.json";
+import dribbbleLogo from "@/assets/tools/dribbble.png.asset.json";
+import whimsicalLogo from "@/assets/tools/whimsical.png.asset.json";
+import surveymonkeyLogo from "@/assets/tools/surveymonkey.png.asset.json";
+import splineLogo from "@/assets/tools/spline.png.asset.json";
 
 
 export const Route = createFileRoute("/")({
