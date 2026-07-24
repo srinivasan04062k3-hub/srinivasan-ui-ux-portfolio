@@ -340,7 +340,6 @@ function Skills() {
                 { name: "Behance", src: behanceLogo.url },
                 { name: "Figma", src: figmaLogo.url },
                 { name: "FigJam", src: figjamLogo.url },
-                { name: "Figma Slides", src: figmaLogo.url },
                 { name: "Notion", src: notionLogo.url },
                 { name: "ChatGPT", src: chatgptLogo.url },
                 { name: "Dribbble", src: dribbbleLogo.url },
