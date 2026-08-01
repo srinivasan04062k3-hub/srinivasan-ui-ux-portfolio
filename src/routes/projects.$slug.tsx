@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { Reveal, SplitText } from "@/components/motion-primitives";
+import { Reveal, SplitText, MaskReveal } from "@/components/motion-primitives";
 import { ProjectLinks } from "@/components/ProjectLinks";
 import { getProject, projects, type Project } from "@/lib/projects";
 
@@ -213,7 +213,7 @@ function CaseStudy() {
         <Section title="Screens" eyebrow="08" wide>
           <div className="space-y-24">
             {p.screens.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.05}>
+              <MaskReveal key={s.title} delay={i * 0.05}>
                 <div className="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-center">
                   <div className={i % 2 ? "md:order-2" : ""}>
                     <div className="font-mono text-xs text-muted-foreground">Screen {String(i + 1).padStart(2, "0")}</div>
