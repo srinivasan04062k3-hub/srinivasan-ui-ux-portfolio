@@ -58,7 +58,7 @@ export function Footer() {
             backgroundSize: "300% 100%",
           }}
         >
-          SRINIVASAN&nbsp;S.
+          SRINIVASAN&nbsp;S
         </div>
       </div>
 

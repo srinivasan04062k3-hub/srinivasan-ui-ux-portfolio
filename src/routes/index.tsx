@@ -25,7 +25,7 @@ import { ProjectLinks, BehanceButton } from "@/components/ProjectLinks";
 import { projects, assets } from "@/lib/projects";
 import behanceLogo from "@/assets/tools/behance.png.asset.json";
 import figmaLogo from "@/assets/tools/figma.png.asset.json";
-import figjamLogo from "@/assets/tools/figjam.png.asset.json";
+import claudeLogo from "@/assets/tools/claude.png.asset.json";
 import notionLogo from "@/assets/tools/notion.png.asset.json";
 import chatgptLogo from "@/assets/tools/chatgpt.png.asset.json";
 import dribbbleLogo from "@/assets/tools/dribbble.png.asset.json";
@@ -35,7 +35,7 @@ import splineLogo from "@/assets/tools/spline.png.asset.json";
 import visilyLogo from "@/assets/tools/visily.png.asset.json";
 import mazeLogo from "@/assets/tools/maze.png.asset.json";
 import githubLogo from "@/assets/tools/github.png.asset.json";
-import uizardLogo from "@/assets/tools/uizard.png.asset.json";
+import framerLogo from "@/assets/tools/framer.png.asset.json";
 import geminiLogo from "@/assets/tools/gemini.png.asset.json";
 import lovableLogo from "@/assets/tools/lovable.png.asset.json";
 
@@ -339,7 +339,7 @@ function Skills() {
               {[
                 { name: "Behance", src: behanceLogo.url },
                 { name: "Figma", src: figmaLogo.url },
-                { name: "FigJam", src: figjamLogo.url },
+                { name: "Claude", src: claudeLogo.url },
                 { name: "Notion", src: notionLogo.url },
                 { name: "ChatGPT", src: chatgptLogo.url },
                 { name: "Dribbble", src: dribbbleLogo.url },
@@ -349,7 +349,7 @@ function Skills() {
                 { name: "Visily", src: visilyLogo.url },
                 { name: "Maze", src: mazeLogo.url },
                 { name: "GitHub", src: githubLogo.url },
-                { name: "Uizard", src: uizardLogo.url },
+                { name: "Framer", src: framerLogo.url },
                 { name: "Gemini", src: geminiLogo.url },
                 { name: "Lovable", src: lovableLogo.url },
               ].map((t) => (
