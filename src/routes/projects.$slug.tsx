@@ -225,10 +225,20 @@ function CaseStudy() {
                     </div>
                   </div>
                   <div className={`relative aspect-[4/3] overflow-hidden rounded-3xl border border-border ${i % 2 ? "md:order-1" : ""}`} style={{ background: p.color + "18" }}>
-                    <img src={s.image ?? p.image} alt={s.title} loading="lazy" className="size-full object-cover" />
+                    <motion.img
+                      src={s.image ?? p.image}
+                      alt={s.title}
+                      loading="lazy"
+                      className="size-full object-cover"
+                      initial={{ scale: 1.06 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.06 }}
+                      transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+                    />
                   </div>
                 </div>
-              </Reveal>
+              </MaskReveal>
             ))}
           </div>
         </Section>
