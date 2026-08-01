@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
 import {
   ArrowDown,
@@ -20,7 +20,17 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { PageLoader } from "@/components/PageLoader";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { MagneticButton, Reveal, SplitText, TiltCard } from "@/components/motion-primitives";
+import {
+  MagneticButton,
+  Reveal,
+  SplitText,
+  TiltCard,
+  BlurReveal,
+  Stagger,
+  StaggerItem,
+  MaskReveal,
+  Particles,
+} from "@/components/motion-primitives";
 import { ProjectLinks, BehanceButton } from "@/components/ProjectLinks";
 import { projects, assets } from "@/lib/projects";
 import behanceLogo from "@/assets/tools/behance.png.asset.json";
@@ -72,17 +82,36 @@ function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
+  // mouse parallax
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const px = useSpring(mx, { stiffness: 60, damping: 20 });
+  const py = useSpring(my, { stiffness: 60, damping: 20 });
+  const contentX = useTransform(px, (v) => v * 14);
+  const contentY = useTransform(py, (v) => v * 10);
+  const portraitX = useTransform(px, (v) => v * -34);
+  const portraitY = useTransform(py, (v) => v * -22);
+
+  const onHeroMove = (e: React.MouseEvent) => {
+    const r = ref.current?.getBoundingClientRect();
+    if (!r) return;
+    mx.set((e.clientX - r.left) / r.width - 0.5);
+    my.set((e.clientY - r.top) / r.height - 0.5);
+  };
+
   return (
     <section
       ref={ref}
+      onMouseMove={onHeroMove}
       className="relative flex min-h-dvh flex-col justify-center overflow-hidden pt-32 pb-16"
     >
       {/* Animated multi-color aurora background + light rays + noise */}
       <div className="aurora-bg light-rays noise absolute inset-0 -z-10" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,transparent,var(--background))]" />
+      <Particles count={26} />
 
 
-      <motion.div style={{ y, opacity }} className="mx-auto w-full max-w-7xl px-6">
+      <motion.div style={{ y, opacity, x: contentX, translateY: contentY }} className="mx-auto w-full max-w-7xl px-6">
         <div className="mb-8 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
           <span className="relative flex size-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
@@ -91,6 +120,7 @@ function Hero() {
           Available for junior UI/UX roles · 2026
         </div>
 
+        <div aria-hidden className="pointer-events-none absolute left-0 top-1/3 -z-10 size-[38rem] rounded-full bg-accent/15 blur-[140px]" />
         <h1 className="font-display text-[15vw] font-medium leading-[0.95] tracking-[-0.04em] text-balance md:text-[9rem]">
           <SplitText text="Designing" />
           <br />
@@ -141,6 +171,7 @@ function Hero() {
         initial={{ opacity: 0, scale: 0.92, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        style={{ x: portraitX, y: portraitY }}
         className="pointer-events-none absolute right-[3%] top-[9%] hidden md:block"
       >
         <div className="animate-float relative">
@@ -235,23 +266,23 @@ function About() {
     <section id="about" className="mx-auto max-w-7xl px-6 py-32">
       <div className="grid gap-16 md:grid-cols-[1fr_1.4fr]">
         <div className="md:sticky md:top-32 md:self-start">
-          <Reveal>
+          <BlurReveal>
             <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">About</div>
             <div className="mt-4 font-display text-5xl font-medium leading-[1.05] tracking-tight">
               A designer<br />with a<br /><span className="italic text-muted-foreground">researcher's</span><br />mind.
             </div>
-          </Reveal>
+          </BlurReveal>
         </div>
 
         <div className="space-y-10 text-lg leading-relaxed text-pretty md:text-xl">
-          <Reveal>
+          <BlurReveal>
             <p>
               I began in the sciences, learning to interrogate assumptions before touching a
               single deliverable. That instinct now shapes every product I design — I don't
               start with pixels, I start with <span className="text-foreground">why this, why now, for whom.</span>
             </p>
-          </Reveal>
-          <Reveal delay={0.1}>
+          </BlurReveal>
+          <BlurReveal delay={0.1}>
             <p className="text-muted-foreground">
               My work lives at the intersection of <span className="text-foreground">human-centered research</span>,
               <span className="text-foreground"> systems thinking</span>, and{" "}
@@ -259,8 +290,8 @@ function About() {
               accessibility, motion that means something, and interfaces that respect the person
               on the other side of the screen.
             </p>
-          </Reveal>
-          <Reveal delay={0.15}>
+          </BlurReveal>
+          <BlurReveal delay={0.15}>
             <div className="grid gap-6 sm:grid-cols-2">
               {[
                 { k: "Based in", v: "Chennai, India" },
@@ -274,7 +305,7 @@ function About() {
                 </div>
               ))}
             </div>
-          </Reveal>
+          </BlurReveal>
         </div>
       </div>
     </section>
@@ -309,9 +340,9 @@ function Skills() {
           </div>
         </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {groups.map((g, i) => (
-            <Reveal key={g.title} delay={i * 0.05}>
+        <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {groups.map((g) => (
+            <StaggerItem key={g.title} className="h-full">
               <TiltCard className="group relative h-full rounded-3xl border border-border bg-background p-8 transition-shadow hover:shadow-2xl">
                 <div className="absolute inset-0 rounded-3xl opacity-0 transition-opacity group-hover:opacity-100" style={{ background: `radial-gradient(600px circle at var(--x,50%) var(--y,50%), color-mix(in oklab, var(--accent) 12%, transparent), transparent 40%)` }} />
                 <g.icon className="size-6 text-accent" />
@@ -324,9 +355,9 @@ function Skills() {
                   ))}
                 </ul>
               </TiltCard>
-            </Reveal>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
 
         {/* Tools — brand logos strip */}
         <Reveal delay={0.1}>
@@ -397,7 +428,7 @@ function Work() {
 
       <div className="space-y-6">
         {projects.map((p, i) => (
-          <Reveal key={p.slug} delay={i * 0.05}>
+          <MaskReveal key={p.slug} delay={i * 0.05}>
             <div
               className="group relative overflow-hidden rounded-3xl border border-border bg-surface"
               data-cursor-hover
