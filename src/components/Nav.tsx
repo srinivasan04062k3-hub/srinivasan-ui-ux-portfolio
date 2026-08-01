@@ -19,8 +19,16 @@ export function Nav() {
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 25, mass: 0.2 });
 
+  const [hidden, setHidden] = useState(false);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      setHidden(y > 160 && y > last + 4);
+      if (Math.abs(y - last) > 4) last = y;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -60,11 +68,15 @@ export function Nav() {
       </motion.div>
       <motion.header
         initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+        animate={{ y: hidden ? -110 : 0, opacity: hidden ? 0 : 1 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? "py-3" : "py-5"}`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
+        <div
+          className={`mx-auto flex max-w-7xl items-center justify-between rounded-full px-6 transition-all duration-500 ${
+            scrolled ? "mx-4 max-w-6xl border border-border/60 bg-background/60 py-2 shadow-lg backdrop-blur-xl md:mx-auto" : ""
+          }`}
+        >
           <Link to="/" className="group flex items-center gap-2">
             <div className="size-8 rounded-full bg-foreground text-background grid place-items-center font-display font-semibold">
               S
