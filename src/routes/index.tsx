@@ -481,7 +481,7 @@ function Work() {
                 </Link>
               </div>
             </div>
-          </Reveal>
+          </MaskReveal>
         ))}
       </div>
     </section>
