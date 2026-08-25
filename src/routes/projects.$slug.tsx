@@ -276,7 +276,7 @@ function CaseStudy() {
         <Section title="Challenges & Impact" eyebrow="10">
           <div className="grid gap-6 md:grid-cols-3">
             <ListCard title="Challenges" items={p.challenges} />
-            <ListCard title="Impact" items={p.impact} accent />
+            <ListCard title="Impact" items={p.outcome} accent />
             <ListCard title="Key learnings" items={p.learnings} />
           </div>
         </Section>
