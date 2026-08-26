@@ -1,7 +1,6 @@
-import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "@/lib/use-theme";
 
 const SECTIONS = [
@@ -9,26 +8,20 @@ const SECTIONS = [
   { href: "#about", label: "About", id: "about" },
   { href: "#skills", label: "Skills", id: "skills" },
   { href: "#process", label: "Process", id: "process" },
+  { href: "#resume", label: "Resume", id: "resume" },
   { href: "#contact", label: "Contact", id: "contact" },
 ];
 
 export function Nav() {
   const { theme, toggle } = useTheme();
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState<string>("");
+  const [active, setActive] = useState("");
+  const [open, setOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 25, mass: 0.2 });
 
-  const [hidden, setHidden] = useState(false);
-
   useEffect(() => {
-    let last = window.scrollY;
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 24);
-      setHidden(y > 160 && y > last + 4);
-      if (Math.abs(y - last) > 4) last = y;
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -36,12 +29,8 @@ export function Nav() {
 
   useEffect(() => {
     const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
     );
     SECTIONS.forEach((s) => {
       const el = document.getElementById(s.id);
@@ -54,79 +43,85 @@ export function Nav() {
     <>
       <motion.div
         style={{ scaleX: progress }}
-        className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left"
         aria-hidden
+        className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-accent"
+      />
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          scrolled ? "border-b border-border bg-background/85 backdrop-blur-xl" : ""
+        }`}
       >
-        <div
-          className="h-full w-full animate-gradient"
-          style={{
-            backgroundImage:
-              "linear-gradient(90deg,#ff0080,#ff8c00,#ffee00,#00e676,#00e5ff,#3d5afe,#d500f9,#ff0080)",
-            backgroundSize: "200% 100%",
-          }}
-        />
-      </motion.div>
-      <motion.header
-        initial={{ y: -30, opacity: 0 }}
-        animate={{ y: hidden ? -110 : 0, opacity: hidden ? 0 : 1 }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled ? "py-3" : "py-5"}`}
-      >
-        <div
-          className={`mx-auto flex max-w-7xl items-center justify-between rounded-full px-6 transition-all duration-500 ${
-            scrolled ? "mx-4 max-w-6xl border border-border/60 bg-background/60 py-2 shadow-lg backdrop-blur-xl md:mx-auto" : ""
-          }`}
-        >
-          <Link to="/" className="group flex items-center gap-2">
-            <div className="size-8 rounded-full bg-foreground text-background grid place-items-center font-display font-semibold">
-              S
-            </div>
-            <span className="font-display text-sm font-medium tracking-tight">
-              Srinivasan<span className="text-accent">.</span>
-            </span>
-          </Link>
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+          <a href="#top" className="font-display text-sm font-semibold tracking-[0.16em] uppercase">
+            Srinivasan S
+          </a>
 
-          <nav className={`hidden items-center gap-1 rounded-full px-2 py-1.5 md:flex ${scrolled ? "glass" : ""}`}>
-            {SECTIONS.map((l) => {
-              const isActive = active === l.id;
-              return (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className={`relative rounded-full px-4 py-1.5 text-sm transition-colors ${
-                    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-active"
-                      className="absolute inset-0 -z-10 rounded-full bg-muted"
-                      transition={{ type: "spring", stiffness: 400, damping: 34 }}
-                    />
-                  )}
-                  {l.label}
-                </a>
-              );
-            })}
+          <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+            {SECTIONS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`rounded-full px-4 py-2 text-sm transition-colors ${
+                  active === l.id
+                    ? "bg-muted font-medium text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {l.label}
+              </a>
+            ))}
           </nav>
 
           <div className="flex items-center gap-2">
             <button
               onClick={toggle}
-              aria-label="Toggle theme"
-              className="grid size-10 place-items-center rounded-full border border-border bg-surface transition-colors hover:bg-muted"
+              aria-label="Toggle colour theme"
+              className="grid size-11 place-items-center rounded-full border border-border bg-surface transition-colors hover:bg-muted"
             >
               {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
             </button>
             <a
               href="#contact"
-              className="hidden rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.03] md:inline-flex"
+              className="hidden rounded-full bg-foreground px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-background transition-transform hover:scale-[1.03] md:inline-flex"
             >
-              Let's talk
+              Let's Connect
             </a>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              className="grid size-11 place-items-center rounded-full border border-border bg-surface md:hidden"
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
           </div>
         </div>
-      </motion.header>
+
+        {open && (
+          <nav
+            aria-label="Mobile"
+            className="border-t border-border bg-background px-5 pb-6 pt-2 md:hidden"
+          >
+            {SECTIONS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="block border-b border-border py-4 text-base"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-foreground px-5 py-3.5 text-sm font-semibold text-background"
+            >
+              Let's Connect
+            </a>
+          </nav>
+        )}
+      </header>
     </>
   );
 }
