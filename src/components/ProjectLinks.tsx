@@ -28,7 +28,7 @@ export function ProjectLinks({ links, accent = "#8B7CF6", size = "md", className
           href={links.caseStudy}
           target="_blank"
           rel="noopener noreferrer"
-          className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-white/15 bg-white/5 ${pad} font-medium backdrop-blur-xl transition-all duration-300 hover:border-white/30 hover:shadow-[0_10px_40px_-10px_var(--accent-glow)]`}
+          className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-border bg-surface ${pad} font-medium backdrop-blur-xl transition-all duration-300 hover:border-foreground/30 hover:shadow-[0_10px_40px_-10px_var(--accent-glow)]`}
         >
           <span
             aria-hidden
@@ -47,7 +47,7 @@ export function ProjectLinks({ links, accent = "#8B7CF6", size = "md", className
           href={links.prototype}
           target="_blank"
           rel="noopener noreferrer"
-          className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full ${pad} font-medium text-background transition-all duration-300 hover:shadow-[0_10px_40px_-10px_var(--accent-glow)]`}
+          className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full ${pad} font-medium text-[#111827] transition-all duration-300 hover:shadow-[0_10px_40px_-10px_var(--accent-glow)]`}
         >
           <span
             aria-hidden
@@ -78,7 +78,7 @@ export function BehanceButton({ className = "" }: { className?: string }) {
       href="https://www.behance.net/srinivasan128"
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-medium backdrop-blur-xl transition-all duration-300 hover:border-white/30 hover:shadow-[0_10px_40px_-10px_rgba(20,113,255,0.5)] ${className}`}
+      className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-border bg-surface px-6 py-3.5 text-sm font-medium backdrop-blur-xl transition-all duration-300 hover:border-foreground/30 hover:shadow-[0_10px_40px_-10px_rgba(20,113,255,0.5)] ${className}`}
     >
       <span
         aria-hidden
