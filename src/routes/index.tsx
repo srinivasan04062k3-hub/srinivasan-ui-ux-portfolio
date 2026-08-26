@@ -1,535 +1,436 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { useRef } from "react";
-import {
-  ArrowDown,
-  ArrowUpRight,
-  Download,
-  Mail,
-  Phone,
-  Sparkles,
-  Palette,
-  Layers,
-  Search,
-  Wrench,
-  Cpu,
-  Grid3x3,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download, Mail, MapPin } from "lucide-react";
 
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { PageLoader } from "@/components/PageLoader";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import {
-  MagneticButton,
-  Reveal,
-  SplitText,
-  TiltCard,
-  BlurReveal,
-  Stagger,
-  StaggerItem,
-  MaskReveal,
-  Particles,
-} from "@/components/motion-primitives";
-import { ProjectLinks, BehanceButton } from "@/components/ProjectLinks";
+import { MagneticButton, Reveal, SplitText } from "@/components/motion-primitives";
+import { ProjectLinks } from "@/components/ProjectLinks";
 import { projects, assets } from "@/lib/projects";
-import behanceLogo from "@/assets/tools/behance.png.asset.json";
+
 import figmaLogo from "@/assets/tools/figma.png.asset.json";
-import claudeLogo from "@/assets/tools/claude.png.asset.json";
+import framerLogo from "@/assets/tools/framer.png.asset.json";
 import notionLogo from "@/assets/tools/notion.png.asset.json";
 import chatgptLogo from "@/assets/tools/chatgpt.png.asset.json";
-import dribbbleLogo from "@/assets/tools/dribbble.png.asset.json";
-import whimsicalLogo from "@/assets/tools/whimsical.png.asset.json";
-import surveymonkeyLogo from "@/assets/tools/surveymonkey.png.asset.json";
-import splineLogo from "@/assets/tools/spline.png.asset.json";
-import visilyLogo from "@/assets/tools/visily.png.asset.json";
-import mazeLogo from "@/assets/tools/maze.png.asset.json";
-import githubLogo from "@/assets/tools/github.png.asset.json";
-import framerLogo from "@/assets/tools/framer.png.asset.json";
 import geminiLogo from "@/assets/tools/gemini.png.asset.json";
+import claudeLogo from "@/assets/tools/claude.png.asset.json";
 import lovableLogo from "@/assets/tools/lovable.png.asset.json";
 
+const TITLE = "Srinivasan S — UI/UX Designer Portfolio";
+const DESCRIPTION =
+  "Srinivasan S is a UI/UX Designer based in Bengaluru, India, focused on creating intuitive digital experiences through user-centered design, interaction design, visual design and prototyping.";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://srinivasan-ui-ux-portfolio.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://srinivasan-ui-ux-portfolio.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Srinivasan S",
+          jobTitle: "UI/UX Designer",
+          address: { "@type": "PostalAddress", addressLocality: "Bengaluru", addressRegion: "Karnataka", addressCountry: "IN" },
+          email: "mailto:srinivasan.04062k3@gmail.com",
+          sameAs: [
+            "https://www.behance.net/srinivasan128",
+            "https://www.linkedin.com/in/srinivasan-s-a44872291/",
+          ],
+        }),
+      },
+    ],
+  }),
   component: Home,
 });
+
+const BEHANCE = "https://www.behance.net/srinivasan128";
+const LINKEDIN = "https://www.linkedin.com/in/srinivasan-s-a44872291/";
+const RESUME = "/Srinivasan_S_Resume.pdf";
+const EMAIL = "srinivasan.04062k3@gmail.com";
+
+const DISCIPLINES = [
+  "UI/UX Design",
+  "Product Design",
+  "UX Research",
+  "Interaction Design",
+  "Visual Design",
+  "Prototyping",
+];
+
+const SKILLS = [
+  {
+    group: "UX Design",
+    items: [
+      "User Research",
+      "User Flows",
+      "Information Architecture",
+      "Personas",
+      "Journey Mapping",
+      "Wireframing",
+      "Usability Testing",
+    ],
+  },
+  {
+    group: "UI Design",
+    items: [
+      "Visual Design",
+      "Typography",
+      "Color Systems",
+      "Design Systems",
+      "Responsive Design",
+      "Accessibility",
+    ],
+  },
+  {
+    group: "Prototyping",
+    items: [
+      "Low-Fidelity Wireframes",
+      "High-Fidelity UI",
+      "Interactive Prototypes",
+      "Micro-interactions",
+    ],
+  },
+  {
+    group: "AI-Assisted Design",
+    items: [
+      "Generative AI",
+      "AI-assisted Ideation",
+      "AI-assisted Research",
+      "AI-assisted Prototyping",
+    ],
+  },
+];
+
+const TOOLS: { name: string; logo?: string }[] = [
+  { name: "Figma", logo: figmaLogo.url },
+  { name: "FigJam" },
+  { name: "Framer", logo: framerLogo.url },
+  { name: "Photoshop" },
+  { name: "Illustrator" },
+  { name: "Notion", logo: notionLogo.url },
+  { name: "Miro" },
+  { name: "ChatGPT", logo: chatgptLogo.url },
+  { name: "Gemini", logo: geminiLogo.url },
+  { name: "Claude", logo: claudeLogo.url },
+  { name: "Lovable", logo: lovableLogo.url },
+];
+
+const PROCESS = [
+  { n: "01", t: "Discover", d: "Understand users, context and the problem." },
+  { n: "02", t: "Define", d: "Identify pain points and design opportunities." },
+  { n: "03", t: "Ideate", d: "Explore multiple solutions and concepts." },
+  { n: "04", t: "Structure", d: "Create information architecture, user flows and wireframes." },
+  { n: "05", t: "Design", d: "Create visual systems and high-fidelity interfaces." },
+  { n: "06", t: "Prototype", d: "Build realistic interactive experiences." },
+  { n: "07", t: "Test", d: "Identify usability issues and refine the design." },
+  { n: "08", t: "Deliver", d: "Prepare polished UI, components and documentation." },
+];
+
+const EDUCATION = [
+  {
+    title: "Bachelor of Mechanical Engineering",
+    place: "Sona College of Technology, Salem",
+    time: "2021 – 2024",
+  },
+  {
+    title: "Diploma in Mechanical Engineering",
+    place: "Muthayammal Polytechnic College, Namakkal",
+    time: "2018 – 2021",
+  },
+];
+
+const UIUX_EDUCATION = [
+  {
+    title: "UI/UX Design Course",
+    place: "Intellipaat",
+    time: "December 2025 – July 2026",
+  },
+  {
+    title: "Executive Post Graduate Certification in UI/UX Design with Generative AI and Agentic AI",
+    place: "iHUB DivyaSampark, IIT Roorkee — certification",
+    time: "Certification programme",
+  },
+];
+
+const WHY = [
+  { t: "User-Centered", d: "I focus on understanding users and their needs before designing solutions." },
+  { t: "Problem Solver", d: "My engineering background helps me approach complex problems systematically." },
+  { t: "Creative Thinker", d: "I explore multiple solutions before selecting the strongest direction." },
+  { t: "AI-Assisted", d: "I use modern AI tools to accelerate exploration, ideation and design workflows." },
+  { t: "Detail-Oriented", d: "I care about typography, spacing, hierarchy, accessibility and interaction details." },
+];
+
+function SectionHeading({
+  eyebrow,
+  title,
+  subtitle,
+}: {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+}) {
+  return (
+    <Reveal className="max-w-3xl">
+      <div className="eyebrow">{eyebrow}</div>
+      <h2 className="mt-4 font-display text-3xl font-medium tracking-tight text-balance md:text-5xl">
+        {title}
+      </h2>
+      {subtitle && <p className="mt-4 text-base text-muted-foreground text-pretty md:text-lg">{subtitle}</p>}
+    </Reveal>
+  );
+}
 
 function Home() {
   return (
     <>
       <PageLoader />
       <Nav />
-      <main className="relative overflow-x-clip">
+      <ScrollToTop />
+      <main id="top">
         <Hero />
-        <Marquee />
-        <About />
-        <Skills />
         <Work />
+        <About />
         <Process />
+        <Skills />
+        <Tools />
+        <Education />
+        <WhyMe />
+        <ResumeCTA />
         <Contact />
       </main>
       <Footer />
-      <ScrollToTop />
-
     </>
   );
 }
 
-/* ---------- HERO ---------- */
+/* ---------------- Hero ---------------- */
 function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-
-  // mouse parallax
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const px = useSpring(mx, { stiffness: 60, damping: 20 });
-  const py = useSpring(my, { stiffness: 60, damping: 20 });
-  const contentX = useTransform(px, (v) => v * 14);
-  const contentY = useTransform(py, (v) => v * 10);
-  const portraitX = useTransform(px, (v) => v * -34);
-  const portraitY = useTransform(py, (v) => v * -22);
-
-  const onHeroMove = (e: React.MouseEvent) => {
-    const r = ref.current?.getBoundingClientRect();
-    if (!r) return;
-    mx.set((e.clientX - r.left) / r.width - 0.5);
-    my.set((e.clientY - r.top) / r.height - 0.5);
-  };
-
   return (
-    <section
-      ref={ref}
-      onMouseMove={onHeroMove}
-      className="relative flex min-h-dvh flex-col justify-center overflow-hidden pt-32 pb-16"
-    >
-      {/* Animated multi-color aurora background + light rays + noise */}
-      <div className="aurora-bg light-rays noise absolute inset-0 -z-10" />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,transparent,var(--background))]" />
-      <Particles count={26} />
-
-
-      <motion.div style={{ y, opacity, x: contentX, translateY: contentY }} className="mx-auto w-full max-w-7xl px-6">
-        <div className="mb-8 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-            <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-          </span>
-          Available for junior UI/UX roles · 2026
-        </div>
-
-        <div aria-hidden className="pointer-events-none absolute left-0 top-1/3 -z-10 size-[38rem] rounded-full bg-accent/15 blur-[140px]" />
-        <h1 className="font-display text-[15vw] font-medium leading-[0.95] tracking-[-0.04em] text-balance md:text-[9rem]">
-          <SplitText text="Designing" />
-          <br />
-          <span className="italic text-muted-foreground"><SplitText text="thoughtful" /></span>
-          <br />
-          <SplitText text="experiences." />
-        </h1>
-
-        <div className="mt-12 grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
-          <Reveal delay={0.8}>
-            <p className="max-w-xl text-lg text-muted-foreground text-pretty md:text-xl">
-              Hi, I'm <span className="text-foreground">Srinivasan S</span> — a UI/UX designer
-              solving real-world problems through user-centered design, motion, and a genuine
-              obsession with craft.
-            </p>
-          </Reveal>
-
-          <Reveal delay={1}>
-            <div className="flex flex-wrap items-center gap-3">
-              <MagneticButton
-                href="#work"
-                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background"
-              >
-                View case studies <ArrowDown className="size-4" />
-              </MagneticButton>
-              <MagneticButton
-                href="/Srinivasan_S_Resume.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3.5 text-sm font-medium"
-              >
-                Resume <Download className="size-4" />
-              </MagneticButton>
-              <MagneticButton
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-6 py-3.5 text-sm font-medium hover:bg-muted"
-              >
-                Contact
-              </MagneticButton>
-              <BehanceButton />
-            </div>
-          </Reveal>
-        </div>
-      </motion.div>
-
-      {/* Floating profile card — portrait with orbiting info badges */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.92, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ delay: 1.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        style={{ x: portraitX, y: portraitY }}
-        className="pointer-events-none absolute right-[3%] top-[9%] hidden md:block"
-      >
-        <div className="animate-float relative">
-          <div className="absolute -inset-12 rounded-[2.5rem] bg-accent/30 blur-3xl" />
-          <div className="relative aspect-[4/5] w-[22rem] overflow-hidden rounded-[2rem] border border-border bg-surface shadow-2xl lg:w-[26rem]">
-            <img src={assets.profile} alt="Srinivasan S portrait" className="size-full object-cover" />
+    <section className="relative overflow-hidden px-5 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.25fr_0.75fr]">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium">
+            <span className="size-2 rounded-full bg-accent" aria-hidden />
+            Available for UI/UX opportunities
           </div>
 
-          {/* Floating pill — top-left */}
-          <motion.div
-            initial={{ opacity: 0, x: -20, y: -10 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.6 }}
-            className="absolute -left-6 -top-4 flex items-center gap-3 rounded-full border border-border bg-background/95 px-4 py-2.5 shadow-xl backdrop-blur"
-          >
-            <div className="grid size-9 place-items-center rounded-full bg-[#6366F1] text-white">
-              <Palette className="size-4" />
-            </div>
-            <div className="pr-1">
-              <div className="text-sm font-semibold leading-tight">Design Systems</div>
-              <div className="text-[11px] text-muted-foreground leading-tight">Figma · Variants</div>
-            </div>
-          </motion.div>
-
-          {/* Floating pill — bottom-right */}
-          <motion.div
-            initial={{ opacity: 0, x: 20, y: 10 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ delay: 1.7, duration: 0.6 }}
-            className="absolute -bottom-4 -right-6 flex items-center gap-3 rounded-full border border-border bg-background/95 px-4 py-2.5 shadow-xl backdrop-blur"
-          >
-            <div className="grid size-9 place-items-center rounded-full bg-foreground text-background">
-              <Search className="size-4" />
-            </div>
-            <div className="pr-1">
-              <div className="text-sm font-semibold leading-tight">User Research</div>
-              <div className="text-[11px] text-muted-foreground leading-tight">Interviews · Maze</div>
-            </div>
-          </motion.div>
-
-          {/* Role tag centered under photo */}
-          <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-foreground px-5 py-2 text-sm font-medium text-background whitespace-nowrap shadow-xl">
+          <h1 className="mt-7 font-display text-[2.7rem] font-medium leading-[1.03] tracking-tight md:text-7xl lg:text-8xl">
+            <SplitText text="Srinivasan S" />
+          </h1>
+          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted-foreground md:text-base">
             UI/UX Designer
-          </div>
-        </div>
-      </motion.div>
+          </p>
+          <p className="mt-6 max-w-2xl font-display text-xl leading-snug text-balance md:text-3xl">
+            Designing simple, useful and meaningful digital experiences.
+          </p>
 
-
-      <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 md:block">
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="flex flex-col items-center gap-2 text-xs uppercase tracking-widest text-muted-foreground"
-        >
-          Scroll
-          <div className="h-8 w-px bg-border" />
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- MARQUEE ---------- */
-function Marquee() {
-  const items = [
-    "Product Design",
-    "UX Research",
-    "Design Systems",
-    "Motion",
-    "Prototyping",
-    "Accessibility",
-    "AR / VR",
-    "AI Interfaces",
-  ];
-  return (
-    <div className="relative overflow-hidden border-y border-border bg-surface py-6">
-      <div className="animate-marquee flex whitespace-nowrap">
-        {[...items, ...items, ...items].map((it, i) => (
-          <div key={i} className="flex items-center gap-8 px-8 font-display text-3xl font-medium tracking-tight md:text-5xl">
-            <span>{it}</span>
-            <span className="text-accent">✦</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* ---------- ABOUT ---------- */
-function About() {
-  return (
-    <section id="about" className="mx-auto max-w-7xl px-6 py-32">
-      <div className="grid gap-16 md:grid-cols-[1fr_1.4fr]">
-        <div className="md:sticky md:top-32 md:self-start">
-          <BlurReveal>
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">About</div>
-            <div className="mt-4 font-display text-5xl font-medium leading-[1.05] tracking-tight">
-              A designer<br />with a<br /><span className="italic text-muted-foreground">researcher's</span><br />mind.
-            </div>
-          </BlurReveal>
-        </div>
-
-        <div className="space-y-10 text-lg leading-relaxed text-pretty md:text-xl">
-          <BlurReveal>
+          <div className="mt-6 max-w-2xl space-y-4 text-base text-muted-foreground text-pretty">
             <p>
-              I began in the sciences, learning to interrogate assumptions before touching a
-              single deliverable. That instinct now shapes every product I design — I don't
-              start with pixels, I start with <span className="text-foreground">why this, why now, for whom.</span>
+              I'm Srinivasan S, a UI/UX Designer focused on creating intuitive digital experiences
+              through user research, information architecture, interaction design, visual design and
+              prototyping.
             </p>
-          </BlurReveal>
-          <BlurReveal delay={0.1}>
-            <p className="text-muted-foreground">
-              My work lives at the intersection of <span className="text-foreground">human-centered research</span>,
-              <span className="text-foreground"> systems thinking</span>, and{" "}
-              <span className="text-foreground">AI-powered workflows</span>. I care deeply about
-              accessibility, motion that means something, and interfaces that respect the person
-              on the other side of the screen.
+            <p>
+              I enjoy solving complex problems and transforming them into simple, accessible and
+              user-friendly product experiences.
             </p>
-          </BlurReveal>
-          <BlurReveal delay={0.15}>
-            <div className="grid gap-6 sm:grid-cols-2">
-              {[
-                { k: "Based in", v: "Chennai, India" },
-                { k: "Focus", v: "Product · Motion · Systems" },
-                { k: "Tools", v: "Figma, Framer, Rive, Spline" },
-                { k: "Currently", v: "Building case-study portfolio" },
-              ].map((it) => (
-                <div key={it.k} className="border-t border-border pt-4">
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground">{it.k}</div>
-                  <div className="mt-1 text-base font-medium">{it.v}</div>
-                </div>
-              ))}
-            </div>
-          </BlurReveal>
+          </div>
+
+          <div className="mt-9 flex flex-wrap items-center gap-3">
+            <MagneticButton
+              href="#work"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:scale-[1.02]"
+            >
+              View My Work <ArrowRight className="size-4" />
+            </MagneticButton>
+            <MagneticButton
+              href={RESUME}
+              download
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition-transform hover:scale-[1.02]"
+            >
+              Download Resume <Download className="size-4" />
+            </MagneticButton>
+            <a
+              href="#contact"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-surface px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-muted"
+            >
+              Let's Connect <ArrowUpRight className="size-4" />
+            </a>
+          </div>
+
+          <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
+            <MapPin className="size-4" aria-hidden /> Bengaluru, Karnataka, India
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
 
-/* ---------- SKILLS ---------- */
-function Skills() {
-  const groups = [
-    { icon: Search, title: "UX Research", items: ["Interviews", "Usability testing", "Journey mapping", "Personas", "Competitive audit"] },
-    { icon: Palette, title: "UI Design", items: ["Visual systems", "Iconography", "Motion", "Typography", "Colour"] },
-    { icon: Layers, title: "Design Systems", items: ["Tokens", "Components", "Auto Layout", "Documentation", "Governance"] },
-    { icon: Cpu, title: "AI Tools", items: ["GPT for research synth", "Midjourney", "Runway", "Uizard", "Galileo"] },
-    { icon: Grid3x3, title: "Prototyping", items: ["Figma", "Framer", "ProtoPie", "Rive", "Spline"] },
-    { icon: Wrench, title: "Tools", items: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "Notion, Miro"] },
-  ];
-  return (
-    <section id="skills" className="border-t border-border bg-surface">
-      <div className="mx-auto max-w-7xl px-6 py-32">
-        <Reveal>
-          <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Skills</div>
-              <h2 className="mt-4 font-display text-5xl font-medium tracking-tight md:text-6xl">
-                A generalist's toolkit<br /><span className="text-muted-foreground italic">with specialist depth.</span>
-              </h2>
+        <Reveal delay={0.15} className="justify-self-center lg:justify-self-end">
+          <div className="relative">
+            <div className="overflow-hidden rounded-3xl border border-border bg-surface shadow-[var(--shadow-card)]">
+              <img
+                src={assets.profile}
+                alt="Portrait of Srinivasan S, UI/UX Designer"
+                className="h-[380px] w-[300px] object-cover md:h-[460px] md:w-[360px]"
+                loading="eager"
+              />
             </div>
-            <div className="max-w-sm text-muted-foreground">
-              I move fluidly between research, systems and motion — and pair every artefact
-              with the thinking behind it.
+            <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] md:block">
+              <div className="eyebrow">Focus</div>
+              <div className="mt-1 text-sm font-medium">Product & Interaction Design</div>
             </div>
           </div>
         </Reveal>
+      </div>
 
-        <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {groups.map((g) => (
-            <StaggerItem key={g.title} className="h-full">
-              <TiltCard className="group relative h-full rounded-3xl border border-border bg-background p-8 transition-shadow hover:shadow-2xl">
-                <div className="absolute inset-0 rounded-3xl opacity-0 transition-opacity group-hover:opacity-100" style={{ background: `radial-gradient(600px circle at var(--x,50%) var(--y,50%), color-mix(in oklab, var(--accent) 12%, transparent), transparent 40%)` }} />
-                <g.icon className="size-6 text-accent" />
-                <div className="mt-8 font-display text-2xl font-medium">{g.title}</div>
-                <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-                  {g.items.map((it) => (
-                    <li key={it} className="flex items-center gap-2">
-                      <span className="size-1 rounded-full bg-accent" /> {it}
-                    </li>
-                  ))}
-                </ul>
-              </TiltCard>
-            </StaggerItem>
+      <div className="mx-auto mt-16 max-w-7xl border-y border-border py-5">
+        <ul className="flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+          {DISCIPLINES.map((d) => (
+            <li key={d}>{d}</li>
           ))}
-        </Stagger>
-
-        {/* Tools — brand logos strip */}
-        <Reveal delay={0.1}>
-          <div className="mt-20 rounded-3xl border border-border bg-background p-8 md:p-10">
-            <div className="mb-8 flex items-baseline justify-between gap-4">
-              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Tools I use daily</div>
-              <div className="hidden text-xs text-muted-foreground sm:block">Design · Prototype · Ship</div>
-            </div>
-            <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-5">
-              {[
-                { name: "Behance", src: behanceLogo.url },
-                { name: "Figma", src: figmaLogo.url },
-                { name: "Claude", src: claudeLogo.url },
-                { name: "Notion", src: notionLogo.url },
-                { name: "ChatGPT", src: chatgptLogo.url },
-                { name: "Dribbble", src: dribbbleLogo.url },
-                { name: "Whimsical", src: whimsicalLogo.url },
-                { name: "SurveyMonkey", src: surveymonkeyLogo.url },
-                { name: "Spline", src: splineLogo.url },
-                { name: "Visily", src: visilyLogo.url },
-                { name: "Maze", src: mazeLogo.url },
-                { name: "GitHub", src: githubLogo.url },
-                { name: "Framer", src: framerLogo.url },
-                { name: "Gemini", src: geminiLogo.url },
-                { name: "Lovable", src: lovableLogo.url },
-              ].map((t) => (
-                <div
-                  key={t.name}
-                  data-cursor-hover
-                  className="group flex flex-col items-center gap-3 rounded-2xl border border-transparent p-4 transition-all hover:-translate-y-1 hover:border-border hover:bg-surface hover:shadow-lg"
-                >
-                  <div className="grid size-14 place-items-center rounded-xl bg-white p-2 shadow-sm ring-1 ring-black/5">
-                    <img
-                      src={t.src}
-                      alt={t.name}
-                      loading="lazy"
-                      className="size-10 object-contain transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="text-center text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground">
-                    {t.name}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
+        </ul>
       </div>
     </section>
   );
 }
 
-/* ---------- WORK ---------- */
+/* ---------------- Selected Case Studies ---------------- */
 function Work() {
   return (
-    <section id="work" className="mx-auto max-w-7xl px-6 py-32">
-      <Reveal>
-        <div className="mb-16 flex items-end justify-between gap-6">
-          <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Selected Work · {projects.length} case studies</div>
-            <h2 className="mt-4 font-display text-5xl font-medium tracking-tight md:text-7xl">
-              Case studies,<br /><span className="italic text-muted-foreground">not screenshots.</span>
-            </h2>
-          </div>
-          <Sparkles className="hidden size-8 text-accent md:block" />
-        </div>
-      </Reveal>
+    <section id="work" className="scroll-mt-24 px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading
+          eyebrow="Work"
+          title="Selected Case Studies"
+          subtitle="Exploring real-world problems through research, UX thinking, interaction design and visual design."
+        />
 
-      <div className="space-y-6">
-        {projects.map((p, i) => (
-          <MaskReveal key={p.slug} delay={i * 0.05}>
-            <div
-              className="group relative overflow-hidden rounded-3xl border border-border bg-surface"
-              data-cursor-hover
-            >
-              <div className="grid gap-0 md:grid-cols-[1fr_1.2fr]">
-                <div className="flex flex-col justify-between gap-10 p-8 md:p-12">
-                  <div className="flex items-start justify-between">
-                    <span className="font-mono text-xs text-muted-foreground">{p.index} / {String(projects.length).padStart(2,"0")}</span>
-                    <span className="text-xs uppercase tracking-widest text-muted-foreground">{p.category}</span>
-                  </div>
-                  <div>
-                    <Link
-                      to="/projects/$slug"
-                      params={{ slug: p.slug }}
-                      className="block"
-                    >
-                      <div className="font-display text-4xl font-medium tracking-tight md:text-6xl">{p.title}</div>
-                      <p className="mt-4 max-w-md text-muted-foreground">{p.subtitle}</p>
-                    </Link>
-                    <div className="mt-8 flex flex-wrap items-center gap-3">
-                      <span className="rounded-full border border-border px-3 py-1 text-xs">{p.year}</span>
-                      <span className="rounded-full border border-border px-3 py-1 text-xs">{p.role}</span>
-                      <span className="rounded-full border border-border px-3 py-1 text-xs">{p.duration}</span>
+        <div className="mt-14 space-y-10 md:space-y-16">
+          {projects.map((p, i) => (
+            <Reveal key={p.slug} delay={i * 0.05}>
+              <article className="group overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-shadow duration-300 hover:shadow-[0_30px_70px_-40px_rgba(16,24,40,0.4)]">
+                <div className="grid gap-0 lg:grid-cols-2">
+                  <Link
+                    to="/projects/$slug"
+                    params={{ slug: p.slug }}
+                    aria-label={`View ${p.title} case study`}
+                    className="relative block overflow-hidden bg-muted"
+                  >
+                    <img
+                      src={p.image}
+                      alt={`${p.title} — ${p.category} case study cover`}
+                      loading="lazy"
+                      className="h-64 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] md:h-full md:min-h-[380px]"
+                    />
+                  </Link>
+
+                  <div className="flex flex-col justify-center gap-5 p-6 md:p-10">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="font-display text-sm text-muted-foreground">Project {p.index}</span>
+                      <span
+                        className="rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em]"
+                        style={{ background: `${p.color}1a`, color: p.color }}
+                      >
+                        {p.label}
+                      </span>
                     </div>
-                    <ProjectLinks links={p.links} accent={p.color} size="sm" className="mt-6" />
-                    <Link
-                      to="/projects/$slug"
-                      params={{ slug: p.slug }}
-                      className="mt-6 inline-flex items-center gap-2 text-sm font-medium transition-transform hover:translate-x-1"
-                    >
-                      Read case study <ArrowUpRight className="size-4 transition-transform group-hover:rotate-45" />
-                    </Link>
+
+                    <div>
+                      <h3 className="font-display text-2xl font-medium tracking-tight md:text-4xl">
+                        {p.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{p.category}</p>
+                    </div>
+
+                    <p className="max-w-xl text-base text-muted-foreground text-pretty">{p.overview.split(". ")[0]}.</p>
+
+                    <ul className="flex flex-wrap gap-2">
+                      {p.highlights.map((h) => (
+                        <li
+                          key={h}
+                          className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs text-muted-foreground"
+                        >
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap items-center gap-3 pt-1">
+                      <Link
+                        to="/projects/$slug"
+                        params={{ slug: p.slug }}
+                        className="inline-flex min-h-11 items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:scale-[1.02]"
+                      >
+                        View Case Study <ArrowUpRight className="size-4" />
+                      </Link>
+                      <ProjectLinks links={p.links} accent={p.color} size="sm" stopPropagation />
+                    </div>
                   </div>
                 </div>
-                <Link
-                  to="/projects/$slug"
-                  params={{ slug: p.slug }}
-                  className="relative aspect-[4/3] overflow-hidden md:aspect-auto"
-                  style={{ background: p.color + "18" }}
-                >
-                  <motion.img
-                    src={p.image}
-                    alt={p.title}
-                    className="absolute inset-0 size-full object-cover"
-                    initial={{ scale: 1.05 }}
-                    whileHover={{ scale: 1.12 }}
-                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent" />
-                </Link>
-              </div>
-            </div>
-          </MaskReveal>
-        ))}
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
-
-/* ---------- PROCESS ---------- */
-function Process() {
-  const steps = [
-    { k: "01", t: "Empathize", d: "Interviews, shadowing, diary studies to understand the real problem." },
-    { k: "02", t: "Define", d: "Synthesize into personas, jobs-to-be-done and a sharp problem statement." },
-    { k: "03", t: "Research", d: "Competitive audits, opportunity mapping, technical constraints." },
-    { k: "04", t: "Ideate", d: "Sketching, storyboards, Crazy 8s — quantity to reach quality." },
-    { k: "05", t: "Wireframe", d: "Low & mid fidelity to test flow, hierarchy and information architecture." },
-    { k: "06", t: "Prototype", d: "High-fidelity, motion-rich prototypes tested with real users." },
-    { k: "07", t: "Test", d: "Usability testing, task success, SUS scoring, iteration." },
-    { k: "08", t: "Deliver", d: "Design system, spec, motion guidelines, dev handoff." },
-  ];
+/* ---------------- About ---------------- */
+function About() {
   return (
-    <section id="process" className="mx-auto max-w-7xl px-6 py-32">
-      <Reveal>
-        <div className="mb-20 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-          <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Process</div>
-            <h2 className="mt-4 font-display text-5xl font-medium tracking-tight md:text-7xl">
-              How I<br /><span className="italic text-muted-foreground">actually work.</span>
-            </h2>
-          </div>
-        </div>
-      </Reveal>
+    <section id="about" className="scroll-mt-24 border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr]">
+        <SectionHeading eyebrow="About" title="From Engineering to UI/UX Design." />
+        <Reveal delay={0.1} className="space-y-5 text-base text-muted-foreground text-pretty">
+          <p>
+            I come from a Mechanical Engineering background, where I developed a structured approach
+            to problem solving and understanding complex systems.
+          </p>
+          <p>
+            My interest in digital products led me to transition into UI/UX Design. I now focus on
+            understanding users, defining problems, creating user flows, designing interfaces and
+            building interactive prototypes.
+          </p>
+          <p>
+            I combine structured thinking with creativity to design simple and meaningful digital
+            experiences.
+          </p>
+          <ul className="flex flex-wrap gap-2 pt-2">
+            {DISCIPLINES.map((d) => (
+              <li key={d} className="rounded-full border border-border bg-background px-4 py-2 text-sm text-foreground">
+                {d}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
 
-      <div className="relative">
-        <div className="absolute left-[19px] top-0 h-full w-px bg-border md:left-1/2" />
-        <div className="space-y-8">
-          {steps.map((s, i) => (
-            <Reveal key={s.k} delay={i * 0.04}>
-              <div className={`grid gap-6 md:grid-cols-2 md:items-center ${i % 2 ? "md:[&>*:first-child]:col-start-2" : ""}`}>
-                <div className="relative pl-14 md:pl-0">
-                  <div className="absolute left-0 top-1 size-10 rounded-full bg-foreground text-background grid place-items-center font-mono text-xs md:left-1/2 md:-translate-x-1/2">
-                    {s.k}
-                  </div>
-                  <div className={`rounded-3xl border border-border bg-surface p-8 ${i % 2 ? "md:mr-16" : "md:ml-16"}`}>
-                    <div className="font-display text-2xl font-medium">{s.t}</div>
-                    <div className="mt-2 text-muted-foreground">{s.d}</div>
-                  </div>
-                </div>
-                <div />
+/* ---------------- Process ---------------- */
+function Process() {
+  return (
+    <section id="process" className="scroll-mt-24 px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading eyebrow="Process" title="My Design Process" />
+        <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {PROCESS.map((s, i) => (
+            <Reveal key={s.n} delay={i * 0.04} className="bg-card">
+              <div className="h-full p-7">
+                <div className="font-display text-sm text-accent">{s.n}</div>
+                <h3 className="mt-3 text-base font-semibold uppercase tracking-[0.12em]">{s.t}</h3>
+                <p className="mt-3 text-sm text-muted-foreground text-pretty">{s.d}</p>
               </div>
             </Reveal>
           ))}
@@ -539,79 +440,211 @@ function Process() {
   );
 }
 
-/* ---------- CONTACT ---------- */
-function Contact() {
+/* ---------------- Skills ---------------- */
+function Skills() {
   return (
-    <section id="contact" className="relative overflow-hidden border-t border-border bg-surface">
-      <div className="aurora-bg absolute inset-0 -z-10 opacity-80" />
-      <div className="mx-auto grid max-w-7xl gap-16 px-6 py-32 md:grid-cols-[1fr_1fr]">
-        <Reveal>
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Contact</div>
-          <h2 className="mt-4 font-display text-6xl font-medium tracking-tight md:text-8xl">
-            Have a project<br />in mind?<span className="text-accent">.</span>
-          </h2>
-          <p className="mt-6 max-w-md text-muted-foreground">
-            I'm currently open to junior UI/UX roles, internships and freelance case-study
-            collaborations. The fastest way to reach me is email.
-          </p>
+    <section id="skills" className="scroll-mt-24 border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading eyebrow="Skills" title="What I work on" />
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {SKILLS.map((s, i) => (
+            <Reveal key={s.group} delay={i * 0.05}>
+              <div className="h-full rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)]">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  {s.group}
+                </h3>
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {s.items.map((it) => (
+                    <li
+                      key={it}
+                      className="rounded-full border border-border bg-background px-4 py-2 text-sm"
+                    >
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-          <div className="mt-10 space-y-4">
-            <a href="mailto:srinivasan.04062k3@gmail.com" className="group flex items-center gap-4 border-b border-border pb-4">
-              <Mail className="size-5 text-accent" />
-              <div>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground">Email</div>
-                <div className="text-lg font-medium group-hover:text-accent">srinivasan.04062k3@gmail.com</div>
+/* ---------------- Tools ---------------- */
+function Tools() {
+  return (
+    <section className="px-5 py-14 md:px-8 md:py-16">
+      <div className="mx-auto max-w-7xl">
+        <Reveal>
+          <div className="eyebrow">Tools</div>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <ul className="mt-6 flex flex-wrap gap-3">
+            {TOOLS.map((t) => (
+              <li
+                key={t.name}
+                className="flex items-center gap-2.5 rounded-2xl border border-border bg-card px-4 py-2.5 text-sm transition-transform hover:-translate-y-0.5"
+              >
+                {t.logo ? (
+                  <span className="grid size-7 place-items-center overflow-hidden rounded-lg bg-white">
+                    <img src={t.logo} alt="" aria-hidden className="size-5 object-contain" loading="lazy" />
+                  </span>
+                ) : (
+                  <span className="grid size-7 place-items-center rounded-lg bg-muted text-[0.7rem] font-semibold">
+                    {t.name.slice(0, 2)}
+                  </span>
+                )}
+                {t.name}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Education ---------------- */
+function Education() {
+  return (
+    <section className="border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading eyebrow="Education" title="Education & Certification" />
+        <div className="mt-12 grid gap-10 md:grid-cols-2">
+          <div>
+            <h3 className="eyebrow">Academic</h3>
+            <div className="mt-5 space-y-4">
+              {EDUCATION.map((e, i) => (
+                <Reveal key={e.title} delay={i * 0.05}>
+                  <div className="rounded-2xl border border-border bg-card p-6">
+                    <div className="text-base font-medium">{e.title}</div>
+                    <div className="mt-1 text-sm text-muted-foreground">{e.place}</div>
+                    <div className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">{e.time}</div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="eyebrow">UI/UX Education</h3>
+            <div className="mt-5 space-y-4">
+              {UIUX_EDUCATION.map((e, i) => (
+                <Reveal key={e.title} delay={i * 0.05}>
+                  <div className="rounded-2xl border border-border bg-card p-6">
+                    <div className="text-base font-medium text-pretty">{e.title}</div>
+                    <div className="mt-1 text-sm text-muted-foreground">{e.place}</div>
+                    <div className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">{e.time}</div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Why me ---------------- */
+function WhyMe() {
+  return (
+    <section className="px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading eyebrow="Why me" title="Why work with me?" />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {WHY.map((w, i) => (
+            <Reveal key={w.t} delay={i * 0.05}>
+              <div className="h-full rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)]">
+                <div className="h-1 w-10 rounded-full bg-accent" aria-hidden />
+                <h3 className="mt-5 text-sm font-semibold uppercase tracking-[0.14em]">{w.t}</h3>
+                <p className="mt-3 text-sm text-muted-foreground text-pretty">{w.d}</p>
               </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Resume CTA ---------------- */
+function ResumeCTA() {
+  return (
+    <section id="resume" className="scroll-mt-24 px-5 pb-20 md:px-8 md:pb-28">
+      <div className="mx-auto max-w-7xl rounded-3xl border border-border bg-foreground px-6 py-14 text-background md:px-14 md:py-20">
+        <Reveal>
+          <h2 className="max-w-3xl font-display text-3xl font-medium tracking-tight text-balance md:text-5xl">
+            Ready to create better digital experiences?
+          </h2>
+          <p className="mt-5 max-w-2xl text-base opacity-75 text-pretty">
+            I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX Internship
+            opportunities where I can learn, contribute and grow with a product team.
+          </p>
+          <div className="mt-9 flex flex-wrap gap-3">
+            <a
+              href={RESUME}
+              download
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition-transform hover:scale-[1.02]"
+            >
+              Download Resume <Download className="size-4" />
             </a>
-            <a href="tel:+919342784192" className="group flex items-center gap-4 border-b border-border pb-4">
-              <Phone className="size-5 text-accent" />
-              <div>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground">Phone</div>
-                <div className="text-lg font-medium group-hover:text-accent">+91 93427 84192</div>
-              </div>
+            <a
+              href={BEHANCE}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-background/30 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-background/10"
+            >
+              View Behance <ArrowUpRight className="size-4" />
             </a>
-            <a href="https://www.behance.net/srinivasan128" target="_blank" rel="noreferrer" className="group flex items-center gap-4 border-b border-border pb-4">
-              <ArrowUpRight className="size-5 text-accent" />
-              <div>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground">Behance</div>
-                <div className="text-lg font-medium group-hover:text-accent">behance.net/srinivasan128</div>
-              </div>
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-background/30 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-background/10"
+            >
+              LinkedIn <ArrowUpRight className="size-4" />
             </a>
           </div>
         </Reveal>
+      </div>
+    </section>
+  );
+}
 
-        <Reveal delay={0.1}>
-          <form
-            className="rounded-3xl border border-border bg-background p-8 shadow-xl md:p-10"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const form = e.currentTarget as HTMLFormElement;
-              const fd = new FormData(form);
-              const subject = encodeURIComponent(`Portfolio enquiry from ${fd.get("name")}`);
-              const body = encodeURIComponent(`${fd.get("message")}\n\n— ${fd.get("name")} (${fd.get("email")})`);
-              window.location.href = `mailto:srinivasan.04062k3@gmail.com?subject=${subject}&body=${body}`;
-            }}
-          >
-            <div className="font-display text-xl">Send a message</div>
-            <div className="mt-6 space-y-5">
-              {[
-                { name: "name", label: "Your name", type: "text" },
-                { name: "email", label: "Email", type: "email" },
-              ].map((f) => (
-                <label key={f.name} className="block">
-                  <span className="text-xs uppercase tracking-widest text-muted-foreground">{f.label}</span>
-                  <input required name={f.name} type={f.type} className="mt-2 w-full border-b border-border bg-transparent py-3 text-lg outline-none transition-colors focus:border-accent" />
-                </label>
-              ))}
-              <label className="block">
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">Message</span>
-                <textarea required name="message" rows={4} className="mt-2 w-full resize-none border-b border-border bg-transparent py-3 text-lg outline-none transition-colors focus:border-accent" />
-              </label>
-            </div>
-            <button type="submit" className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition-transform hover:scale-[1.03]">
-              Send message <ArrowUpRight className="size-4" />
-            </button>
-          </form>
+/* ---------------- Contact ---------------- */
+function Contact() {
+  return (
+    <section id="contact" className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr]">
+        <SectionHeading
+          eyebrow="Contact"
+          title="Let's Create Something Meaningful."
+          subtitle="I'm open to UI/UX opportunities, internships, freelance projects and product design collaborations."
+        />
+        <Reveal delay={0.1} className="space-y-3">
+          {[
+            { label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, icon: true },
+            { label: "LinkedIn", value: "linkedin.com/in/srinivasan-s", href: LINKEDIN },
+            { label: "Behance", value: "behance.net/srinivasan128", href: BEHANCE },
+          ].map((c) => (
+            <a
+              key={c.label}
+              href={c.href}
+              {...(c.icon ? {} : { target: "_blank", rel: "noreferrer" })}
+              className="flex min-h-14 items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-4 transition-colors hover:bg-muted"
+            >
+              <span className="flex items-center gap-3">
+                {c.icon && <Mail className="size-4 text-muted-foreground" aria-hidden />}
+                <span>
+                  <span className="block text-xs uppercase tracking-[0.14em] text-muted-foreground">{c.label}</span>
+                  <span className="block break-all text-sm md:text-base">{c.value}</span>
+                </span>
+              </span>
+              <ArrowUpRight className="size-4 shrink-0 text-muted-foreground" aria-hidden />
+            </a>
+          ))}
         </Reveal>
       </div>
     </section>
