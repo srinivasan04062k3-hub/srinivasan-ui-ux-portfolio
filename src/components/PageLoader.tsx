@@ -15,7 +15,7 @@ export function PageLoader() {
     sessionStorage.setItem("loader:seen", "1");
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const dur = reduce ? 800 : 4000;
+    const dur = reduce ? 600 : 3200;
     let raf = 0;
     const start = performance.now();
     const tick = (t: number) => {
@@ -41,7 +41,7 @@ export function PageLoader() {
     <AnimatePresence>
       {!done && (
         <motion.div
-          className="aurora-bg noise fixed inset-0 z-[10000] flex flex-col items-center justify-center overflow-hidden bg-background"
+          className="fixed inset-0 z-[10000] flex flex-col items-center justify-center overflow-hidden bg-background"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.06, filter: "blur(12px)" }}
           transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
