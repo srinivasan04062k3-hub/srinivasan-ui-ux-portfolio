@@ -256,7 +256,7 @@ function Hero() {
             </MagneticButton>
             <MagneticButton
               href={RESUME}
-              download
+              download=""
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition-transform hover:scale-[1.02]"
             >
               Download Resume <Download className="size-4" />
