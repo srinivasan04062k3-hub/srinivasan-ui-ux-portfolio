@@ -11,7 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { CustomCursor } from "@/components/CustomCursor";
 import { SmoothScroll } from "@/components/SmoothScroll";
 
 function NotFoundComponent() {
@@ -78,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Portfolio of Srinivasan S — a UI/UX designer crafting thoughtful digital experiences across AR/VR, healthcare, fintech and AI products.",
+          "Srinivasan S is a UI/UX Designer based in Bengaluru, India, focused on intuitive digital experiences through user-centered design and prototyping.",
       },
       { name: "author", content: "Srinivasan S" },
       { property: "og:title", content: "Srinivasan S — UI/UX Designer Portfolio" },
       {
         property: "og:description",
         content:
-          "Case studies in AR/VR, healthcare, fintech and AI — designed with craft, motion and human-centered thinking.",
+          "Concept case studies in mobility, fintech, AR/VR, AI and healthcare — research, interaction design and prototyping.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -126,7 +125,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <SmoothScroll />
-      <CustomCursor />
       <Outlet />
     </QueryClientProvider>
   );
