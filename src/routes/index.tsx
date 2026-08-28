@@ -353,6 +353,17 @@ function Work() {
 
                     <p className="max-w-xl text-base text-muted-foreground text-pretty">{p.overview.split(". ")[0]}.</p>
 
+                    {p.outcome?.[0] && (
+                      <p className="flex items-start gap-2 text-sm font-medium text-foreground">
+                        <span
+                          aria-hidden
+                          className="mt-1.5 size-2 shrink-0 rounded-full"
+                          style={{ background: p.color }}
+                        />
+                        <span>Outcome: {p.outcome[0]}</span>
+                      </p>
+                    )}
+
                     <ul className="flex flex-wrap gap-2">
                       {p.highlights.map((h) => (
                         <li
