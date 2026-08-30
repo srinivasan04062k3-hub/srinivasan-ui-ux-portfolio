@@ -441,6 +441,14 @@ function About() {
               </li>
             ))}
           </ul>
+          <a
+            href="#contact"
+            className="group mt-4 inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-background outline-none transition-[filter] hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            aria-label="Let's connect — scroll to contact section"
+          >
+            Let's Connect
+            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+          </a>
         </Reveal>
       </div>
     </section>
