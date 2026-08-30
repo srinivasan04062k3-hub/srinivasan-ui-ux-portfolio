@@ -57,7 +57,7 @@ function CaseStudy() {
       <Nav />
       <motion.div style={{ width: progressWidth }} className="fixed inset-x-0 top-0 z-50 h-0.5 origin-left bg-accent" />
 
-      <main className="pt-24">
+      <main id="main" tabIndex={-1} className="pt-24">
         {/* HERO BANNER */}
         <section ref={heroRef} className="relative overflow-hidden">
           <div className="mx-auto max-w-7xl px-6 pt-16 pb-24">

@@ -197,7 +197,7 @@ function Home() {
       <PageLoader />
       <Nav />
       <ScrollToTop />
-      <main id="top">
+      <main id="main" tabIndex={-1}>
         <Hero />
         <Work />
         <About />
@@ -379,11 +379,18 @@ function Work() {
                       <Link
                         to="/projects/$slug"
                         params={{ slug: p.slug }}
-                        className="inline-flex min-h-11 items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:scale-[1.02]"
+                        aria-label={`View ${p.title} case study in detail`}
+                        className="inline-flex min-h-11 items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                       >
                         View Case Study <ArrowUpRight className="size-4" />
                       </Link>
                       <ProjectLinks links={p.links} accent={p.color} size="sm" stopPropagation />
+                      {!p.links?.prototype && (
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-2 text-[0.68rem] font-medium uppercase tracking-[0.12em] text-muted-foreground">
+                          <span aria-hidden className="size-1.5 rounded-full bg-muted-foreground/60" />
+                          Concept / research-only
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
