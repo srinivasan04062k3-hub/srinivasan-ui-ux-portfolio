@@ -410,6 +410,17 @@ function About() {
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr]">
         <SectionHeading eyebrow="About" title="From Engineering to UI/UX Design." />
         <Reveal delay={0.1} className="space-y-5 text-base text-muted-foreground text-pretty">
+          <div className="flex items-center gap-2.5 rounded-full border border-border bg-background px-4 py-2 text-sm text-foreground w-fit">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            <span>
+              <span className="font-semibold text-accent">Currently:</span>{" "}
+              learning motion design & design systems, shipping concept case studies, and actively
+              seeking junior UI/UX roles in Bengaluru.
+            </span>
+          </div>
           <p>
             I come from a Mechanical Engineering background, where I developed a structured approach
             to problem solving and understanding complex systems.
