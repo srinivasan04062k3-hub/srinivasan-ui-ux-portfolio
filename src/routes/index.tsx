@@ -353,6 +353,21 @@ function Work() {
 
                     <p className="max-w-xl text-base text-muted-foreground text-pretty">{p.overview.split(". ")[0]}.</p>
 
+                    <dl className="grid gap-x-6 gap-y-3 border-y border-border py-4 text-sm sm:grid-cols-2">
+                      <div>
+                        <dt className="eyebrow">Role</dt>
+                        <dd className="mt-1">{p.role}</dd>
+                      </div>
+                      <div>
+                        <dt className="eyebrow">Project type</dt>
+                        <dd className="mt-1">{p.label} · {p.year}</dd>
+                      </div>
+                      <div className="sm:col-span-2">
+                        <dt className="eyebrow">Tools</dt>
+                        <dd className="mt-1">{p.tools.join(" · ")}</dd>
+                      </div>
+                    </dl>
+
                     {p.outcome?.[0] && (
                       <p className="flex items-start gap-2 text-sm font-medium text-foreground">
                         <span
