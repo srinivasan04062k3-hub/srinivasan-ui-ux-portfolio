@@ -662,12 +662,31 @@ function Contact() {
   return (
     <section id="contact" className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr]">
-        <SectionHeading
-          eyebrow="Contact"
-          title="Let's Create Something Meaningful."
-          subtitle="I'm open to UI/UX opportunities, internships, freelance projects and product design collaborations."
-        />
+        <div>
+          <SectionHeading
+            eyebrow="Contact"
+            title="Have a project, opportunity, or idea?"
+            subtitle="Let's create something meaningful together."
+          />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={`mailto:${EMAIL}`}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            >
+              Email Me <Mail className="size-4" aria-hidden />
+            </a>
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            >
+              LinkedIn <ArrowUpRight className="size-4" aria-hidden />
+            </a>
+          </div>
+        </div>
         <Reveal delay={0.1} className="space-y-3">
+
           {[
             { label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, icon: true },
             { label: "LinkedIn", value: "linkedin.com/in/srinivasan-s", href: LINKEDIN },
