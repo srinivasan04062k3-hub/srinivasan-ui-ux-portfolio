@@ -628,7 +628,7 @@ function ResumeCTA() {
       <div className="mx-auto max-w-7xl rounded-3xl border border-border bg-foreground px-6 py-14 text-background md:px-14 md:py-20">
         <Reveal>
           <h2 className="max-w-3xl font-display text-3xl font-medium tracking-tight text-balance md:text-5xl">
-            Ready to create better digital experiences?
+            Want to know more about my experience?
           </h2>
           <p className="mt-5 max-w-2xl text-base opacity-75 text-pretty">
             I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX Internship
@@ -643,20 +643,12 @@ function ResumeCTA() {
               Download Resume <Download className="size-4" />
             </a>
             <a
-              href={BEHANCE}
+              href={RESUME}
               target="_blank"
               rel="noreferrer"
               className="inline-flex min-h-11 items-center gap-2 rounded-full border border-background/30 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-background/10"
             >
-              View Behance <ArrowUpRight className="size-4" />
-            </a>
-            <a
-              href={LINKEDIN}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-background/30 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-background/10"
-            >
-              LinkedIn <ArrowUpRight className="size-4" />
+              View Resume <ArrowUpRight className="size-4" />
             </a>
           </div>
         </Reveal>
