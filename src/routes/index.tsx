@@ -696,7 +696,7 @@ function Contact() {
             <a
               key={c.label}
               href={c.href}
-              {...(c.icon ? {} : { target: "_blank", rel: "noreferrer" })}
+              {...(c.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
               className="flex min-h-14 items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-4 transition-colors hover:bg-muted"
             >
               <span className="flex items-center gap-3">
