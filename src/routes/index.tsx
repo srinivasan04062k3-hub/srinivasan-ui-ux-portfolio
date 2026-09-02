@@ -17,9 +17,9 @@ import geminiLogo from "@/assets/tools/gemini.png.asset.json";
 import claudeLogo from "@/assets/tools/claude.png.asset.json";
 import lovableLogo from "@/assets/tools/lovable.png.asset.json";
 
-const TITLE = "Srinivasan S — UI/UX Designer Portfolio";
+const TITLE = "Srinivasan S. — UI/UX Designer";
 const DESCRIPTION =
-  "Srinivasan S is a UI/UX Designer based in Bengaluru, India, focused on creating intuitive digital experiences through user-centered design, interaction design, visual design and prototyping.";
+  "UI/UX Designer creating intuitive, accessible, and meaningful digital experiences. Based in Bengaluru, India.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -222,30 +222,18 @@ function Hero() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium">
             <span className="size-2 rounded-full bg-accent" aria-hidden />
-            Available for UI/UX opportunities
+            Open to UI/UX &amp; Product Design Opportunities
           </div>
 
-          <h1 className="mt-7 font-display text-[2.7rem] font-medium leading-[1.03] tracking-tight md:text-7xl lg:text-8xl">
-            <SplitText text="Srinivasan S" />
+          <h1 className="mt-7 font-display text-[2.4rem] font-medium leading-[1.05] tracking-tight text-balance md:text-6xl lg:text-7xl">
+            <SplitText text="Hi, I'm Srinivasan" />
+            <span className="mt-2 block text-muted-foreground">UI/UX Designer</span>
           </h1>
-          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted-foreground md:text-base">
-            UI/UX Designer
-          </p>
-          <p className="mt-6 max-w-2xl font-display text-xl leading-snug text-balance md:text-3xl">
-            Designing simple, useful and meaningful digital experiences.
-          </p>
 
-          <div className="mt-6 max-w-2xl space-y-4 text-base text-muted-foreground text-pretty">
-            <p>
-              I'm Srinivasan S, a UI/UX Designer focused on creating intuitive digital experiences
-              through user research, information architecture, interaction design, visual design and
-              prototyping.
-            </p>
-            <p>
-              I enjoy solving complex problems and transforming them into simple, accessible and
-              user-friendly product experiences.
-            </p>
-          </div>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl">
+            I design intuitive, accessible, and meaningful digital experiences that solve real user
+            problems.
+          </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <MagneticButton
@@ -261,12 +249,24 @@ function Hero() {
             >
               Download Resume <Download className="size-4" />
             </MagneticButton>
-            <a
-              href="#contact"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-surface px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-muted"
-            >
-              Let's Connect <ArrowUpRight className="size-4" />
-            </a>
+          </div>
+
+          <div className="mt-7 flex flex-wrap items-center gap-2">
+            {[
+              { label: "LinkedIn", href: LINKEDIN, external: true },
+              { label: "Behance", href: BEHANCE, external: true },
+              { label: "Email", href: `mailto:${EMAIL}`, external: false },
+            ].map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-border bg-surface px-5 py-2.5 text-sm transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              >
+                {l.label}
+                <ArrowUpRight className="size-3.5 text-muted-foreground" aria-hidden />
+              </a>
+            ))}
           </div>
 
           <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
@@ -286,7 +286,7 @@ function Hero() {
             </div>
             <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] md:block">
               <div className="eyebrow">Focus</div>
-              <div className="mt-1 text-sm font-medium">Product & Interaction Design</div>
+              <div className="mt-1 text-sm font-medium">Product &amp; Interaction Design</div>
             </div>
           </div>
         </Reveal>
@@ -352,6 +352,21 @@ function Work() {
                     </div>
 
                     <p className="max-w-xl text-base text-muted-foreground text-pretty">{p.overview.split(". ")[0]}.</p>
+
+                    <dl className="grid gap-x-6 gap-y-3 border-y border-border py-4 text-sm sm:grid-cols-2">
+                      <div>
+                        <dt className="eyebrow">Role</dt>
+                        <dd className="mt-1">{p.role}</dd>
+                      </div>
+                      <div>
+                        <dt className="eyebrow">Project type</dt>
+                        <dd className="mt-1">{p.label} · {p.year}</dd>
+                      </div>
+                      <div className="sm:col-span-2">
+                        <dt className="eyebrow">Tools</dt>
+                        <dd className="mt-1">{p.tools.join(" · ")}</dd>
+                      </div>
+                    </dl>
 
                     {p.outcome?.[0] && (
                       <p className="flex items-start gap-2 text-sm font-medium text-foreground">
@@ -613,7 +628,7 @@ function ResumeCTA() {
       <div className="mx-auto max-w-7xl rounded-3xl border border-border bg-foreground px-6 py-14 text-background md:px-14 md:py-20">
         <Reveal>
           <h2 className="max-w-3xl font-display text-3xl font-medium tracking-tight text-balance md:text-5xl">
-            Ready to create better digital experiences?
+            Want to know more about my experience?
           </h2>
           <p className="mt-5 max-w-2xl text-base opacity-75 text-pretty">
             I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX Internship
@@ -628,20 +643,12 @@ function ResumeCTA() {
               Download Resume <Download className="size-4" />
             </a>
             <a
-              href={BEHANCE}
+              href={RESUME}
               target="_blank"
               rel="noreferrer"
               className="inline-flex min-h-11 items-center gap-2 rounded-full border border-background/30 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-background/10"
             >
-              View Behance <ArrowUpRight className="size-4" />
-            </a>
-            <a
-              href={LINKEDIN}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-background/30 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-background/10"
-            >
-              LinkedIn <ArrowUpRight className="size-4" />
+              View Resume <ArrowUpRight className="size-4" />
             </a>
           </div>
         </Reveal>
@@ -655,21 +662,41 @@ function Contact() {
   return (
     <section id="contact" className="scroll-mt-24 border-t border-border bg-surface px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr]">
-        <SectionHeading
-          eyebrow="Contact"
-          title="Let's Create Something Meaningful."
-          subtitle="I'm open to UI/UX opportunities, internships, freelance projects and product design collaborations."
-        />
+        <div>
+          <SectionHeading
+            eyebrow="Contact"
+            title="Have a project, opportunity, or idea?"
+            subtitle="Let's create something meaningful together."
+          />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={`mailto:${EMAIL}`}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            >
+              Email Me <Mail className="size-4" aria-hidden />
+            </a>
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            >
+              LinkedIn <ArrowUpRight className="size-4" aria-hidden />
+            </a>
+          </div>
+        </div>
         <Reveal delay={0.1} className="space-y-3">
+
           {[
             { label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, icon: true },
             { label: "LinkedIn", value: "linkedin.com/in/srinivasan-s", href: LINKEDIN },
             { label: "Behance", value: "behance.net/srinivasan128", href: BEHANCE },
+            { label: "Phone", value: "+91 93427 84192", href: "tel:+919342784192", icon: false },
           ].map((c) => (
             <a
               key={c.label}
               href={c.href}
-              {...(c.icon ? {} : { target: "_blank", rel: "noreferrer" })}
+              {...(c.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
               className="flex min-h-14 items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-4 transition-colors hover:bg-muted"
             >
               <span className="flex items-center gap-3">
