@@ -222,30 +222,18 @@ function Hero() {
         <div>
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium">
             <span className="size-2 rounded-full bg-accent" aria-hidden />
-            Available for UI/UX opportunities
+            Open to UI/UX &amp; Product Design Opportunities
           </div>
 
-          <h1 className="mt-7 font-display text-[2.7rem] font-medium leading-[1.03] tracking-tight md:text-7xl lg:text-8xl">
-            <SplitText text="Srinivasan S" />
+          <h1 className="mt-7 font-display text-[2.4rem] font-medium leading-[1.05] tracking-tight text-balance md:text-6xl lg:text-7xl">
+            <SplitText text="Hi, I'm Srinivasan" />
+            <span className="mt-2 block text-muted-foreground">UI/UX Designer</span>
           </h1>
-          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.28em] text-muted-foreground md:text-base">
-            UI/UX Designer
-          </p>
-          <p className="mt-6 max-w-2xl font-display text-xl leading-snug text-balance md:text-3xl">
-            Designing simple, useful and meaningful digital experiences.
-          </p>
 
-          <div className="mt-6 max-w-2xl space-y-4 text-base text-muted-foreground text-pretty">
-            <p>
-              I'm Srinivasan S, a UI/UX Designer focused on creating intuitive digital experiences
-              through user research, information architecture, interaction design, visual design and
-              prototyping.
-            </p>
-            <p>
-              I enjoy solving complex problems and transforming them into simple, accessible and
-              user-friendly product experiences.
-            </p>
-          </div>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl">
+            I design intuitive, accessible, and meaningful digital experiences that solve real user
+            problems.
+          </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <MagneticButton
@@ -261,12 +249,24 @@ function Hero() {
             >
               Download Resume <Download className="size-4" />
             </MagneticButton>
-            <a
-              href="#contact"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-surface px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-muted"
-            >
-              Let's Connect <ArrowUpRight className="size-4" />
-            </a>
+          </div>
+
+          <div className="mt-7 flex flex-wrap items-center gap-2">
+            {[
+              { label: "LinkedIn", href: LINKEDIN, external: true },
+              { label: "Behance", href: BEHANCE, external: true },
+              { label: "Email", href: `mailto:${EMAIL}`, external: false },
+            ].map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-border bg-surface px-5 py-2.5 text-sm transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              >
+                {l.label}
+                <ArrowUpRight className="size-3.5 text-muted-foreground" aria-hidden />
+              </a>
+            ))}
           </div>
 
           <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
@@ -286,7 +286,7 @@ function Hero() {
             </div>
             <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] md:block">
               <div className="eyebrow">Focus</div>
-              <div className="mt-1 text-sm font-medium">Product & Interaction Design</div>
+              <div className="mt-1 text-sm font-medium">Product &amp; Interaction Design</div>
             </div>
           </div>
         </Reveal>
