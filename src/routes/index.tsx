@@ -17,9 +17,9 @@ import geminiLogo from "@/assets/tools/gemini.png.asset.json";
 import claudeLogo from "@/assets/tools/claude.png.asset.json";
 import lovableLogo from "@/assets/tools/lovable.png.asset.json";
 
-const TITLE = "Srinivasan S — UI/UX Designer Portfolio";
+const TITLE = "Srinivasan S. — UI/UX Designer";
 const DESCRIPTION =
-  "Srinivasan S is a UI/UX Designer based in Bengaluru, India, focused on creating intuitive digital experiences through user-centered design, interaction design, visual design and prototyping.";
+  "UI/UX Designer creating intuitive, accessible, and meaningful digital experiences. Based in Bengaluru, India.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
