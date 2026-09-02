@@ -691,6 +691,7 @@ function Contact() {
             { label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, icon: true },
             { label: "LinkedIn", value: "linkedin.com/in/srinivasan-s", href: LINKEDIN },
             { label: "Behance", value: "behance.net/srinivasan128", href: BEHANCE },
+            { label: "Phone", value: "+91 93427 84192", href: "tel:+919342784192", icon: false },
           ].map((c) => (
             <a
               key={c.label}

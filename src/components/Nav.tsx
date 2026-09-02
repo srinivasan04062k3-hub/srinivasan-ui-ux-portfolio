@@ -7,7 +7,6 @@ const SECTIONS = [
   { href: "#work", label: "Work", id: "work" },
   { href: "#about", label: "About", id: "about" },
   { href: "#skills", label: "Skills", id: "skills" },
-  { href: "#process", label: "Process", id: "process" },
   { href: "#resume", label: "Resume", id: "resume" },
   { href: "#contact", label: "Contact", id: "contact" },
 ];
@@ -97,7 +96,7 @@ export function Nav() {
               href="#contact"
               className="hidden rounded-full bg-foreground px-5 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-background transition-transform hover:scale-[1.03] md:inline-flex focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
-              Let's Connect
+              Let's Talk
             </a>
             <button
               onClick={() => setOpen((v) => !v)}
@@ -133,7 +132,7 @@ export function Nav() {
               onClick={() => setOpen(false)}
               className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-foreground px-5 py-3.5 text-sm font-semibold text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
-              Let's Connect
+              Let's Talk
             </a>
           </nav>
         )}
