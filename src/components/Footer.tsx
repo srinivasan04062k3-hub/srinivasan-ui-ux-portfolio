@@ -42,18 +42,9 @@ export function Footer() {
         </div>
       </div>
 
-      <div aria-hidden className="overflow-hidden px-4 pb-4">
-        <div
-          className="text-center font-display font-medium leading-[0.85] tracking-[-0.05em] text-muted-foreground/25"
-          style={{ fontSize: "clamp(2.4rem, 13vw, 16rem)" }}
-        >
-          SRINIVASAN&nbsp;S
-        </div>
-      </div>
-
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 border-t border-border px-5 py-6 text-xs text-muted-foreground md:flex-row md:px-8">
-        <div>© {new Date().getFullYear()} Srinivasan S · UI/UX Designer, Bengaluru</div>
-        <div>Designed in Figma · Built with care</div>
+        <div>Srinivasan S. — UI/UX Designer</div>
+        <div>Designed &amp; built with Figma + Lovable.</div>
       </div>
     </footer>
   );

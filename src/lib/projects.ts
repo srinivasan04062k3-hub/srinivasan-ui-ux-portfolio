@@ -61,7 +61,7 @@ export type Project = {
 };
 
 const CONCEPT = "Concept Case Study";
-const ROLE = "UI/UX Designer — self-initiated concept project";
+const ROLE = "UI/UX Designer — end-to-end (self-initiated concept)";
 
 export const projects: Project[] = [
   {
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     title: "Rapido Ambulance Mode",
     subtitle: "An emergency ambulance experience designed for the worst possible moment.",
     category: "Mobility · Healthcare · Emergency UX",
-    label: CONCEPT,
+    label: "UX Concept Case Study",
     year: "2025",
     role: ROLE,
     duration: "Self-initiated",
@@ -189,7 +189,7 @@ export const projects: Project[] = [
     title: "SaveSmart",
     subtitle: "A savings experience that turns intentions into habits.",
     category: "FinTech · Mobile App",
-    label: CONCEPT,
+    label: "UX Case Study — Concept",
     year: "2025",
     role: ROLE,
     duration: "Self-initiated",
@@ -308,7 +308,7 @@ export const projects: Project[] = [
     title: "Spatial Living",
     subtitle: "See the room before you change the room.",
     category: "AR / VR · Spatial Design",
-    label: CONCEPT,
+    label: "AR/VR UX Concept",
     year: "2025",
     role: ROLE,
     duration: "Self-initiated",
@@ -435,7 +435,7 @@ export const projects: Project[] = [
     title: "MeetMind AI",
     subtitle: "Be present in the meeting, not in your notes.",
     category: "AI · Productivity",
-    label: CONCEPT,
+    label: "AI Product Concept",
     year: "2025",
     role: ROLE,
     duration: "Self-initiated",
