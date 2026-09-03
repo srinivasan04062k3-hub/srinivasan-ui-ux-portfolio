@@ -76,6 +76,13 @@ function CaseStudy() {
             </h1>
             <p className="mt-8 max-w-2xl text-xl text-muted-foreground md:text-2xl">{p.subtitle}</p>
 
+            <span
+              className="mt-6 inline-flex rounded-full px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em]"
+              style={{ background: p.color + "1a", color: p.color }}
+            >
+              {p.label}
+            </span>
+
             <ProjectLinks links={p.links} accent={p.color} className="mt-8" />
 
             <div className="mt-12 grid gap-6 border-t border-border pt-8 md:grid-cols-4">
@@ -102,6 +109,28 @@ function CaseStudy() {
                 className="w-full object-cover"
               />
             </motion.div>
+          </div>
+        </section>
+
+        {/* QUICK ANSWERS */}
+        <section className="border-t border-border bg-surface">
+          <div className="mx-auto max-w-6xl px-6 py-16">
+            <div className="eyebrow">In short</div>
+            <dl className="mt-8 grid gap-8 md:grid-cols-3">
+              {[
+                { q: "What was the problem?", a: p.problem.user },
+                { q: "Who was the user?", a: p.personas.map((x) => x.role).join(" · ") },
+                { q: "What did I do?", a: p.role },
+                { q: "What was the final solution?", a: p.features.slice(0, 3).map((f) => f.title).join(" · ") },
+                { q: "Why these decisions?", a: p.goals[0] },
+                { q: "What did I learn?", a: p.learnings[0] },
+              ].map((it) => (
+                <div key={it.q}>
+                  <dt className="text-sm font-semibold">{it.q}</dt>
+                  <dd className="mt-2 text-sm text-muted-foreground text-pretty">{it.a}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
