@@ -312,13 +312,14 @@ function Work() {
                     to="/projects/$slug"
                     params={{ slug: p.slug }}
                     aria-label={`View ${p.title} case study`}
-                    className="relative block overflow-hidden bg-muted"
+                    className="relative block overflow-hidden"
+                    style={{ background: `${p.color}14` }}
                   >
                     <img
                       src={p.image}
                       alt={`${p.title} — ${p.category} case study cover`}
                       loading="lazy"
-                      className="h-64 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] md:h-full md:min-h-[380px]"
+                      className="h-72 w-full object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.04] md:h-full md:min-h-[380px]"
                     />
                   </Link>
 
