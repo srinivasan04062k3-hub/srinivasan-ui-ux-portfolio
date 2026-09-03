@@ -70,71 +70,52 @@ const DISCIPLINES = [
 
 const SKILLS = [
   {
-    group: "UX Design",
+    group: "Core design skills",
     items: [
       "User Research",
       "User Flows",
       "Information Architecture",
-      "Personas",
-      "Journey Mapping",
       "Wireframing",
-      "Usability Testing",
-    ],
-  },
-  {
-    group: "UI Design",
-    items: [
+      "Interaction Design",
       "Visual Design",
-      "Typography",
-      "Color Systems",
-      "Design Systems",
-      "Responsive Design",
+      "Prototyping",
+      "Usability Testing",
       "Accessibility",
+      "Design Systems",
     ],
   },
   {
-    group: "Prototyping",
+    group: "How I apply them",
     items: [
-      "Low-Fidelity Wireframes",
-      "High-Fidelity UI",
-      "Interactive Prototypes",
+      "Problem framing",
+      "Journey mapping",
+      "Mobile-first layout",
+      "Typography & hierarchy",
+      "Component thinking",
       "Micro-interactions",
-    ],
-  },
-  {
-    group: "AI-Assisted Design",
-    items: [
-      "Generative AI",
-      "AI-assisted Ideation",
-      "AI-assisted Research",
-      "AI-assisted Prototyping",
+      "Design documentation",
     ],
   },
 ];
 
 const TOOLS: { name: string; logo?: string }[] = [
   { name: "Figma", logo: figmaLogo.url },
-  { name: "FigJam" },
   { name: "Framer", logo: framerLogo.url },
   { name: "Photoshop" },
   { name: "Illustrator" },
   { name: "Notion", logo: notionLogo.url },
   { name: "Miro" },
-  { name: "ChatGPT", logo: chatgptLogo.url },
-  { name: "Gemini", logo: geminiLogo.url },
-  { name: "Claude", logo: claudeLogo.url },
-  { name: "Lovable", logo: lovableLogo.url },
 ];
 
 const PROCESS = [
-  { n: "01", t: "Discover", d: "Understand users, context and the problem." },
-  { n: "02", t: "Define", d: "Identify pain points and design opportunities." },
-  { n: "03", t: "Ideate", d: "Explore multiple solutions and concepts." },
-  { n: "04", t: "Structure", d: "Create information architecture, user flows and wireframes." },
-  { n: "05", t: "Design", d: "Create visual systems and high-fidelity interfaces." },
-  { n: "06", t: "Prototype", d: "Build realistic interactive experiences." },
-  { n: "07", t: "Test", d: "Identify usability issues and refine the design." },
-  { n: "08", t: "Deliver", d: "Prepare polished UI, components and documentation." },
+  { n: "01", t: "Discover", d: "Understand the problem and users." },
+  { n: "02", t: "Define", d: "Frame the core problem and opportunity." },
+  { n: "03", t: "Ideate", d: "Explore multiple possible solutions." },
+  { n: "04", t: "Wireframe", d: "Structure the experience and information hierarchy." },
+  { n: "05", t: "Design", d: "Create the visual interface and design system." },
+  { n: "06", t: "Prototype", d: "Build realistic interactions." },
+  { n: "07", t: "Test", d: "Identify usability issues and gather feedback." },
+  { n: "08", t: "Iterate", d: "Refine the experience based on findings." },
 ];
 
 const EDUCATION = [
@@ -164,11 +145,11 @@ const UIUX_EDUCATION = [
 ];
 
 const WHY = [
-  { t: "User-Centered", d: "I focus on understanding users and their needs before designing solutions." },
-  { t: "Problem Solver", d: "My engineering background helps me approach complex problems systematically." },
-  { t: "Creative Thinker", d: "I explore multiple solutions before selecting the strongest direction." },
-  { t: "AI-Assisted", d: "I use modern AI tools to accelerate exploration, ideation and design workflows." },
-  { t: "Detail-Oriented", d: "I care about typography, spacing, hierarchy, accessibility and interaction details." },
+  { t: "Starts with the problem", d: "I frame the problem and the user need before opening Figma." },
+  { t: "Structured thinker", d: "An engineering background gives me a systematic way to break down complexity." },
+  { t: "Explores options", d: "I sketch several directions before committing to one." },
+  { t: "Accessibility-minded", d: "Contrast, tap targets, focus states and readable hierarchy by default." },
+  { t: "Always learning", d: "Currently deepening design systems, motion and product thinking." },
 ];
 
 function SectionHeading({
@@ -226,13 +207,15 @@ function Hero() {
           </div>
 
           <h1 className="mt-7 font-display text-[2.4rem] font-medium leading-[1.05] tracking-tight text-balance md:text-6xl lg:text-7xl">
-            <SplitText text="Hi, I'm Srinivasan" />
-            <span className="mt-2 block text-muted-foreground">UI/UX Designer</span>
+            <SplitText text="Hi, I'm Srinivasan S." />
+            <span className="mt-2 block text-muted-foreground">
+              UI/UX Designer crafting intuitive digital experiences.
+            </span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl">
-            I design intuitive, accessible, and meaningful digital experiences that solve real user
-            problems.
+            I design simple, accessible, and meaningful digital experiences by combining UX
+            thinking, visual design, and problem solving.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -240,7 +223,7 @@ function Hero() {
               href="#work"
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:scale-[1.02]"
             >
-              View My Work <ArrowRight className="size-4" />
+              View Case Studies <ArrowRight className="size-4" />
             </MagneticButton>
             <MagneticButton
               href={RESUME}
@@ -248,6 +231,12 @@ function Hero() {
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition-transform hover:scale-[1.02]"
             >
               Download Resume <Download className="size-4" />
+            </MagneticButton>
+            <MagneticButton
+              href="#contact"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-surface px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-muted"
+            >
+              Contact <Mail className="size-4" />
             </MagneticButton>
           </div>
 
@@ -423,7 +412,7 @@ function About() {
   return (
     <section id="about" className="scroll-mt-24 border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr]">
-        <SectionHeading eyebrow="About" title="From Engineering to UI/UX Design." />
+        <SectionHeading eyebrow="About" title="A designer who starts with the problem." />
         <Reveal delay={0.1} className="space-y-5 text-base text-muted-foreground text-pretty">
           <div className="flex items-center gap-2.5 rounded-full border border-border bg-background px-4 py-2 text-sm text-foreground w-fit">
             <span className="relative flex h-2 w-2">
@@ -437,17 +426,16 @@ function About() {
             </span>
           </div>
           <p>
-            I come from a Mechanical Engineering background, where I developed a structured approach
-            to problem solving and understanding complex systems.
+            I'm a UI/UX Designer focused on user-centered thinking — understanding the problem,
+            defining the user need, and only then designing the interface.
           </p>
           <p>
-            My interest in digital products led me to transition into UI/UX Design. I now focus on
-            understanding users, defining problems, creating user flows, designing interfaces and
-            building interactive prototypes.
+            My work covers UX problem solving, user flows, interaction design, visual design and
+            accessible, product-minded interfaces built as end-to-end concept case studies.
           </p>
           <p>
-            I combine structured thinking with creativity to design simple and meaningful digital
-            experiences.
+            A Mechanical Engineering background gives me a systematic way to break down complex
+            problems — and a habit of continuous learning I bring to every project.
           </p>
           <ul className="flex flex-wrap gap-2 pt-2">
             {DISCIPLINES.map((d) => (
@@ -497,7 +485,11 @@ function Skills() {
   return (
     <section id="skills" className="scroll-mt-24 border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading eyebrow="Skills" title="What I work on" />
+        <SectionHeading
+          eyebrow="Skills"
+          title="Design skills first, tools second"
+          subtitle="The thinking I bring to a product team — the software is just how I get there."
+        />
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {SKILLS.map((s, i) => (
             <Reveal key={s.group} delay={i * 0.05}>
@@ -530,7 +522,7 @@ function Tools() {
     <section className="px-5 py-14 md:px-8 md:py-16">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <div className="eyebrow">Tools</div>
+          <div className="eyebrow">Tools I use</div>
         </Reveal>
         <Reveal delay={0.05}>
           <ul className="mt-6 flex flex-wrap gap-3">
@@ -665,8 +657,8 @@ function Contact() {
         <div>
           <SectionHeading
             eyebrow="Contact"
-            title="Have a project, opportunity, or idea?"
-            subtitle="Let's create something meaningful together."
+            title="Let's create something meaningful."
+            subtitle="I'm open to UI/UX and Product Design opportunities, internships, and selected freelance projects."
           />
           <div className="mt-8 flex flex-wrap gap-3">
             <a
