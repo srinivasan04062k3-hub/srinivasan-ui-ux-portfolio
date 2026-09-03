@@ -342,6 +342,25 @@ function Work() {
 
                     <p className="max-w-xl text-base text-muted-foreground text-pretty">{p.overview.split(". ")[0]}.</p>
 
+                    <dl className="max-w-xl space-y-2.5 text-sm">
+                      <div>
+                        <dt className="eyebrow">Problem</dt>
+                        <dd className="mt-1 text-muted-foreground text-pretty">{p.problem.user}</dd>
+                      </div>
+                      <div>
+                        <dt className="eyebrow">Design approach</dt>
+                        <dd className="mt-1 text-muted-foreground text-pretty">
+                          {p.process.slice(0, 3).map((st) => st.title).join(" → ")} — {p.process[0]?.desc}
+                        </dd>
+                      </div>
+                      <div>
+                        <dt className="eyebrow">Final solution</dt>
+                        <dd className="mt-1 text-muted-foreground text-pretty">
+                          {p.features.slice(0, 3).map((f) => f.title).join(" · ")}
+                        </dd>
+                      </div>
+                    </dl>
+
                     <dl className="grid gap-x-6 gap-y-3 border-y border-border py-4 text-sm sm:grid-cols-2">
                       <div>
                         <dt className="eyebrow">Role</dt>
@@ -350,6 +369,10 @@ function Work() {
                       <div>
                         <dt className="eyebrow">Project type</dt>
                         <dd className="mt-1">{p.label} · {p.year}</dd>
+                      </div>
+                      <div>
+                        <dt className="eyebrow">Duration</dt>
+                        <dd className="mt-1">{p.duration}</dd>
                       </div>
                       <div className="sm:col-span-2">
                         <dt className="eyebrow">Tools</dt>
@@ -674,6 +697,21 @@ function Contact() {
               className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
               LinkedIn <ArrowUpRight className="size-4" aria-hidden />
+            </a>
+            <a
+              href={BEHANCE}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            >
+              Behance <ArrowUpRight className="size-4" aria-hidden />
+            </a>
+            <a
+              href={RESUME}
+              download
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+            >
+              Resume <Download className="size-4" aria-hidden />
             </a>
           </div>
         </div>
