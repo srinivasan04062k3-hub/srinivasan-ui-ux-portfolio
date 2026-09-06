@@ -101,7 +101,7 @@ function CaseStudy() {
           </div>
 
           <div className="relative mx-auto max-w-[100rem] px-6">
-            <motion.div style={{ y: heroY }} className="overflow-hidden rounded-3xl border border-border" >
+            <motion.div style={{ y: heroY }} className="overflow-hidden">
               <motion.img
                 style={{ scale: heroScale }}
                 src={p.image}
