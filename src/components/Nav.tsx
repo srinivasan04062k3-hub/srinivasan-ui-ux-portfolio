@@ -47,11 +47,6 @@ export function Nav() {
 
   return (
     <>
-      <motion.div
-        style={{ scaleX: progress }}
-        aria-hidden
-        className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-accent"
-      />
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled ? "border-b border-border bg-background/85 backdrop-blur-xl" : ""
