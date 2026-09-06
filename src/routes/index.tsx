@@ -653,7 +653,7 @@ function ResumeCTA() {
             Want to know more about my experience?
           </h2>
           <p className="mt-5 max-w-2xl text-base opacity-75 text-pretty">
-            I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX Internship
+            I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX internship
             opportunities where I can learn, contribute and grow with a product team.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
