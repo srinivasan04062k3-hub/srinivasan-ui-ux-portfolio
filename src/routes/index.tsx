@@ -439,7 +439,7 @@ function About() {
   return (
     <section id="about" className="scroll-mt-24 border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr]">
-        <SectionHeading eyebrow="About" title="A designer who starts with the problem." />
+        <SectionHeading eyebrow="About" title="From Engineering to UI/UX Design." />
         <Reveal delay={0.1} className="space-y-5 text-base text-muted-foreground text-pretty">
           <div className="flex items-center gap-2.5 rounded-full border border-border bg-background px-4 py-2 text-sm text-foreground w-fit">
             <span className="relative flex h-2 w-2">
@@ -453,16 +453,19 @@ function About() {
             </span>
           </div>
           <p>
-            I'm a UI/UX Designer focused on user-centered thinking — understanding the problem,
-            defining the user need, and only then designing the interface.
+            I started with Mechanical Engineering, which taught me structured problem solving,
+            systems thinking and attention to detail. That same approach now shapes how I design
+            digital products.
           </p>
           <p>
-            My work covers UX problem solving, user flows, interaction design, visual design and
-            accessible, product-minded interfaces built as end-to-end concept case studies.
+            Today I focus on user-centered thinking — understanding the problem, defining the user
+            need, and only then designing the interface. My work spans UX problem solving, user
+            flows, interaction design, visual design and accessible, product-minded interfaces
+            built as end-to-end concept case studies.
           </p>
           <p>
-            A Mechanical Engineering background gives me a systematic way to break down complex
-            problems — and a habit of continuous learning I bring to every project.
+            I bring a calm, methodical mindset to product teams, with a genuine curiosity for UX
+            design, product design, interaction design and visual design.
           </p>
           <ul className="flex flex-wrap gap-2 pt-2">
             {DISCIPLINES.map((d) => (
