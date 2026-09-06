@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "@/lib/use-theme";
 
@@ -25,8 +25,6 @@ export function Nav() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 25, mass: 0.2 });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -49,11 +47,6 @@ export function Nav() {
 
   return (
     <>
-      <motion.div
-        style={{ scaleX: progress }}
-        aria-hidden
-        className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-accent"
-      />
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled ? "border-b border-border bg-background/85 backdrop-blur-xl" : ""

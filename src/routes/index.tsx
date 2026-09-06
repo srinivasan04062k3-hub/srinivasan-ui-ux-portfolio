@@ -70,52 +70,56 @@ const DISCIPLINES = [
 
 const SKILLS = [
   {
-    group: "Core design skills",
+    group: "UX Design",
     items: [
-      "User Research",
       "User Flows",
       "Information Architecture",
       "Wireframing",
       "Interaction Design",
-      "Visual Design",
       "Prototyping",
       "Usability Testing",
       "Accessibility",
-      "Design Systems",
     ],
   },
   {
-    group: "How I apply them",
+    group: "UI Design",
     items: [
-      "Problem framing",
-      "Journey mapping",
-      "Mobile-first layout",
-      "Typography & hierarchy",
-      "Component thinking",
-      "Micro-interactions",
-      "Design documentation",
+      "Visual Design",
+      "Typography",
+      "Design Systems",
+      "Responsive Design",
+      "Accessibility",
     ],
+  },
+  {
+    group: "AI-Assisted Design",
+    items: ["Generative AI", "AI-assisted Ideation", "AI-assisted Prototyping"],
   },
 ];
 
 const TOOLS: { name: string; logo?: string }[] = [
   { name: "Figma", logo: figmaLogo.url },
+  { name: "FigJam" },
   { name: "Framer", logo: framerLogo.url },
   { name: "Photoshop" },
   { name: "Illustrator" },
   { name: "Notion", logo: notionLogo.url },
   { name: "Miro" },
+  { name: "ChatGPT", logo: chatgptLogo.url },
+  { name: "Gemini", logo: geminiLogo.url },
+  { name: "Claude", logo: claudeLogo.url },
+  { name: "Lovable", logo: lovableLogo.url },
 ];
 
 const PROCESS = [
-  { n: "01", t: "Discover", d: "Understand the problem and users." },
-  { n: "02", t: "Define", d: "Frame the core problem and opportunity." },
+  { n: "01", t: "Discover", d: "Understand users, context and the problem." },
+  { n: "02", t: "Define", d: "Identify the core problem and opportunity." },
   { n: "03", t: "Ideate", d: "Explore multiple possible solutions." },
-  { n: "04", t: "Wireframe", d: "Structure the experience and information hierarchy." },
+  { n: "04", t: "Structure", d: "Create information architecture, user flows and wireframes." },
   { n: "05", t: "Design", d: "Create the visual interface and design system." },
   { n: "06", t: "Prototype", d: "Build realistic interactions." },
-  { n: "07", t: "Test", d: "Identify usability issues and gather feedback." },
-  { n: "08", t: "Iterate", d: "Refine the experience based on findings." },
+  { n: "07", t: "Test", d: "Identify usability issues and refine the experience." },
+  { n: "08", t: "Iterate", d: "Improve the solution based on findings." },
 ];
 
 const EDUCATION = [
@@ -214,8 +218,8 @@ function Hero() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl">
-            I design simple, accessible, and meaningful digital experiences by combining UX
-            thinking, visual design, and problem solving.
+            I design intuitive, accessible, and meaningful digital experiences by combining UX
+            thinking, visual design, and structured problem solving.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -435,7 +439,7 @@ function About() {
   return (
     <section id="about" className="scroll-mt-24 border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr]">
-        <SectionHeading eyebrow="About" title="A designer who starts with the problem." />
+        <SectionHeading eyebrow="About" title="From Engineering to UI/UX Design." />
         <Reveal delay={0.1} className="space-y-5 text-base text-muted-foreground text-pretty">
           <div className="flex items-center gap-2.5 rounded-full border border-border bg-background px-4 py-2 text-sm text-foreground w-fit">
             <span className="relative flex h-2 w-2">
@@ -449,16 +453,19 @@ function About() {
             </span>
           </div>
           <p>
-            I'm a UI/UX Designer focused on user-centered thinking — understanding the problem,
-            defining the user need, and only then designing the interface.
+            I started with Mechanical Engineering, which taught me structured problem solving,
+            systems thinking and attention to detail. That same approach now shapes how I design
+            digital products.
           </p>
           <p>
-            My work covers UX problem solving, user flows, interaction design, visual design and
-            accessible, product-minded interfaces built as end-to-end concept case studies.
+            Today I focus on user-centered thinking — understanding the problem, defining the user
+            need, and only then designing the interface. My work spans UX problem solving, user
+            flows, interaction design, visual design and accessible, product-minded interfaces
+            built as end-to-end concept case studies.
           </p>
           <p>
-            A Mechanical Engineering background gives me a systematic way to break down complex
-            problems — and a habit of continuous learning I bring to every project.
+            I bring a calm, methodical mindset to product teams, with a genuine curiosity for UX
+            design, product design, interaction design and visual design.
           </p>
           <ul className="flex flex-wrap gap-2 pt-2">
             {DISCIPLINES.map((d) => (
@@ -646,7 +653,7 @@ function ResumeCTA() {
             Want to know more about my experience?
           </h2>
           <p className="mt-5 max-w-2xl text-base opacity-75 text-pretty">
-            I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX Internship
+            I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX internship
             opportunities where I can learn, contribute and grow with a product team.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
