@@ -313,7 +313,6 @@ function Work() {
                     params={{ slug: p.slug }}
                     aria-label={`View ${p.title} case study`}
                     className="relative block overflow-hidden"
-                    style={{ background: `${p.color}14` }}
                   >
                     <img
                       src={p.image}
