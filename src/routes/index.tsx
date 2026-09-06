@@ -70,52 +70,56 @@ const DISCIPLINES = [
 
 const SKILLS = [
   {
-    group: "Core design skills",
+    group: "UX Design",
     items: [
-      "User Research",
       "User Flows",
       "Information Architecture",
       "Wireframing",
       "Interaction Design",
-      "Visual Design",
       "Prototyping",
       "Usability Testing",
       "Accessibility",
-      "Design Systems",
     ],
   },
   {
-    group: "How I apply them",
+    group: "UI Design",
     items: [
-      "Problem framing",
-      "Journey mapping",
-      "Mobile-first layout",
-      "Typography & hierarchy",
-      "Component thinking",
-      "Micro-interactions",
-      "Design documentation",
+      "Visual Design",
+      "Typography",
+      "Design Systems",
+      "Responsive Design",
+      "Accessibility",
     ],
+  },
+  {
+    group: "AI-Assisted Design",
+    items: ["Generative AI", "AI-assisted Ideation", "AI-assisted Prototyping"],
   },
 ];
 
 const TOOLS: { name: string; logo?: string }[] = [
   { name: "Figma", logo: figmaLogo.url },
+  { name: "FigJam" },
   { name: "Framer", logo: framerLogo.url },
   { name: "Photoshop" },
   { name: "Illustrator" },
   { name: "Notion", logo: notionLogo.url },
   { name: "Miro" },
+  { name: "ChatGPT", logo: chatgptLogo.url },
+  { name: "Gemini", logo: geminiLogo.url },
+  { name: "Claude", logo: claudeLogo.url },
+  { name: "Lovable", logo: lovableLogo.url },
 ];
 
 const PROCESS = [
-  { n: "01", t: "Discover", d: "Understand the problem and users." },
-  { n: "02", t: "Define", d: "Frame the core problem and opportunity." },
+  { n: "01", t: "Discover", d: "Understand users, context and the problem." },
+  { n: "02", t: "Define", d: "Identify the core problem and opportunity." },
   { n: "03", t: "Ideate", d: "Explore multiple possible solutions." },
-  { n: "04", t: "Wireframe", d: "Structure the experience and information hierarchy." },
+  { n: "04", t: "Structure", d: "Create information architecture, user flows and wireframes." },
   { n: "05", t: "Design", d: "Create the visual interface and design system." },
   { n: "06", t: "Prototype", d: "Build realistic interactions." },
-  { n: "07", t: "Test", d: "Identify usability issues and gather feedback." },
-  { n: "08", t: "Iterate", d: "Refine the experience based on findings." },
+  { n: "07", t: "Test", d: "Identify usability issues and refine the experience." },
+  { n: "08", t: "Iterate", d: "Improve the solution based on findings." },
 ];
 
 const EDUCATION = [
@@ -214,8 +218,8 @@ function Hero() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl">
-            I design simple, accessible, and meaningful digital experiences by combining UX
-            thinking, visual design, and problem solving.
+            I design intuitive, accessible, and meaningful digital experiences by combining UX
+            thinking, visual design, and structured problem solving.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
