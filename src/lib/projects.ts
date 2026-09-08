@@ -35,6 +35,7 @@ export type Project = {
   index: string;
   title: string;
   subtitle: string;
+  challenge: string;
   category: string;
   label: string;
   year: string;
