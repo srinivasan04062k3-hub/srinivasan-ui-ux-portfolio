@@ -35,6 +35,7 @@ export type Project = {
   index: string;
   title: string;
   subtitle: string;
+  challenge: string;
   category: string;
   label: string;
   year: string;
@@ -69,6 +70,7 @@ export const projects: Project[] = [
     index: "01",
     title: "Rapido Ambulance Mode",
     subtitle: "An emergency ambulance experience designed for the worst possible moment.",
+    challenge: "How might we make emergency transportation easier to navigate during stressful situations?",
     category: "Mobility · Healthcare · Emergency UX",
     label: "UX Concept Case Study",
     year: "2025",
@@ -133,6 +135,8 @@ export const projects: Project[] = [
       { title: "Structure", desc: "User flows and wireframes for the shortest path." },
       { title: "Design", desc: "High-contrast red emergency system with large targets." },
       { title: "Prototype", desc: "Interactive Figma prototype of the full booking flow." },
+      { title: "Test", desc: "Identify usability issues and refine the experience." },
+      { title: "Iterate", desc: "Improve the solution based on findings." },
     ],
     screens: [
       {
@@ -188,6 +192,7 @@ export const projects: Project[] = [
     index: "02",
     title: "SaveSmart",
     subtitle: "A savings experience that turns intentions into habits.",
+    challenge: "How might we make saving money feel simple and motivating?",
     category: "FinTech · Mobile App",
     label: "UX Case Study — Concept",
     year: "2025",
@@ -252,6 +257,8 @@ export const projects: Project[] = [
       { title: "Structure", desc: "Flows for goal creation, contribution and review." },
       { title: "Design", desc: "Warm, calm visual system with a single accent." },
       { title: "Prototype", desc: "Interactive prototype covering the full habit loop." },
+      { title: "Test", desc: "Identify usability issues and refine the experience." },
+      { title: "Iterate", desc: "Improve the solution based on findings." },
     ],
     screens: [
       {
@@ -307,6 +314,7 @@ export const projects: Project[] = [
     index: "03",
     title: "Spatial Living",
     subtitle: "See the room before you change the room.",
+    challenge: "How might we help people visualize interior changes before physically committing to them?",
     category: "AR / VR · Spatial Design",
     label: "AR/VR UX Concept",
     year: "2025",
@@ -372,6 +380,8 @@ export const projects: Project[] = [
       { title: "Structure", desc: "Flows across scan, place and compare." },
       { title: "Design", desc: "Spatial UI language with depth-aware surfaces." },
       { title: "Prototype", desc: "Interactive AR/VR prototype in Figma and Spline." },
+      { title: "Test", desc: "Identify usability issues and refine the experience." },
+      { title: "Iterate", desc: "Improve the solution based on findings." },
     ],
     screens: [
       {
@@ -434,6 +444,7 @@ export const projects: Project[] = [
     index: "04",
     title: "MeetMind AI",
     subtitle: "Be present in the meeting, not in your notes.",
+    challenge: "How might we help users turn meeting information into clear, actionable outcomes?",
     category: "AI · Productivity",
     label: "AI Product Concept",
     year: "2025",
@@ -496,6 +507,8 @@ export const projects: Project[] = [
       { title: "Structure", desc: "Flows for capture, review and action assignment." },
       { title: "Design", desc: "Quiet dark interface for long reading sessions." },
       { title: "Prototype", desc: "Interactive prototype of the full meeting lifecycle." },
+      { title: "Test", desc: "Identify usability issues and refine the experience." },
+      { title: "Iterate", desc: "Improve the solution based on findings." },
     ],
     screens: [
       {
@@ -551,6 +564,7 @@ export const projects: Project[] = [
     index: "05",
     title: "Tracto Healthcare",
     subtitle: "Health tracking and appointments, made simple to read.",
+    challenge: "How might we simplify healthcare information and appointment-related journeys?",
     category: "Healthcare · Mobile App",
     label: CONCEPT,
     year: "2026",
@@ -609,6 +623,8 @@ export const projects: Project[] = [
       { title: "Structure", desc: "Flows for tracking, booking and records." },
       { title: "Design", desc: "Accessible visual system with calm teal accents." },
       { title: "Prototype", desc: "Interactive prototype for the core journeys." },
+      { title: "Test", desc: "Identify usability issues and refine the experience." },
+      { title: "Iterate", desc: "Improve the solution based on findings." },
     ],
     screens: [
       {
