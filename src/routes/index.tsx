@@ -308,10 +308,12 @@ function Work() {
         />
 
         <div className="mt-14 space-y-10 md:space-y-16">
-          {projects.map((p, i) => (
+          {projects.map((p, i) => {
+            const isFlagship = i === 0;
+            return (
             <Reveal key={p.slug} delay={i * 0.05}>
               <article className="group overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-shadow duration-300 hover:shadow-[0_30px_70px_-40px_rgba(16,24,40,0.4)]">
-                <div className="grid gap-0 lg:grid-cols-2">
+                <div className={`grid gap-0 ${isFlagship ? "lg:grid-cols-[1.35fr_1fr]" : "lg:grid-cols-2"}`}>
                   <Link
                     to="/projects/$slug"
                     params={{ slug: p.slug }}
@@ -322,7 +324,7 @@ function Work() {
                       src={p.image}
                       alt={`${p.title} — ${p.category} case study cover`}
                       loading="lazy"
-                      className="h-72 w-full object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.04] md:h-full md:min-h-[380px]"
+                      className={`h-72 w-full object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.04] md:h-full ${isFlagship ? "md:min-h-[460px]" : "md:min-h-[380px]"}`}
                     />
                   </Link>
 
@@ -345,6 +347,12 @@ function Work() {
                     </div>
 
                     <p className="max-w-xl text-base text-muted-foreground text-pretty">{p.overview.split(". ")[0]}.</p>
+
+                    {p.challenge && (
+                      <p className="max-w-xl border-l-2 border-accent pl-4 text-base font-medium text-foreground/90 text-pretty">
+                        {p.challenge}
+                      </p>
+                    )}
 
                     <dl className="max-w-xl space-y-2.5 text-sm">
                       <div>
