@@ -473,8 +473,8 @@ function About() {
             built as end-to-end concept case studies.
           </p>
           <p>
-            I bring a calm, methodical mindset to product teams, with a genuine curiosity for UX
-            design, product design, interaction design and visual design.
+            I bring a calm, methodical mindset to product teams, with a genuine curiosity for
+            design, UX and product thinking.
           </p>
           <ul className="flex flex-wrap gap-2 pt-2">
             {DISCIPLINES.map((d) => (
@@ -696,7 +696,7 @@ function Contact() {
         <div>
           <SectionHeading
             eyebrow="Contact"
-            title="Let's create something meaningful."
+            title="Let's create something meaningful together."
             subtitle="I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX internship opportunities where I can learn, contribute and grow with a product team."
           />
           <div className="mt-8 flex flex-wrap gap-3">

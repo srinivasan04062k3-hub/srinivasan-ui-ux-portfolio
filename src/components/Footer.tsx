@@ -4,7 +4,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div>
           <div className="font-display text-3xl font-medium tracking-tight md:text-4xl">
-            Let's create something meaningful.
+            Let's create something meaningful together.
           </div>
           <p className="mt-5 max-w-sm text-sm text-muted-foreground">
             Open to UI/UX Designer, Junior Product Designer and UI/UX internship
