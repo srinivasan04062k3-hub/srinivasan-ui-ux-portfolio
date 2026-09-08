@@ -688,7 +688,7 @@ function Contact() {
           <SectionHeading
             eyebrow="Contact"
             title="Let's create something meaningful."
-            subtitle="I'm open to UI/UX and Product Design opportunities, internships, and selected freelance projects."
+            subtitle="I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX internship opportunities where I can learn, contribute and grow with a product team."
           />
           <div className="mt-8 flex flex-wrap gap-3">
             <a
