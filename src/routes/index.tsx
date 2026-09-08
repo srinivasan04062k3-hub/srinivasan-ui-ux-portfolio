@@ -435,7 +435,8 @@ function Work() {
                 </div>
               </article>
             </Reveal>
-          ))}
+          );
+        })}
         </div>
       </div>
     </section>
