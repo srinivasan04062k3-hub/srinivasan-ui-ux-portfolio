@@ -361,9 +361,7 @@ function Work() {
                       </div>
                       <div>
                         <dt className="eyebrow">Design approach</dt>
-                        <dd className="mt-1 text-muted-foreground text-pretty">
-                          {p.process.slice(0, 3).map((st) => st.title).join(" → ")} — {p.process[0]?.desc}
-                        </dd>
+                        <dd className="mt-1 text-muted-foreground text-pretty">{p.approach}</dd>
                       </div>
                       <div>
                         <dt className="eyebrow">Final solution</dt>
@@ -425,9 +423,8 @@ function Work() {
                       </Link>
                       <ProjectLinks links={p.links} accent={p.color} size="sm" stopPropagation />
                       {!p.links?.prototype && (
-                        <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3 py-2 text-[0.68rem] font-medium uppercase tracking-[0.12em] text-muted-foreground">
-                          <span aria-hidden className="size-1.5 rounded-full bg-muted-foreground/60" />
-                          Concept / research-only
+                        <span className="inline-flex items-center rounded-md border border-dashed border-border bg-muted px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                          Research-only concept
                         </span>
                       )}
                     </div>
