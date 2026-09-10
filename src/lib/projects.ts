@@ -36,6 +36,7 @@ export type Project = {
   title: string;
   subtitle: string;
   challenge: string;
+  approach: string;
   category: string;
   label: string;
   year: string;
@@ -71,6 +72,8 @@ export const projects: Project[] = [
     title: "Rapido Ambulance Mode",
     subtitle: "An emergency ambulance experience designed for the worst possible moment.",
     challenge: "How might we make emergency transportation easier to navigate during stressful situations?",
+    approach:
+      "Researching emergency booking flows and stress-state UX, then designing a one-tap flow that stays usable under panic.",
     category: "Mobility · Healthcare · Emergency UX",
     label: "UX Concept Case Study",
     year: "2025",
@@ -193,6 +196,8 @@ export const projects: Project[] = [
     title: "SaveSmart",
     subtitle: "A savings experience that turns intentions into habits.",
     challenge: "How might we make saving money feel simple and motivating?",
+    approach:
+      "Researching why users abandon savings apps, then designing a goal loop that rewards small, steady progress.",
     category: "FinTech · Mobile App",
     label: "UX Case Study — Concept",
     year: "2025",
@@ -315,6 +320,8 @@ export const projects: Project[] = [
     title: "Spatial Living",
     subtitle: "See the room before you change the room.",
     challenge: "How might we help people visualize interior changes before physically committing to them?",
+    approach:
+      "Researching hesitation in online furniture buying, then designing spatial previews that let people see a change before committing.",
     category: "AR / VR · Spatial Design",
     label: "AR/VR UX Concept",
     year: "2025",
@@ -445,6 +452,8 @@ export const projects: Project[] = [
     title: "MeetMind AI",
     subtitle: "Be present in the meeting, not in your notes.",
     challenge: "How might we help users turn meeting information into clear, actionable outcomes?",
+    approach:
+      "Researching why meeting notes go unread, then designing AI summaries that surface only decisions and next actions.",
     category: "AI · Productivity",
     label: "AI Product Concept",
     year: "2025",
@@ -565,6 +574,8 @@ export const projects: Project[] = [
     title: "Tracto Healthcare",
     subtitle: "Health tracking and appointments, made simple to read.",
     challenge: "How might we simplify healthcare information and appointment-related journeys?",
+    approach:
+      "Researching daily health-tracking habits, then designing calm, legible screens that reduce effort in routine check-ins.",
     category: "Healthcare · Mobile App",
     label: CONCEPT,
     year: "2026",

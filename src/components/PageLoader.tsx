@@ -24,7 +24,18 @@ export function PageLoader() {
       else setTimeout(() => setDone(true), 250);
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+
+    // Failsafe: never let the loader stay visible, even if rAF is throttled
+    // (background tab, slow device/connection).
+    const failsafe = setTimeout(() => {
+      setProgress(100);
+      setDone(true);
+    }, dur + 1500);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(failsafe);
+    };
   }, []);
 
   const letters = useMemo(() => "PORTFOLIO".split(""), []);
