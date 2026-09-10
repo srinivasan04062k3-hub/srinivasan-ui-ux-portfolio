@@ -192,7 +192,7 @@ export const projects: Project[] = [
   },
   {
     slug: "savesmart",
-    index: "02",
+    index: "03",
     title: "SaveSmart",
     subtitle: "A savings experience that turns intentions into habits.",
     challenge: "How might we make saving money feel simple and motivating?",
