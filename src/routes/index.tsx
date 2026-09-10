@@ -231,7 +231,7 @@ function Hero() {
             </MagneticButton>
             <MagneticButton
               href={RESUME}
-              download=""
+              download="Srinivasan_S_Resume.pdf"
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition-transform hover:scale-[1.02]"
             >
               Download Resume <Download className="size-4" />
@@ -346,7 +346,7 @@ function Work() {
                       <p className="mt-2 text-sm text-muted-foreground">{p.category}</p>
                     </div>
 
-                    <p className="max-w-xl text-base text-muted-foreground text-pretty">{p.overview.split(". ")[0]}.</p>
+                    <p className="max-w-xl text-base text-muted-foreground text-pretty">{p.overview.split(". ")[0].replace(/\.$/, "")}.</p>
 
                     {p.challenge && (
                       <p className="max-w-xl border-l-2 border-accent pl-4 text-base font-medium text-foreground/90 text-pretty">
@@ -573,7 +573,7 @@ function Tools() {
                   </span>
                 ) : (
                   <span className="grid size-7 place-items-center rounded-lg bg-muted text-[0.7rem] font-semibold">
-                    {t.name.slice(0, 2)}
+                    {t.name.charAt(0)}
                   </span>
                 )}
                 {t.name}
@@ -659,13 +659,13 @@ function ResumeCTA() {
             Want to know more about my experience?
           </h2>
           <p className="mt-5 max-w-2xl text-base opacity-75 text-pretty">
-            I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX internship
-            opportunities where I can learn, contribute and grow with a product team.
+            I'm open to junior UI/UX and product design roles, as well as design internships, where
+            I can keep learning while contributing real work to a product team.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href={RESUME}
-              download
+              download="Srinivasan_S_Resume.pdf"
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition-transform hover:scale-[1.02]"
             >
               Download Resume <Download className="size-4" />
@@ -694,7 +694,7 @@ function Contact() {
           <SectionHeading
             eyebrow="Contact"
             title="Let's create something meaningful together."
-            subtitle="I'm currently looking for UI/UX Designer, Junior Product Designer and UI/UX internship opportunities where I can learn, contribute and grow with a product team."
+            subtitle="Looking for a UI/UX or junior product design role, or an internship, where I can grow alongside a team and help ship thoughtful products."
           />
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -721,7 +721,7 @@ function Contact() {
             </a>
             <a
               href={RESUME}
-              download
+              download="Srinivasan_S_Resume.pdf"
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
               Resume <Download className="size-4" aria-hidden />
