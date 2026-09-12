@@ -1,20 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Download, Mail, MapPin } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download, Mail } from "lucide-react";
 
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { PageLoader } from "@/components/PageLoader";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { MagneticButton, Reveal, SplitText } from "@/components/motion-primitives";
-import { ProjectLinks } from "@/components/ProjectLinks";
+import { MagneticButton, Reveal } from "@/components/motion-primitives";
 import { projects, assets } from "@/lib/projects";
 
 import figmaLogo from "@/assets/tools/figma.png.asset.json";
 import framerLogo from "@/assets/tools/framer.png.asset.json";
 import notionLogo from "@/assets/tools/notion.png.asset.json";
-import chatgptLogo from "@/assets/tools/chatgpt.png.asset.json";
-import geminiLogo from "@/assets/tools/gemini.png.asset.json";
-import claudeLogo from "@/assets/tools/claude.png.asset.json";
 import lovableLogo from "@/assets/tools/lovable.png.asset.json";
 
 const TITLE = "Srinivasan S. — UI/UX Designer";
@@ -59,67 +55,29 @@ const LINKEDIN = "https://www.linkedin.com/in/srinivasan-s-a44872291/";
 const RESUME = "/Srinivasan_S_Resume.pdf";
 const EMAIL = "srinivasan.04062k3@gmail.com";
 
-const DISCIPLINES = [
-  "UI/UX Design",
-  "Product Design",
+const FEATURED_ORDER = ["rapido-ambulance", "spatial-living", "savesmart", "meetmind-ai"];
+
+const SKILLS = [
   "UX Research",
+  "User Flows",
+  "Information Architecture",
+  "Wireframing",
   "Interaction Design",
   "Visual Design",
   "Prototyping",
-];
-
-const SKILLS = [
-  {
-    group: "UX Design",
-    items: [
-      "User Flows",
-      "Information Architecture",
-      "Wireframing",
-      "Interaction Design",
-      "Prototyping",
-      "Usability Testing",
-      "Accessibility",
-    ],
-  },
-  {
-    group: "UI Design",
-    items: [
-      "Visual Design",
-      "Typography",
-      "Design Systems",
-      "Responsive Design",
-      "Accessibility",
-    ],
-  },
-  {
-    group: "AI-Assisted Design",
-    items: ["Generative AI", "AI-assisted Ideation", "AI-assisted Prototyping"],
-  },
+  "Usability Testing",
+  "Accessibility",
+  "Design Systems",
 ];
 
 const TOOLS: { name: string; logo?: string }[] = [
   { name: "Figma", logo: figmaLogo.url },
   { name: "FigJam" },
   { name: "Framer", logo: framerLogo.url },
-  { name: "Photoshop" },
-  { name: "Illustrator" },
   { name: "Notion", logo: notionLogo.url },
   { name: "Miro" },
-  { name: "ChatGPT", logo: chatgptLogo.url },
-  { name: "Gemini", logo: geminiLogo.url },
-  { name: "Claude", logo: claudeLogo.url },
   { name: "Lovable", logo: lovableLogo.url },
-];
-
-const PROCESS = [
-  { n: "01", t: "Discover", d: "Understand users, context and the problem." },
-  { n: "02", t: "Define", d: "Identify the core problem and opportunity." },
-  { n: "03", t: "Ideate", d: "Explore multiple possible solutions." },
-  { n: "04", t: "Structure", d: "Create information architecture, user flows and wireframes." },
-  { n: "05", t: "Design", d: "Create the visual interface and design system." },
-  { n: "06", t: "Prototype", d: "Build realistic interactions." },
-  { n: "07", t: "Test", d: "Identify usability issues and refine the experience." },
-  { n: "08", t: "Iterate", d: "Improve the solution based on findings." },
+  { name: "AI tools" },
 ];
 
 const EDUCATION = [
@@ -149,11 +107,11 @@ const UIUX_EDUCATION = [
 ];
 
 const WHY = [
-  { t: "Starts with the problem", d: "I frame the problem and the user need before opening Figma." },
-  { t: "Structured thinker", d: "An engineering background gives me a systematic way to break down complexity." },
-  { t: "Explores options", d: "I sketch several directions before committing to one." },
+  { t: "Problem-first", d: "I frame the problem and the user need before opening Figma." },
+  { t: "Systematic thinker", d: "An engineering background gives me a structured way to break down complexity." },
+  { t: "User-focused", d: "I keep the user and their context at the center of every design decision." },
   { t: "Accessibility-minded", d: "Contrast, tap targets, focus states and readable hierarchy by default." },
-  { t: "Always learning", d: "Currently deepening design systems, motion and product thinking." },
+  { t: "Continuous learner", d: "Currently deepening design systems, motion and product thinking." },
 ];
 
 function SectionHeading({
@@ -186,12 +144,10 @@ function Home() {
         <Hero />
         <Work />
         <About />
-        <Process />
         <Skills />
         <Tools />
         <Education />
         <WhyMe />
-        <ResumeCTA />
         <Contact />
       </main>
       <Footer />
@@ -205,21 +161,13 @@ function Hero() {
     <section className="relative overflow-hidden px-5 pb-20 pt-32 md:px-8 md:pb-28 md:pt-40">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.25fr_0.75fr]">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium">
-            <span className="size-2 rounded-full bg-accent" aria-hidden />
-            Open to UI/UX &amp; Product Design Opportunities
-          </div>
-
-          <h1 className="mt-7 font-display text-[2.4rem] font-medium leading-[1.05] tracking-tight text-balance md:text-6xl lg:text-7xl">
-            <SplitText text="Hi, I'm Srinivasan S." />
-            <span className="mt-2 block text-muted-foreground">
-              UI/UX Designer crafting intuitive digital experiences.
-            </span>
+          <h1 className="font-display text-[2.4rem] font-medium leading-[1.05] tracking-tight text-balance md:text-6xl lg:text-7xl">
+            Srinivasan S
+            <span className="mt-2 block text-muted-foreground">UI/UX Designer</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground text-pretty md:text-xl">
-            I design intuitive, accessible, and meaningful digital experiences by combining UX
-            thinking, visual design, and structured problem solving.
+            I design clear digital experiences for complex problems.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -227,7 +175,7 @@ function Hero() {
               href="#work"
               className="inline-flex min-h-11 items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:scale-[1.02]"
             >
-              View Case Studies <ArrowRight className="size-4" />
+              View Work <ArrowRight className="size-4" />
             </MagneticButton>
             <MagneticButton
               href={RESUME}
@@ -236,204 +184,72 @@ function Hero() {
             >
               Download Resume <Download className="size-4" />
             </MagneticButton>
-            <MagneticButton
-              href="#contact"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-surface px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-muted"
-            >
-              Contact <Mail className="size-4" />
-            </MagneticButton>
-          </div>
-
-          <div className="mt-7 flex flex-wrap items-center gap-2">
-            {[
-              { label: "LinkedIn", href: LINKEDIN, external: true },
-              { label: "Behance", href: BEHANCE, external: true },
-              { label: "Email", href: `mailto:${EMAIL}`, external: false },
-            ].map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-border bg-surface px-5 py-2.5 text-sm transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              >
-                {l.label}
-                <ArrowUpRight className="size-3.5 text-muted-foreground" aria-hidden />
-              </a>
-            ))}
-          </div>
-
-          <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
-            <MapPin className="size-4" aria-hidden /> Bengaluru, Karnataka, India
           </div>
         </div>
 
         <Reveal delay={0.15} className="justify-self-center lg:justify-self-end">
-          <div className="relative">
-            <div className="overflow-hidden rounded-3xl border border-border bg-surface shadow-[var(--shadow-card)]">
-              <img
-                src={assets.profile}
-                alt="Portrait of Srinivasan S, UI/UX Designer"
-                className="h-[380px] w-[300px] object-cover md:h-[460px] md:w-[360px]"
-                loading="eager"
-              />
-            </div>
-            <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-border bg-card px-5 py-4 shadow-[var(--shadow-card)] md:block">
-              <div className="eyebrow">Focus</div>
-              <div className="mt-1 text-sm font-medium">Product &amp; Interaction Design</div>
-            </div>
+          <div className="overflow-hidden rounded-3xl border border-border bg-surface shadow-[var(--shadow-card)]">
+            <img
+              src={assets.profile}
+              alt="Portrait of Srinivasan S, UI/UX Designer"
+              className="h-[380px] w-[300px] object-cover md:h-[460px] md:w-[360px]"
+              loading="eager"
+            />
           </div>
         </Reveal>
-      </div>
-
-      <div className="mx-auto mt-16 max-w-7xl border-y border-border py-5">
-        <ul className="flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-          {DISCIPLINES.map((d) => (
-            <li key={d}>{d}</li>
-          ))}
-        </ul>
       </div>
     </section>
   );
 }
 
-/* ---------------- Selected Case Studies ---------------- */
+/* ---------------- Selected Work ---------------- */
 function Work() {
+  const featured = FEATURED_ORDER.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean);
+
   return (
     <section id="work" className="scroll-mt-24 px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Work"
-          title="Selected Case Studies"
-          subtitle="Exploring real-world problems through research, UX thinking, interaction design and visual design."
-        />
+        <SectionHeading eyebrow="Work" title="Selected Work" />
 
-        <div className="mt-14 space-y-10 md:space-y-16">
-          {projects.map((p, i) => {
-            const isFlagship = i === 0;
-            return (
-            <Reveal key={p.slug} delay={i * 0.05}>
-              <article className="group overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-shadow duration-300 hover:shadow-[0_30px_70px_-40px_rgba(16,24,40,0.4)]">
-                <div className={`grid gap-0 ${isFlagship ? "lg:grid-cols-[1.35fr_1fr]" : "lg:grid-cols-2"}`}>
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {featured.map((p, i) => (
+            <Reveal key={p!.slug} delay={i * 0.05}>
+              <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)] transition-shadow duration-300 hover:shadow-[0_30px_70px_-40px_rgba(16,24,40,0.4)]">
+                <Link
+                  to="/projects/$slug"
+                  params={{ slug: p!.slug }}
+                  aria-label={`View ${p!.title} case study`}
+                  className="relative block overflow-hidden bg-surface"
+                >
+                  <img
+                    src={p!.image}
+                    alt={`${p!.title} — ${p!.category} case study cover`}
+                    loading="lazy"
+                    className="h-48 w-full object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                </Link>
+
+                <div className="flex flex-1 flex-col justify-between p-6">
+                  <div>
+                    <div className="font-display text-sm text-muted-foreground">Project {p!.index}</div>
+                    <h3 className="mt-3 font-display text-xl font-medium tracking-tight md:text-2xl">
+                      {p!.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{p!.category}</p>
+                  </div>
+
                   <Link
                     to="/projects/$slug"
-                    params={{ slug: p.slug }}
-                    aria-label={`View ${p.title} case study`}
-                    className="relative block overflow-hidden"
+                    params={{ slug: p!.slug }}
+                    aria-label={`View ${p!.title} case study in detail`}
+                    className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-foreground px-5 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   >
-                    <img
-                      src={p.image}
-                      alt={`${p.title} — ${p.category} case study cover`}
-                      loading="lazy"
-                      className={`h-72 w-full object-contain object-center transition-transform duration-700 ease-out group-hover:scale-[1.04] md:h-full ${isFlagship ? "md:min-h-[460px]" : "md:min-h-[380px]"}`}
-                    />
+                    Case Study <ArrowUpRight className="size-4" />
                   </Link>
-
-                  <div className="flex flex-col justify-center gap-5 p-6 md:p-10">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="font-display text-sm text-muted-foreground">Project {p.index}</span>
-                      <span
-                        className="rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.14em]"
-                        style={{ background: `${p.color}1a`, color: p.color }}
-                      >
-                        {p.label}
-                      </span>
-                    </div>
-
-                    <div>
-                      <h3 className="font-display text-2xl font-medium tracking-tight md:text-4xl">
-                        {p.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-muted-foreground">{p.category}</p>
-                    </div>
-
-                    <p className="max-w-xl text-base text-muted-foreground text-pretty">{p.overview.split(". ")[0].replace(/\.$/, "")}.</p>
-
-                    {p.challenge && (
-                      <p className="max-w-xl border-l-2 border-accent pl-4 text-base font-medium text-foreground/90 text-pretty">
-                        {p.challenge}
-                      </p>
-                    )}
-
-                    <dl className="max-w-xl space-y-2.5 text-sm">
-                      <div>
-                        <dt className="eyebrow">Problem</dt>
-                        <dd className="mt-1 text-muted-foreground text-pretty">{p.problem.user}</dd>
-                      </div>
-                      <div>
-                        <dt className="eyebrow">Design approach</dt>
-                        <dd className="mt-1 text-muted-foreground text-pretty">{p.approach}</dd>
-                      </div>
-                      <div>
-                        <dt className="eyebrow">Final solution</dt>
-                        <dd className="mt-1 text-muted-foreground text-pretty">
-                          {p.features.slice(0, 3).map((f) => f.title).join(" · ")}
-                        </dd>
-                      </div>
-                    </dl>
-
-                    <dl className="grid gap-x-6 gap-y-3 border-y border-border py-4 text-sm sm:grid-cols-2">
-                      <div>
-                        <dt className="eyebrow">Role</dt>
-                        <dd className="mt-1">{p.role}</dd>
-                      </div>
-                      <div>
-                        <dt className="eyebrow">Project type</dt>
-                        <dd className="mt-1">{p.label} · {p.year}</dd>
-                      </div>
-                      <div>
-                        <dt className="eyebrow">Duration</dt>
-                        <dd className="mt-1">{p.duration}</dd>
-                      </div>
-                      <div className="sm:col-span-2">
-                        <dt className="eyebrow">Tools</dt>
-                        <dd className="mt-1">{p.tools.join(" · ")}</dd>
-                      </div>
-                    </dl>
-
-                    {p.outcome?.[0] && (
-                      <p className="flex items-start gap-2 text-sm font-medium text-foreground">
-                        <span
-                          aria-hidden
-                          className="mt-1.5 size-2 shrink-0 rounded-full"
-                          style={{ background: p.color }}
-                        />
-                        <span>Outcome: {p.outcome[0]}</span>
-                      </p>
-                    )}
-
-                    <ul className="flex flex-wrap gap-2">
-                      {p.highlights.map((h) => (
-                        <li
-                          key={h}
-                          className="rounded-full border border-border bg-surface px-3 py-1.5 text-xs text-muted-foreground"
-                        >
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex flex-wrap items-center gap-3 pt-1">
-                      <Link
-                        to="/projects/$slug"
-                        params={{ slug: p.slug }}
-                        aria-label={`View ${p.title} case study in detail`}
-                        className="inline-flex min-h-11 items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                      >
-                        View Case Study <ArrowUpRight className="size-4" />
-                      </Link>
-                      <ProjectLinks links={p.links} accent={p.color} size="sm" stopPropagation />
-                      {!p.links?.prototype && (
-                        <span className="inline-flex items-center rounded-md border border-dashed border-border bg-muted px-3 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                          Research-only concept
-                        </span>
-                      )}
-                    </div>
-                  </div>
                 </div>
               </article>
             </Reveal>
-          );
-        })}
+          ))}
         </div>
       </div>
     </section>
@@ -445,41 +261,20 @@ function About() {
   return (
     <section id="about" className="scroll-mt-24 border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr]">
-        <SectionHeading eyebrow="About" title="From Engineering to UI/UX Design." />
+        <SectionHeading eyebrow="About" title="Problem-first UI/UX designer." />
         <Reveal delay={0.1} className="space-y-5 text-base text-muted-foreground text-pretty">
-          <div className="flex items-center gap-2.5 rounded-full border border-border bg-background px-4 py-2 text-sm text-foreground w-fit">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            <span>
-              <span className="font-semibold text-accent">Currently:</span>{" "}
-              learning motion design & design systems, shipping concept case studies, and actively
-              seeking junior UI/UX roles in Bengaluru.
-            </span>
-          </div>
           <p>
-            I started with Mechanical Engineering, which taught me structured problem solving,
-            systems thinking and attention to detail. That same approach now shapes how I design
-            digital products.
+            A problem-first UI/UX designer who starts with user needs, business context, and clear
+            goals before moving to pixels.
           </p>
           <p>
-            Today I focus on user-centered thinking — understanding the problem, defining the user
-            need, and only then designing the interface. My work spans UX problem solving, user
-            flows, interaction design, visual design and accessible, product-minded interfaces
-            built as end-to-end concept case studies.
+            Mechanical Engineering background gives me a structured, analytical approach to breaking
+            down complex problems into simple, usable interfaces.
           </p>
           <p>
-            I bring a calm, methodical mindset to product teams, with a genuine curiosity for
-            design, UX and product thinking.
+            Currently focused on product design, UX research, and interaction design — building
+            concept case studies and shipping thoughtful digital experiences.
           </p>
-          <ul className="flex flex-wrap gap-2 pt-2">
-            {DISCIPLINES.map((d) => (
-              <li key={d} className="rounded-full border border-border bg-background px-4 py-2 text-sm text-foreground">
-                {d}
-              </li>
-            ))}
-          </ul>
           <a
             href="#contact"
             className="group mt-4 inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-background outline-none transition-[filter] hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
@@ -494,56 +289,18 @@ function About() {
   );
 }
 
-/* ---------------- Process ---------------- */
-function Process() {
-  return (
-    <section id="process" className="scroll-mt-24 px-5 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading eyebrow="Process" title="My Design Process" />
-        <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {PROCESS.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.04} className="bg-card">
-              <div className="h-full p-7">
-                <div className="font-display text-sm text-accent">{s.n}</div>
-                <h3 className="mt-3 text-base font-semibold uppercase tracking-[0.12em]">{s.t}</h3>
-                <p className="mt-3 text-sm text-muted-foreground text-pretty">{s.d}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ---------------- Skills ---------------- */
 function Skills() {
   return (
-    <section id="skills" className="scroll-mt-24 border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
+    <section id="skills" className="scroll-mt-24 px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Skills"
-          title="Design skills first, tools second"
-          subtitle="The thinking I bring to a product team — the software is just how I get there."
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <SectionHeading eyebrow="Skills" title="Skills" />
+        <div className="mt-12 flex flex-wrap gap-3">
           {SKILLS.map((s, i) => (
-            <Reveal key={s.group} delay={i * 0.05}>
-              <div className="h-full rounded-3xl border border-border bg-card p-7 shadow-[var(--shadow-card)]">
-                <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  {s.group}
-                </h3>
-                <ul className="mt-5 flex flex-wrap gap-2">
-                  {s.items.map((it) => (
-                    <li
-                      key={it}
-                      className="rounded-full border border-border bg-background px-4 py-2 text-sm"
-                    >
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <Reveal key={s} delay={i * 0.03}>
+              <span className="inline-flex rounded-full border border-border bg-card px-5 py-2.5 text-sm">
+                {s}
+              </span>
             </Reveal>
           ))}
         </div>
@@ -555,7 +312,7 @@ function Skills() {
 /* ---------------- Tools ---------------- */
 function Tools() {
   return (
-    <section className="px-5 py-14 md:px-8 md:py-16">
+    <section className="border-y border-border bg-surface px-5 py-14 md:px-8 md:py-16">
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <div className="eyebrow">Tools I use</div>
@@ -589,9 +346,9 @@ function Tools() {
 /* ---------------- Education ---------------- */
 function Education() {
   return (
-    <section className="border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
+    <section className="px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
-        <SectionHeading eyebrow="Education" title="Education & Certification" />
+        <SectionHeading eyebrow="Education & Certification" title="Education & Certification" />
         <div className="mt-12 grid gap-10 md:grid-cols-2">
           <div>
             <h3 className="eyebrow">Academic</h3>
@@ -630,7 +387,7 @@ function Education() {
 /* ---------------- Why me ---------------- */
 function WhyMe() {
   return (
-    <section className="px-5 py-20 md:px-8 md:py-28">
+    <section className="border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         <SectionHeading eyebrow="Why me" title="Why work with me?" />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -649,42 +406,6 @@ function WhyMe() {
   );
 }
 
-/* ---------------- Resume CTA ---------------- */
-function ResumeCTA() {
-  return (
-    <section id="resume" className="scroll-mt-24 px-5 pb-20 md:px-8 md:pb-28">
-      <div className="mx-auto max-w-7xl rounded-3xl border border-border bg-foreground px-6 py-14 text-background md:px-14 md:py-20">
-        <Reveal>
-          <h2 className="max-w-3xl font-display text-3xl font-medium tracking-tight text-balance md:text-5xl">
-            Want to know more about my experience?
-          </h2>
-          <p className="mt-5 max-w-2xl text-base opacity-75 text-pretty">
-            I'm open to junior UI/UX and product design roles, as well as design internships, where
-            I can keep learning while contributing real work to a product team.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <a
-              href={RESUME}
-              download="Srinivasan_S_Resume.pdf"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition-transform hover:scale-[1.02]"
-            >
-              Download Resume <Download className="size-4" />
-            </a>
-            <a
-              href={RESUME}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-background/30 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors hover:bg-background/10"
-            >
-              View Resume <ArrowUpRight className="size-4" />
-            </a>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 /* ---------------- Contact ---------------- */
 function Contact() {
   return (
@@ -694,7 +415,7 @@ function Contact() {
           <SectionHeading
             eyebrow="Contact"
             title="Let's create something meaningful together."
-            subtitle="Looking for a UI/UX or junior product design role, or an internship, where I can grow alongside a team and help ship thoughtful products."
+            subtitle="Available for: UI/UX Designer, Junior Product Designer, UI/UX Internship"
           />
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -729,7 +450,6 @@ function Contact() {
           </div>
         </div>
         <Reveal delay={0.1} className="space-y-3">
-
           {[
             { label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, icon: true },
             { label: "LinkedIn", value: "linkedin.com/in/srinivasan-s", href: LINKEDIN },
