@@ -192,7 +192,7 @@ export const projects: Project[] = [
   },
   {
     slug: "savesmart",
-    index: "03",
+    index: "02",
     title: "SaveSmart",
     subtitle: "A savings experience that turns intentions into habits.",
     challenge: "How might we make saving money feel simple and motivating?",
@@ -316,7 +316,7 @@ export const projects: Project[] = [
   },
   {
     slug: "spatial-living",
-    index: "02",
+    index: "03",
     title: "Spatial Living",
     subtitle: "See the room before you change the room.",
     challenge: "How might we help people visualize interior changes before physically committing to them?",
