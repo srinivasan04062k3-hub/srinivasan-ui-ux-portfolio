@@ -316,7 +316,7 @@ export const projects: Project[] = [
   },
   {
     slug: "spatial-living",
-    index: "03",
+    index: "02",
     title: "Spatial Living",
     subtitle: "See the room before you change the room.",
     challenge: "How might we help people visualize interior changes before physically committing to them?",
