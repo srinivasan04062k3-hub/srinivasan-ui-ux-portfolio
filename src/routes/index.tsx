@@ -5,7 +5,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { PageLoader } from "@/components/PageLoader";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { MagneticButton, Reveal, SplitText } from "@/components/motion-primitives";
+import { MagneticButton, Reveal, SplitText, Stagger, StaggerItem } from "@/components/motion-primitives";
 import { ProjectLinks } from "@/components/ProjectLinks";
 import { projects, assets } from "@/lib/projects";
 
@@ -97,18 +97,40 @@ const SKILLS = [
   },
 ];
 
-const TOOLS: { name: string; logo?: string }[] = [
-  { name: "Figma", logo: figmaLogo.url },
-  { name: "FigJam" },
-  { name: "Framer", logo: framerLogo.url },
-  { name: "Photoshop" },
-  { name: "Illustrator" },
-  { name: "Notion", logo: notionLogo.url },
-  { name: "Miro" },
-  { name: "ChatGPT", logo: chatgptLogo.url },
-  { name: "Gemini", logo: geminiLogo.url },
-  { name: "Claude", logo: claudeLogo.url },
-  { name: "Lovable", logo: lovableLogo.url },
+const TOOL_GROUPS: {
+  category: string;
+  number: string;
+  tools: { name: string; use: string; logo?: string; mark?: string; featured?: boolean }[];
+}[] = [
+  {
+    category: "Design",
+    number: "01",
+    tools: [
+      { name: "Figma", use: "Interface design", logo: figmaLogo.url, featured: true },
+      { name: "Framer", use: "Interactive prototypes", logo: framerLogo.url },
+      { name: "Photoshop", use: "Image composition", mark: "Ps" },
+      { name: "Illustrator", use: "Vector graphics", mark: "Ai" },
+    ],
+  },
+  {
+    category: "Research / Collaboration",
+    number: "02",
+    tools: [
+      { name: "FigJam", use: "Workshops & flows", logo: figmaLogo.url, featured: true },
+      { name: "Miro", use: "Mapping & ideation", mark: "M" },
+      { name: "Notion", use: "Research systems", logo: notionLogo.url },
+    ],
+  },
+  {
+    category: "AI / Productivity",
+    number: "03",
+    tools: [
+      { name: "ChatGPT", use: "Ideation & synthesis", logo: chatgptLogo.url, featured: true },
+      { name: "Claude", use: "Analysis & writing", logo: claudeLogo.url },
+      { name: "Gemini", use: "Research assistance", logo: geminiLogo.url },
+      { name: "Lovable", use: "Rapid product builds", logo: lovableLogo.url },
+    ],
+  },
 ];
 
 const PROCESS = [
@@ -555,32 +577,71 @@ function Skills() {
 /* ---------------- Tools ---------------- */
 function Tools() {
   return (
-    <section className="px-5 py-14 md:px-8 md:py-16">
+    <section className="overflow-hidden px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
-        <Reveal>
-          <div className="eyebrow">Tools I use</div>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <ul className="mt-6 flex flex-wrap gap-3">
-            {TOOLS.map((t) => (
-              <li
-                key={t.name}
-                className="flex items-center gap-2.5 rounded-2xl border border-border bg-card px-4 py-2.5 text-sm transition-transform hover:-translate-y-0.5"
-              >
-                {t.logo ? (
-                  <span className="grid size-7 place-items-center overflow-hidden rounded-lg bg-white">
-                    <img src={t.logo} alt="" aria-hidden className="size-5 object-contain" loading="lazy" />
-                  </span>
-                ) : (
-                  <span className="grid size-7 place-items-center rounded-lg bg-muted text-[0.7rem] font-semibold">
-                    {t.name.charAt(0)}
-                  </span>
-                )}
-                {t.name}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
+        <SectionHeading
+          eyebrow="Tools / Workflow"
+          title="The tools behind my design process."
+          subtitle="From research and wireframes to visual design, prototyping and AI-assisted workflows."
+        />
+
+        <div className="mt-14 border-t border-border">
+          {TOOL_GROUPS.map((group, groupIndex) => (
+            <div
+              key={group.category}
+              className="grid border-b border-border py-8 md:grid-cols-[minmax(12rem,0.8fr)_3fr] md:gap-10 md:py-10"
+            >
+              <Reveal delay={groupIndex * 0.04}>
+                <div className="mb-6 flex items-baseline justify-between gap-4 md:mb-0 md:block">
+                  <span className="font-mono text-[0.68rem] text-muted-foreground">{group.number}</span>
+                  <h3 className="mt-3 max-w-44 text-xs font-semibold uppercase tracking-[0.16em] text-foreground">
+                    {group.category}
+                  </h3>
+                </div>
+              </Reveal>
+
+              <Stagger className="grid grid-cols-1 gap-px bg-border sm:grid-cols-2 lg:grid-cols-4" stagger={0.05}>
+                {group.tools.map((tool) => (
+                  <StaggerItem
+                    key={tool.name}
+                    className={tool.featured ? "sm:col-span-2 lg:col-span-1" : ""}
+                  >
+                    <div className="group relative flex min-h-40 h-full flex-col justify-between overflow-hidden bg-background p-5 transition-colors duration-300 hover:bg-card md:min-h-48 md:p-6">
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="grid size-11 shrink-0 place-items-center overflow-hidden bg-surface ring-1 ring-border transition-transform duration-300 group-hover:-translate-y-1">
+                          {tool.logo ? (
+                            <img
+                              src={tool.logo}
+                              alt=""
+                              aria-hidden
+                              className="size-7 object-contain"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <span className="font-mono text-xs font-semibold text-foreground">{tool.mark}</span>
+                          )}
+                        </span>
+                        <span className="font-mono text-[0.62rem] uppercase text-muted-foreground">
+                          {group.category.split(" /")[0]}
+                        </span>
+                      </div>
+
+                      <div className="mt-8">
+                        <h4 className="font-display text-xl font-medium tracking-tight md:text-2xl">{tool.name}</h4>
+                        <p className="mt-1 text-xs text-muted-foreground">{tool.use}</p>
+                      </div>
+
+                      <span
+                        aria-hidden
+                        className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100"
+                      />
+                    </div>
+                  </StaggerItem>
+                ))}
+              </Stagger>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
