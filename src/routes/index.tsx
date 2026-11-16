@@ -8,6 +8,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { MagneticButton, Reveal, SplitText, Stagger, StaggerItem } from "@/components/motion-primitives";
 import { ProjectLinks } from "@/components/ProjectLinks";
 import { projects, assets } from "@/lib/projects";
+import intellipaatCertificate from "@/assets/intellipaat-ui-ux-design-certificate.pdf.asset.json";
 
 import figmaLogo from "@/assets/tools/figma.png.asset.json";
 import framerLogo from "@/assets/tools/framer.png.asset.json";
@@ -705,7 +706,7 @@ function Education() {
                     {credential.credentialId && (
                       <div className="mt-6 flex flex-wrap gap-3">
                         <a
-                          href="/ __l5e/assets-v1/dd0d0d54-c6f3-4894-9143-b903453184f0/intellipaat-ui-ux-design-certificate.pdf"
+                          href={intellipaatCertificate.url}
                           target="_blank"
                           rel="noreferrer"
                           className="inline-flex min-h-10 items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
@@ -713,7 +714,7 @@ function Education() {
                           View Certificate <ArrowUpRight className="size-4" aria-hidden="true" />
                         </a>
                         <a
-                          href="/ __l5e/assets-v1/dd0d0d54-c6f3-4894-9143-b903453184f0/intellipaat-ui-ux-design-certificate.pdf"
+                          href={intellipaatCertificate.url}
                           download="Intellipaat_Advanced_Certification_UI_UX_Design_Strategy.pdf"
                           className="inline-flex min-h-10 items-center gap-2 rounded-full bg-foreground px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-background transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                         >
