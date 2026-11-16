@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Download, Mail, MapPin } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Award, Download, Mail, MapPin } from "lucide-react";
 
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -8,6 +8,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { MagneticButton, Reveal, SplitText, Stagger, StaggerItem } from "@/components/motion-primitives";
 import { ProjectLinks } from "@/components/ProjectLinks";
 import { projects, assets } from "@/lib/projects";
+import intellipaatCertificate from "@/assets/intellipaat-ui-ux-design-certificate.pdf.asset.json";
 
 import figmaLogo from "@/assets/tools/figma.png.asset.json";
 import framerLogo from "@/assets/tools/framer.png.asset.json";
@@ -163,10 +164,22 @@ const UIUX_EDUCATION = [
     place: "Intellipaat",
     time: "December 2025 – July 2026",
   },
+];
+
+const CERTIFICATIONS = [
   {
     title: "Executive Post Graduate Certification in UI/UX Design with Generative AI and Agentic AI",
     place: "iHUB DivyaSampark, IIT Roorkee — certification",
     time: "Certification programme",
+    status: "Certification",
+  },
+  {
+    title: "Advanced Certification in UI UX Design Strategy",
+    place: "Intellipaat Software Solutions Pvt. Ltd.",
+    time: "November 1, 2026",
+    status: "Completed",
+    credentialId: "31679-437351-375291",
+    signedBy: "Mrs. Shilpi Jain, Director",
   },
 ];
 
@@ -653,33 +666,93 @@ function Education() {
     <section className="border-y border-border bg-surface px-5 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         <SectionHeading eyebrow="Education" title="Education & Certification" />
-        <div className="mt-12 grid gap-10 md:grid-cols-2">
-          <div>
-            <h3 className="eyebrow">Academic</h3>
-            <div className="mt-5 space-y-4">
-              {EDUCATION.map((e, i) => (
-                <Reveal key={e.title} delay={i * 0.05}>
-                  <div className="rounded-2xl border border-border bg-card p-6">
-                    <div className="text-base font-medium">{e.title}</div>
-                    <div className="mt-1 text-sm text-muted-foreground">{e.place}</div>
-                    <div className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">{e.time}</div>
+        <div className="mt-12">
+          <h3 className="eyebrow">Certifications</h3>
+          <div className="mt-5 grid gap-4 lg:grid-cols-2">
+            {CERTIFICATIONS.map((credential, i) => (
+              <Reveal key={credential.title} delay={i * 0.05}>
+                <article className="h-full rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] md:p-7">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-muted text-foreground">
+                      <Award className="size-5" aria-hidden="true" />
+                    </div>
+                    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium text-foreground">
+                      <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
+                      {credential.status}
+                    </span>
                   </div>
-                </Reveal>
-              ))}
-            </div>
+                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    {credential.place}
+                  </p>
+                  <h4 className="mt-2 font-display text-xl font-medium leading-snug text-pretty md:text-2xl">
+                    {credential.title}
+                  </h4>
+                  <p className="mt-3 text-sm text-muted-foreground">{credential.time}</p>
+                  {credential.credentialId && (
+                    <dl className="mt-5 space-y-2 border-t border-border pt-4 text-sm">
+                      <div className="flex flex-wrap gap-x-2">
+                        <dt className="text-muted-foreground">Credential ID</dt>
+                        <dd className="font-medium text-foreground">{credential.credentialId}</dd>
+                      </div>
+                      {credential.signedBy && (
+                        <div className="flex flex-wrap gap-x-2">
+                          <dt className="text-muted-foreground">Signed by</dt>
+                          <dd className="font-medium text-foreground">{credential.signedBy}</dd>
+                        </div>
+                      )}
+                    </dl>
+                  )}
+                  {credential.credentialId && (
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <a
+                        href={intellipaatCertificate.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex min-h-10 items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                      >
+                        View Certificate <ArrowUpRight className="size-4" aria-hidden="true" />
+                      </a>
+                      <a
+                        href={intellipaatCertificate.url}
+                        download="Intellipaat_Advanced_Certification_UI_UX_Design_Strategy.pdf"
+                        className="inline-flex min-h-10 items-center gap-2 rounded-full bg-foreground px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-background transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                      >
+                        Download Certificate <Download className="size-4" aria-hidden="true" />
+                      </a>
+                    </div>
+                  )}
+                </article>
+              </Reveal>
+            ))}
           </div>
-          <div>
-            <h3 className="eyebrow">UI/UX Education</h3>
-            <div className="mt-5 space-y-4">
-              {UIUX_EDUCATION.map((e, i) => (
-                <Reveal key={e.title} delay={i * 0.05}>
-                  <div className="rounded-2xl border border-border bg-card p-6">
-                    <div className="text-base font-medium text-pretty">{e.title}</div>
-                    <div className="mt-1 text-sm text-muted-foreground">{e.place}</div>
-                    <div className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">{e.time}</div>
-                  </div>
-                </Reveal>
-              ))}
+          <div className="mt-10 grid gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="eyebrow">Academic</h3>
+              <div className="mt-5 space-y-4">
+                {EDUCATION.map((e, i) => (
+                  <Reveal key={e.title} delay={i * 0.05}>
+                    <div className="rounded-2xl border border-border bg-card p-6">
+                      <div className="text-base font-medium">{e.title}</div>
+                      <div className="mt-1 text-sm text-muted-foreground">{e.place}</div>
+                      <div className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">{e.time}</div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="eyebrow">UI/UX Education</h3>
+              <div className="mt-5 space-y-4">
+                {UIUX_EDUCATION.map((e, i) => (
+                  <Reveal key={e.title} delay={i * 0.05}>
+                    <div className="rounded-2xl border border-border bg-card p-6">
+                      <div className="text-base font-medium text-pretty">{e.title}</div>
+                      <div className="mt-1 text-sm text-muted-foreground">{e.place}</div>
+                      <div className="mt-3 text-xs uppercase tracking-[0.14em] text-muted-foreground">{e.time}</div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
             </div>
           </div>
         </div>
