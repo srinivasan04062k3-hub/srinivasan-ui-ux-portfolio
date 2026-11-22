@@ -671,7 +671,7 @@ function Education() {
           <div className="mt-5 grid gap-4 lg:grid-cols-2">
             {CERTIFICATIONS.map((credential, i) => (
               <Reveal key={credential.title} delay={i * 0.05}>
-                <article className="h-full rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] md:p-7">
+                <article className="h-full rounded-lg border border-border bg-card p-6 shadow-[var(--shadow-card)] md:p-7">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-muted text-foreground">
                       <Award className="size-5" aria-hidden="true" />
