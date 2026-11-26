@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Award, Download, Mail, MapPin } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, ArrowUpRight, Award, Download, Eye, ExternalLink, Mail, MapPin, ZoomIn, ZoomOut } from "lucide-react";
 
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -7,6 +8,15 @@ import { PageLoader } from "@/components/PageLoader";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { MagneticButton, Reveal, SplitText, Stagger, StaggerItem } from "@/components/motion-primitives";
 import { ProjectLinks } from "@/components/ProjectLinks";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { projects, assets } from "@/lib/projects";
 import intellipaatCertificate from "@/assets/intellipaat-ui-ux-design-certificate.pdf.asset.json";
 
@@ -166,12 +176,23 @@ const UIUX_EDUCATION = [
   },
 ];
 
-const CERTIFICATIONS = [
+const CERTIFICATIONS: {
+  title: string;
+  place: string;
+  time: string;
+  status: string;
+  description?: string;
+  certificateUrl?: string;
+  credentialId?: string;
+  signedBy?: string;
+}[] = [
   {
     title: "Executive Post Graduate Certification in UI/UX Design with Generative AI and Agentic AI",
     place: "iHUB DivyaSampark, IIT Roorkee — certification",
     time: "Certification programme",
     status: "Certification",
+    description: "Certification Programme in UI/UX Design with Generative AI and Agentic AI.",
+    certificateUrl: "https://tih.iitr.ac.in/certificate/intellipaat/IPTIH2610126.jpg",
   },
   {
     title: "Advanced Certification in UI UX Design Strategy",
@@ -688,6 +709,19 @@ function Education() {
                     {credential.title}
                   </h4>
                   <p className="mt-3 text-sm text-muted-foreground">{credential.time}</p>
+                  {credential.description && (
+                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                      {credential.description}
+                    </p>
+                  )}
+                  {credential.certificateUrl && (
+                    <div className="mt-5">
+                      <CertificatePreview
+                        certificateUrl={credential.certificateUrl}
+                        certificateTitle={credential.title}
+                      />
+                    </div>
+                  )}
                   {credential.credentialId && (
                     <dl className="mt-5 space-y-2 border-t border-border pt-4 text-sm">
                       <div className="flex flex-wrap gap-x-2">
@@ -758,6 +792,92 @@ function Education() {
         </div>
       </div>
     </section>
+  );
+}
+
+function CertificatePreview({
+  certificateUrl,
+  certificateTitle,
+}: {
+  certificateUrl: string;
+  certificateTitle: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const [zoom, setZoom] = useState(1);
+  const minZoom = 0.75;
+  const maxZoom = 2.5;
+  const zoomStep = 0.25;
+
+  const handleOpenChange = (nextOpen: boolean) => {
+    setOpen(nextOpen);
+    if (!nextOpen) setZoom(1);
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={handleOpenChange}>
+      <DialogTrigger asChild>
+        <Button
+          variant="outline"
+          className="min-h-10 rounded-full border-border bg-transparent px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:bg-muted"
+        >
+          <Eye aria-hidden="true" />
+          View Certificate
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="min-w-0 max-h-[calc(100dvh_-_2rem)] w-[calc(100vw_-_2rem)] max-w-[calc(100vw_-_2rem)] gap-4 overflow-hidden border-border bg-background p-4 text-foreground sm:max-w-5xl sm:p-6">
+        <DialogHeader className="min-w-0 pr-10 text-left">
+          <DialogTitle className="font-display text-xl font-medium leading-snug text-pretty">
+            Certificate preview
+          </DialogTitle>
+          <DialogDescription className="text-pretty">{certificateTitle}</DialogDescription>
+        </DialogHeader>
+
+        <div className="min-w-0 flex flex-wrap items-center justify-between gap-3 border-y border-border py-3">
+          <span className="text-sm tabular-nums text-muted-foreground" aria-live="polite">
+            {Math.round(zoom * 100)}%
+          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              aria-label="Zoom out"
+              title="Zoom out"
+              disabled={zoom <= minZoom}
+              onClick={() => setZoom((current) => Math.max(minZoom, current - zoomStep))}
+            >
+              <ZoomOut aria-hidden="true" />
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="icon"
+              aria-label="Zoom in"
+              title="Zoom in"
+              disabled={zoom >= maxZoom}
+              onClick={() => setZoom((current) => Math.min(maxZoom, current + zoomStep))}
+            >
+              <ZoomIn aria-hidden="true" />
+            </Button>
+            <Button asChild variant="outline" className="rounded-full px-3 text-xs sm:px-4">
+              <a href={certificateUrl} target="_blank" rel="noreferrer">
+                Open Original Certificate
+                <ExternalLink aria-hidden="true" />
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        <div className="min-w-0 h-[min(68dvh,calc(100dvh_-_14rem))] w-full overflow-auto rounded-md border border-border bg-muted/30">
+          <img
+            src={certificateUrl}
+            alt={`${certificateTitle} certificate issued by iHUB DivyaSampark, IIT Roorkee`}
+            className="mx-auto block max-w-none object-contain transition-[width,height] duration-200 ease-out"
+            style={{ width: `${zoom * 100}%`, height: `${zoom * 100}%` }}
+          />
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
