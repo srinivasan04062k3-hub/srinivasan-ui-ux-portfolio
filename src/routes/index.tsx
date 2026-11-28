@@ -824,7 +824,10 @@ function CertificatePreview({
           View Certificate
         </Button>
       </DialogTrigger>
-      <DialogContent className="min-w-0 max-h-[calc(100dvh_-_2rem)] w-[calc(100vw_-_2rem)] max-w-[calc(100vw_-_2rem)] gap-4 overflow-hidden border-border bg-background p-4 text-foreground sm:max-w-5xl sm:p-6">
+      <DialogContent
+        overlayClassName="z-[60]"
+        className="z-[70] min-w-0 max-h-[calc(100dvh_-_2rem)] w-[calc(100vw_-_2rem)] max-w-[calc(100vw_-_2rem)] gap-4 overflow-hidden border-border bg-background p-4 text-foreground sm:max-w-5xl sm:p-6"
+      >
         <DialogHeader className="min-w-0 pr-10 text-left">
           <DialogTitle className="font-display text-xl font-medium leading-snug text-pretty">
             Certificate preview

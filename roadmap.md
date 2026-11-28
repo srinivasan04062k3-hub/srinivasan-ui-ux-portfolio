@@ -7,6 +7,6 @@
 
 ## iHUB certificate preview
 
-- [ ] Add an accessible certificate preview modal using the official image.
-- [ ] Add responsive zoom, close, and open-original controls.
-- [ ] Verify the preview and actions in the running portfolio.
+- [x] Add an accessible certificate preview modal using the official image.
+- [x] Add responsive zoom, close, and open-original controls.
+- [x] Verify the preview and actions in the running portfolio.
